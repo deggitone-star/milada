@@ -1,43 +1,27 @@
-// src/components/catalog/CategoryCard.tsx
-import Image from "next/image";
 import Link from "next/link";
+import CategoryIcon from "@/components/ui/CategoryIcon";
 import type { Category } from "@/types";
+import { products } from "@/data/products";
 
 interface CategoryCardProps {
   category: Category;
-  priority?: boolean;
 }
 
-export default function CategoryCard({ category, priority = false }: CategoryCardProps) {
+export default function CategoryCard({ category }: CategoryCardProps) {
+  const count = products.filter(p => p.category === category.slug).length;
+
   return (
     <Link
       href={`/catalog/${category.slug}`}
-      className="group relative block overflow-hidden"
+      className="group bg-bg-alt border border-line rounded-lg p-6 hover:border-ink transition-all duration-200 block"
     >
-      {/* Image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-brand-200">
-        <Image
-          src={category.image}
-          alt={category.title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          priority={priority}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
-
-        {/* Text */}
-        <div className="absolute bottom-0 left-0 right-0 p-6">
-          <h3 className="font-display text-2xl font-light text-white leading-tight">
-            {category.title}
-          </h3>
-          <div className="mt-3 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-            <span className="text-sm font-sans text-white/80">Смотреть коллекцию</span>
-            <span className="text-accent">→</span>
-          </div>
-        </div>
+      <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
+        <CategoryIcon slug={category.slug} className="w-10 h-10" />
       </div>
+      <h3 className="mt-6 text-base font-medium text-ink leading-tight">{category.title}</h3>
+      <p className="mt-1 text-xs text-ink-subtle">
+        {count} {count === 1 ? "позиция" : count < 5 ? "позиции" : "позиций"}
+      </p>
     </Link>
   );
 }

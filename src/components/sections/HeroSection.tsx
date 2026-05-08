@@ -1,59 +1,95 @@
-// src/components/sections/HeroSection.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+
+const slides = [
+  {
+    eyebrow: "Производство с 2012 года",
+    title: "Мебельные фасады MILADA",
+    subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство, индивидуальный раскрой.",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176567/milada/pvh-arka-premium.png",
+  },
+  {
+    eyebrow: "Более 100 декоров",
+    title: "Любые материалы и фрезеровки",
+    subtitle: "ПВХ плёнка, HPL-пластик, эмаль RAL, искусственный камень, патина.",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176594/milada/hpl-dub-rustikal.jpg",
+  },
+  {
+    eyebrow: "Опт и розница",
+    title: "Поставки по всей России",
+    subtitle: "Работаем с мебельными производствами и частными заказчиками.",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176600/milada/stone-white.jpg",
+  },
+];
 
 export default function HeroSection() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((v) => (v + 1) % slides.length), 6000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
-      className="relative min-h-screen flex items-end pb-16 md:pb-24 overflow-hidden"
+      className="relative bg-bg-alt border-b border-line overflow-hidden"
       style={{ paddingTop: "var(--header-h)" }}
     >
-      {/* Background image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=85"
-          alt="Мебельные фасады премиум класса"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-950/75 via-brand-950/40 to-transparent" />
-      </div>
+      <div className="container-site py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[460px]">
+          {/* Left — text */}
+          <div>
+            <p className="label mb-5">{slides[active].eyebrow}</p>
+            <h1 className="h1 text-balance">{slides[active].title}</h1>
+            <p className="mt-6 text-lg text-ink-muted max-w-md">{slides[active].subtitle}</p>
 
-      {/* Content */}
-      <div className="container-site relative z-10">
-        <div className="max-w-2xl">
-          <p className="section-label text-accent/80 mb-6 animate-fade-up opacity-0 [animation-fill-mode:forwards]">
-            Производство с 2012 года
-          </p>
-          <h1 className="font-display font-light text-white text-display-xl leading-none tracking-tight animate-fade-up opacity-0 [animation-fill-mode:forwards] animate-delay-100">
-            Фасады,<br />
-            <em className="not-italic text-accent">которые</em><br />
-            говорят за вас
-          </h1>
-          <p className="mt-8 font-sans text-lg text-white/70 leading-relaxed max-w-lg animate-fade-up opacity-0 [animation-fill-mode:forwards] animate-delay-200">
-            Эмаль, шпон, HPL-пластик и стекло. Собственное производство, точный раскрой, доставка по России.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4 animate-fade-up opacity-0 [animation-fill-mode:forwards] animate-delay-300">
-            <Link href="/catalog" className="btn-primary">
-              Смотреть каталог
-            </Link>
-            <Link href="/contacts" className="btn-outline border-white/40 text-white hover:bg-white hover:text-brand-950">
-              Получить расчёт
-            </Link>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link href="/catalog" className="btn-primary">
+                Смотреть каталог
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+              <Link href="/contacts" className="btn-outline">Получить расчёт</Link>
+            </div>
+
+            {/* Slider dots */}
+            <div className="mt-12 flex items-center gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "h-1 rounded-full transition-all",
+                    i === active ? "w-8 bg-ink" : "w-4 bg-line hover:bg-ink-subtle"
+                  )}
+                  aria-label={`Слайд ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-10 hidden lg:flex flex-col items-center gap-3 animate-fade-in opacity-0 [animation-fill-mode:forwards] animate-delay-400">
-        <span className="text-xs font-sans text-white/40 tracking-widest uppercase writing-mode-vertical rotate-90">
-          Scroll
-        </span>
-        <div className="w-px h-16 bg-white/20 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-accent animate-[scroll-line_2s_ease-in-out_infinite]" />
+          {/* Right — image */}
+          <div className="relative aspect-[4/3] lg:aspect-square bg-bg rounded-lg overflow-hidden border border-line">
+            {slides.map((s, i) => (
+              <Image
+                key={i}
+                src={s.image}
+                alt={s.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={i === 0}
+                className={cn(
+                  "object-cover transition-opacity duration-700",
+                  i === active ? "opacity-100" : "opacity-0"
+                )}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

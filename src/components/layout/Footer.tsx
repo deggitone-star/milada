@@ -1,4 +1,3 @@
-// src/components/layout/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
@@ -8,32 +7,25 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-950 text-brand-300">
-      <div className="container-site py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3" aria-label="MILADA">
-              <Image src="/logo.png" alt="MILADA" width={44} height={44} className="rounded-full" />
-              <span className="font-display text-xl font-semibold tracking-widest uppercase text-white">
-                MILADA
-              </span>
+    <footer className="bg-bg-dark text-white/60">
+      <div className="container-site py-14 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <Link href="/" className="flex items-center gap-2.5">
+              <Image src="/logo.png" alt="MILADA" width={36} height={36} className="rounded-full" />
+              <span className="font-semibold tracking-wider text-white text-base">MILADA</span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-brand-400">
-              Производство мебельных фасадов премиум-класса с 2012 года. Собственное производство в Москве.
+            <p className="mt-4 text-sm leading-relaxed text-white/50">
+              Производство мебельных фасадов с 2012 года. Собственный завод, индивидуальный раскрой.
             </p>
           </div>
 
-          {/* Catalog */}
           <div>
-            <p className="section-label text-brand-500 mb-5">Каталог</p>
-            <ul className="space-y-3">
-              {categories.map((cat) => (
+            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Каталог</p>
+            <ul className="space-y-2.5">
+              {categories.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
-                  <Link
-                    href={`/catalog/${cat.slug}`}
-                    className="text-sm text-brand-400 hover:text-white transition-colors duration-200"
-                  >
+                  <Link href={`/catalog/${cat.slug}`} className="text-sm hover:text-white transition-colors">
                     {cat.title}
                   </Link>
                 </li>
@@ -41,61 +33,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Pages */}
           <div>
-            <p className="section-label text-brand-500 mb-5">Компания</p>
-            <ul className="space-y-3">
-              {[
-                { href: "/about", label: "О производстве" },
-                { href: "/catalog", label: "Все фасады" },
-                { href: "/contacts", label: "Контакты" },
-              ].map(({ href, label }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-brand-400 hover:text-white transition-colors duration-200"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Компания</p>
+            <ul className="space-y-2.5">
+              <li><Link href="/about" className="text-sm hover:text-white transition-colors">О компании</Link></li>
+              <li><Link href="/catalog" className="text-sm hover:text-white transition-colors">Все фасады</Link></li>
+              <li><Link href="/contacts" className="text-sm hover:text-white transition-colors">Контакты</Link></li>
             </ul>
           </div>
 
-          {/* Contacts */}
           <div>
-            <p className="section-label text-brand-500 mb-5">Контакты</p>
-            <ul className="space-y-3">
+            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Контакты</p>
+            <ul className="space-y-2.5">
               <li>
-                <a
-                  href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                  className="text-sm text-brand-400 hover:text-white transition-colors duration-200"
-                >
+                <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-sm hover:text-white transition-colors">
                   {siteConfig.phone}
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-sm text-brand-400 hover:text-white transition-colors duration-200"
-                >
+                <a href={`mailto:${siteConfig.email}`} className="text-sm hover:text-white transition-colors">
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="text-sm text-brand-500">{siteConfig.address}</li>
-              <li className="text-sm text-brand-500">{siteConfig.workingHours}</li>
+              <li className="text-sm text-white/40">{siteConfig.address}</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-brand-800 flex flex-col sm:flex-row justify-between gap-4">
-          <p className="text-xs text-brand-600">
-            © {year} MILADA. Все права защищены.
-          </p>
-          <p className="text-xs text-brand-600">
-            Производство мебельных фасадов в Москве
-          </p>
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3">
+          <p className="text-xs text-white/40">© {year} MILADA. Все права защищены.</p>
+          <p className="text-xs text-white/40">Производство мебельных фасадов</p>
         </div>
       </div>
     </footer>

@@ -1,82 +1,74 @@
-// src/app/contacts/page.tsx
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: `Свяжитесь с нами для расчёта стоимости мебельных фасадов. ${siteConfig.phone}. ${siteConfig.address}.`,
-  alternates: {
-    canonical: `${siteConfig.url}/contacts`,
-  },
+  description: `Производство мебельных фасадов MILADA в Ульяновске. ${siteConfig.phone}, ${siteConfig.address}.`,
+  alternates: { canonical: `${siteConfig.url}/contacts` },
 };
 
 export default function ContactsPage() {
   return (
     <>
-      <div
-        className="bg-white border-b border-brand-100"
-        style={{ paddingTop: "var(--header-h)" }}
-      >
-        <div className="container-site py-12 lg:py-16">
-          <p className="section-label mb-3">Связаться</p>
-          <h1 className="heading-section">Контакты</h1>
+      <div className="bg-bg-alt border-b border-line" style={{ paddingTop: "var(--header-h)" }}>
+        <div className="container-site py-10 lg:py-14">
+          <p className="label mb-3">Связаться</p>
+          <h1 className="h1">Контакты</h1>
+          <p className="mt-4 text-ink-muted max-w-xl">
+            Производство и офис в Ульяновске. Звоните или оставьте заявку — менеджер свяжется в течение часа.
+          </p>
         </div>
       </div>
 
-      <section className="section-py bg-white">
+      <section className="section-py bg-bg">
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-            {/* Contact info */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Контакты + карта */}
             <div>
-              <h2 className="font-display text-2xl font-light text-brand-950 mb-8">
-                Реквизиты и адрес
-              </h2>
-
+              <h2 className="h3 mb-8">Реквизиты</h2>
               <dl className="space-y-6">
                 <div>
-                  <dt className="section-label mb-1">Телефон</dt>
+                  <dt className="label mb-1.5">Телефон</dt>
                   <dd>
-                    <a
-                      href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                      className="font-sans text-lg text-brand-950 hover:text-accent transition-colors"
-                    >
+                    <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-lg font-medium text-ink hover:text-mint-dark transition-colors">
                       {siteConfig.phone}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="section-label mb-1">Email</dt>
+                  <dt className="label mb-1.5">Email</dt>
                   <dd>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="font-sans text-lg text-brand-950 hover:text-accent transition-colors"
-                    >
+                    <a href={`mailto:${siteConfig.email}`} className="text-lg text-ink hover:text-mint-dark transition-colors">
                       {siteConfig.email}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="section-label mb-1">Адрес</dt>
-                  <dd className="font-sans text-brand-700">{siteConfig.address}</dd>
+                  <dt className="label mb-1.5">Адрес</dt>
+                  <dd className="text-ink">{siteConfig.address}</dd>
                 </div>
                 <div>
-                  <dt className="section-label mb-1">Режим работы</dt>
-                  <dd className="font-sans text-brand-700">{siteConfig.workingHours}</dd>
+                  <dt className="label mb-1.5">Режим работы</dt>
+                  <dd className="text-ink">{siteConfig.workingHours}</dd>
                 </div>
               </dl>
 
-              {/* Map placeholder */}
-              <div className="mt-10 aspect-video bg-brand-100 flex items-center justify-center text-brand-400 text-sm">
-                {/* Вставьте Яндекс.Карты iframe */}
-                <p>Карта — вставьте iframe Яндекс.Карты</p>
+              {/* Яндекс-карта */}
+              <div className="mt-10 aspect-video bg-bg-alt border border-line rounded-md overflow-hidden">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=48.342896%2C54.314192&mode=search&sctx=ZAAAAAgBEAAaKAoSCfIzm3Tr9khAEa%2FTEN1cF0tAEhIJnYo2c4ZH5z8RiGYBbMvg7T8iBgABAgMEBSgKOABAoIYGSAFqAnJ1nQHNzMw9oAEAqAEAvQEAAAAAxQGwn1g%2BwgEAggIm0YPQuy5Lq2Et0LXQu9C40LDQtdGCINGB0Lwu0YHQutC40Lk%3D%2COrgvzDB1NS5TIHN0cmVldA%3D%3D&z=16"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  title="MILADA на карте"
+                  loading="lazy"
+                />
               </div>
             </div>
 
-            {/* Form */}
+            {/* Форма */}
             <div>
-              <h2 className="font-display text-2xl font-light text-brand-950 mb-8">
-                Получить расчёт
-              </h2>
+              <h2 className="h3 mb-8">Получить расчёт</h2>
               <ContactForm />
             </div>
           </div>
@@ -86,77 +78,53 @@ export default function ContactsPage() {
   );
 }
 
-// Server component — форма (замените на server action или API route)
 function ContactForm() {
   return (
     <form
-      action="https://formsubmit.co/your@email.com"
+      action="https://formsubmit.co/milada.73@mail.ru"
       method="POST"
-      className="space-y-5"
+      className="space-y-4"
     >
       <input type="hidden" name="_subject" value="Новая заявка с сайта MILADA" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="/contacts?sent=1" />
 
       <div>
-        <label htmlFor="name" className="block text-sm font-sans text-brand-600 mb-2">
-          Имя *
-        </label>
+        <label htmlFor="name" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Имя *</label>
         <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          placeholder="Иван Иванов"
-          className="w-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-sans text-brand-950 placeholder:text-brand-300 focus:outline-none focus:border-accent transition-colors"
+          id="name" name="name" type="text" required placeholder="Иван Иванов"
+          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-sans text-brand-600 mb-2">
-          Телефон *
-        </label>
+        <label htmlFor="phone" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Телефон *</label>
         <input
-          id="phone"
-          name="phone"
-          type="tel"
-          required
-          placeholder="+7 (___) ___-__-__"
-          className="w-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-sans text-brand-950 placeholder:text-brand-300 focus:outline-none focus:border-accent transition-colors"
+          id="phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"
+          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-sans text-brand-600 mb-2">
-          Email
-        </label>
+        <label htmlFor="email" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Email</label>
         <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="example@mail.ru"
-          className="w-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-sans text-brand-950 placeholder:text-brand-300 focus:outline-none focus:border-accent transition-colors"
+          id="email" name="email" type="email" placeholder="example@mail.ru"
+          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-sans text-brand-600 mb-2">
-          Описание проекта
-        </label>
+        <label htmlFor="message" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Описание проекта</label>
         <textarea
-          id="message"
-          name="message"
-          rows={5}
-          placeholder="Расскажите о вашем проекте: материал, примерные размеры, количество фасадов..."
-          className="w-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-sans text-brand-950 placeholder:text-brand-300 focus:outline-none focus:border-accent transition-colors resize-none"
+          id="message" name="message" rows={5}
+          placeholder="Материал, размеры, количество фасадов..."
+          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors resize-none"
         />
       </div>
 
-      <button type="submit" className="btn-primary w-full justify-center">
-        Отправить заявку
-      </button>
+      <button type="submit" className="btn-primary w-full">Отправить заявку</button>
 
-      <p className="text-xs text-brand-400">
+      <p className="text-xs text-ink-subtle">
         Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
       </p>
     </form>

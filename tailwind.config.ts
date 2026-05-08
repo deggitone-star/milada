@@ -9,65 +9,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50:  "#f2faf7",
-          100: "#e0f4ec",
-          200: "#c0e8d8",
-          300: "#8ed4ba",
-          400: "#57bb99",
-          500: "#33a07e",
-          600: "#248264",
-          700: "#1e6a52",
-          800: "#1a5443",
-          900: "#174538",
-          950: "#0d2a22",
+        // Нейтральная серая палитра — фон сайта
+        bg: {
+          DEFAULT: "#f5f5f4",   // светло-серый основной фон
+          alt:     "#ffffff",   // белый для карточек
+          dark:    "#0a0a0a",   // почти-чёрный для футера/CTA
         },
-        accent: {
+        ink: {
+          DEFAULT: "#0a0a0a",   // основной текст
+          muted:   "#525252",   // вторичный
+          subtle:  "#a3a3a3",   // подписи
+        },
+        line: "#e5e5e5",         // границы
+        // Мятный акцент MILADA
+        mint: {
           DEFAULT: "#5ef0b0",
-          light: "#8ff5c5",
-          dark:  "#2ed494",
+          light:   "#8ff5c5",
+          dark:    "#2ed494",
         },
       },
       fontFamily: {
-        display: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-jost)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
-        "display-lg": ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.025em" }],
-        "display-md": ["clamp(1.75rem, 4vw, 3rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-      },
-      spacing: {
-        "18": "4.5rem",
-        "22": "5.5rem",
-        "section": "clamp(4rem, 10vw, 8rem)",
+        "h1": ["clamp(2.25rem, 5vw, 4rem)",  { lineHeight: "1.05", letterSpacing: "-0.025em" }],
+        "h2": ["clamp(1.75rem, 3.5vw, 2.5rem)", { lineHeight: "1.1",  letterSpacing: "-0.02em" }],
+        "h3": ["clamp(1.25rem, 2vw, 1.5rem)",   { lineHeight: "1.2",  letterSpacing: "-0.01em" }],
       },
       maxWidth: {
         "8xl": "88rem",
-        "9xl": "96rem",
-      },
-      transitionTimingFunction: {
-        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
       },
       keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        "line-grow": {
-          "0%": { scaleX: "0" },
-          "100%": { scaleX: "1" },
-        },
+        "fade-in": { "0%": { opacity: "0" }, "100%": { opacity: "1" } },
+        "slide-in": { "0%": { opacity: "0", transform: "translateY(8px)" }, "100%": { opacity: "1", transform: "translateY(0)" } },
       },
       animation: {
-        "fade-up": "fade-up 0.7s cubic-bezier(0.19, 1, 0.22, 1) forwards",
-        "fade-in": "fade-in 0.5s ease forwards",
-        "line-grow": "line-grow 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards",
+        "fade-in":  "fade-in 0.4s ease forwards",
+        "slide-in": "slide-in 0.4s ease forwards",
       },
     },
   },

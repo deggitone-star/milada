@@ -1,4 +1,3 @@
-// src/components/layout/Header.tsx
 "use client";
 
 import Link from "next/link";
@@ -10,8 +9,8 @@ import { siteConfig } from "@/lib/config";
 
 const navLinks = [
   { href: "/catalog", label: "Каталог" },
-  { href: "/about", label: "Производство" },
-  { href: "/contacts", label: "Контакты" },
+  { href: "/about",   label: "О компании" },
+  { href: "/contacts",label: "Контакты" },
 ];
 
 export default function Header() {
@@ -20,53 +19,36 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   return (
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "bg-brand-50/95 backdrop-blur-sm border-b border-brand-200"
-            : "bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+          scrolled || menuOpen ? "bg-bg/95 backdrop-blur-sm border-line" : "bg-bg/80 border-transparent"
         )}
         style={{ height: "var(--header-h)" }}
       >
         <div className="container-site h-full flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center" aria-label="MILADA — главная">
-            <Image
-              src="/logo.png"
-              alt="MILADA"
-              width={48}
-              height={48}
-              className="rounded-full"
-              priority
-            />
-            <span className="ml-3 font-display text-xl font-semibold tracking-widest uppercase text-brand-950">
-              MILADA
-            </span>
+          <Link href="/" className="flex items-center gap-2.5" aria-label="MILADA">
+            <Image src="/logo.png" alt="MILADA" width={36} height={36} className="rounded-full" priority />
+            <span className="font-semibold tracking-wider text-ink text-base">MILADA</span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 className={cn(
-                  "font-sans text-sm tracking-wide transition-colors duration-200",
-                  pathname.startsWith(href)
-                    ? "text-accent"
-                    : "text-brand-700 hover:text-brand-950"
+                  "text-sm font-medium transition-colors",
+                  pathname.startsWith(href) ? "text-ink" : "text-ink-muted hover:text-ink"
                 )}
               >
                 {label}
@@ -74,60 +56,41 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Phone */}
           <a
             href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-            className="hidden md:block font-sans text-sm font-medium text-brand-950 hover:text-accent transition-colors"
+            className="hidden md:block text-sm font-medium text-ink hover:text-mint-dark transition-colors"
           >
             {siteConfig.phone}
           </a>
 
-          {/* Mobile menu button */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen((v) => !v)}
+            onClick={() => setMenuOpen(v => !v)}
             aria-label="Меню"
           >
-            <span
-              className={cn(
-                "block h-px w-6 bg-brand-950 transition-all duration-300",
-                menuOpen && "rotate-45 translate-y-[7px]"
-              )}
-            />
-            <span
-              className={cn(
-                "block h-px w-6 bg-brand-950 transition-all duration-300",
-                menuOpen && "opacity-0"
-              )}
-            />
-            <span
-              className={cn(
-                "block h-px w-6 bg-brand-950 transition-all duration-300",
-                menuOpen && "-rotate-45 -translate-y-[7px]"
-              )}
-            />
+            <span className={cn("block h-px w-6 bg-ink transition-transform", menuOpen && "rotate-45 translate-y-[7px]")} />
+            <span className={cn("block h-px w-6 bg-ink transition-opacity", menuOpen && "opacity-0")} />
+            <span className={cn("block h-px w-6 bg-ink transition-transform", menuOpen && "-rotate-45 -translate-y-[7px]")} />
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-brand-50 flex flex-col justify-center px-8 transition-all duration-500 md:hidden",
+          "fixed inset-0 z-40 bg-bg flex flex-col px-6 transition-opacity duration-300 md:hidden",
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
-        style={{ paddingTop: "var(--header-h)" }}
+        style={{ paddingTop: "calc(var(--header-h) + 2rem)" }}
       >
-        <nav className="flex flex-col gap-8">
-          {navLinks.map(({ href, label }, i) => (
+        <nav className="flex flex-col gap-2">
+          {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               className={cn(
-                "font-display text-4xl font-light transition-colors duration-200",
-                pathname.startsWith(href) ? "text-accent" : "text-brand-950"
+                "text-2xl font-medium py-3 border-b border-line",
+                pathname.startsWith(href) ? "text-ink" : "text-ink-muted"
               )}
-              style={{ animationDelay: `${i * 80}ms` }}
             >
               {label}
             </Link>
@@ -135,7 +98,7 @@ export default function Header() {
         </nav>
         <a
           href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-          className="mt-12 font-sans text-lg text-brand-600"
+          className="mt-8 text-lg text-ink-muted"
         >
           {siteConfig.phone}
         </a>

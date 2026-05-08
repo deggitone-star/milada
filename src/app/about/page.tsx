@@ -1,167 +1,159 @@
-// src/app/about/page.tsx
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "О производстве",
-  description:
-    "Собственный завод по производству мебельных фасадов в Москве. Немецкое оборудование, контроль качества на каждом этапе, более 500 проектов ежегодно.",
-  alternates: {
-    canonical: `${siteConfig.url}/about`,
-  },
+  title: "О компании",
+  description: "Компания MILADA в Ульяновске — производство и продажа мебельных фасадов. ПВХ, эмаль, HPL-пластик, камень, патина, радиусные фасады, спинки кроватные.",
+  alternates: { canonical: `${siteConfig.url}/about` },
 };
 
 const stats = [
-  { value: "12+", label: "лет на рынке" },
+  { value: "12+",  label: "лет опыта" },
   { value: "500+", label: "проектов в год" },
-  { value: "2000", label: "м² производства" },
-  { value: "0,1 мм", label: "допуск по размеру" },
+  { value: "100+", label: "декоров" },
+  { value: "10",   label: "дней срок" },
 ];
 
-const steps = [
-  {
-    num: "01",
-    title: "Приём заказа",
-    text: "Менеджер принимает спецификацию с размерами, материалом и цветом. Согласовываем детали и сроки.",
-  },
-  {
-    num: "02",
-    title: "Раскрой и фрезеровка",
-    text: "Немецкие обрабатывающие центры Homag нарезают МДФ с допуском 0,1 мм. Фрезеруем торцы и профили.",
-  },
-  {
-    num: "03",
-    title: "Нанесение покрытия",
-    text: "Автоматическая покрасочная линия или наклейка шпона / HPL. Сушка в климатических камерах.",
-  },
-  {
-    num: "04",
-    title: "Контроль качества",
-    text: "Каждый фасад проходит проверку по 12 параметрам: геометрия, цвет, покрытие, кромка.",
-  },
-  {
-    num: "05",
-    title: "Упаковка и доставка",
-    text: "Многослойная упаковка предотвращает царапины при транспортировке. Доставляем по Москве и России.",
-  },
+// Галерея реальных фото фасадов из Cloudinary
+const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
+
+const gallery = [
+  { src: `${CDN}/v1778176567/milada/pvh-arka-premium.png`,    alt: "Фасад МДФ премиум фрезеровка" },
+  { src: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg`,    alt: "Пластиковый фасад HPL дуб" },
+  { src: `${CDN}/v1778176600/milada/stone-white.jpg`,         alt: "Каменный фасад" },
+  { src: `${CDN}/v1778176610/milada/enamel-mat.jpg`,          alt: "Эмалевый фасад" },
+  { src: `${CDN}/v1778176579/milada/pvh-praga.png`,           alt: "Премиум фрезеровка Прага" },
+  { src: `${CDN}/v1778177149/milada/headboard-sk1.png`,       alt: "Спинка кроватная" },
+  { src: `${CDN}/v1778176614/milada/patina-classic.jpg`,      alt: "Патинированный фасад" },
+  { src: `${CDN}/v1778177331/milada/door-panel-p7.png`,       alt: "Дверная панель" },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <div
-        className="relative h-[55vh] min-h-[360px] flex items-end overflow-hidden bg-brand-950"
-        style={{ paddingTop: "var(--header-h)" }}
-      >
-        <Image
-          src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1600&q=80"
-          alt="Производство мебельных фасадов"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-50"
-          priority
-        />
-        <div className="container-site relative z-10 pb-12 lg:pb-20">
-          <p className="section-label text-accent/80 mb-4">О нас</p>
-          <h1 className="font-display font-light text-display-lg text-white leading-none">
-            Производство,<br />
-            <em className="not-italic text-accent">которое видно</em><br />
-            в деталях
-          </h1>
+      {/* Header */}
+      <div className="bg-bg-alt border-b border-line" style={{ paddingTop: "var(--header-h)" }}>
+        <div className="container-site py-10 lg:py-14">
+          <p className="label mb-3">О компании</p>
+          <h1 className="h1">MILADA</h1>
+          <p className="mt-4 text-ink-muted max-w-2xl">
+            Производство и продажа мебельных фасадов в Ульяновске. Большой ассортимент материалов, расцветок и текстур.
+          </p>
         </div>
       </div>
 
       {/* Stats */}
-      <section className="bg-accent">
-        <div className="container-site py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="section-py bg-bg">
+        <div className="container-site">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line">
             {stats.map(({ value, label }) => (
-              <div key={label} className="text-center">
-                <p className="font-display text-5xl font-light text-white">{value}</p>
-                <p className="mt-2 text-sm font-sans text-white/70">{label}</p>
+              <div key={label} className="bg-bg p-6 lg:p-8">
+                <p className="text-3xl lg:text-4xl font-medium text-ink">{value}</p>
+                <p className="mt-2 text-sm text-ink-muted">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="section-py bg-white">
+      {/* About text */}
+      <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             <div>
-              <p className="section-label mb-4">История</p>
-              <h2 className="heading-section">
-                Начали с мастерской,<br />
-                <em className="not-italic text-accent">стали заводом</em>
-              </h2>
-              <div className="mt-8 space-y-4 text-brand-600 leading-relaxed">
-                <p>
-                  В 2012 году мы открыли небольшую мастерскую по изготовлению фасадов в Подмосковье. Первый год работали вручную — каждый фасад шлифовался и красился индивидуально.
-                </p>
-                <p>
-                  К 2017 году установили первую автоматическую покрасочную линию и переехали в новый цех площадью 800 м². Объём заказов вырос втрое за два года.
-                </p>
-                <p>
-                  Сегодня MILADA занимает 2000 м² производственных площадей, работает немецкое оборудование Homag, а ежегодно мы выпускаем более 500 индивидуальных проектов по всей России.
-                </p>
-              </div>
+              <p className="label mb-3">О производстве</p>
+              <h2 className="h2">Качество, проверенное временем</h2>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden bg-brand-100">
-              <Image
-                src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=800&q=80"
-                alt="Производственный цех"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
+
+            <div className="lg:col-span-2 space-y-5 text-ink-muted leading-relaxed">
+              <p>
+                Компания «Милада» в&nbsp;Ульяновске специализируется на&nbsp;производстве и&nbsp;продаже фасадов для мебели. Большой ассортимент материалов, расцветок и&nbsp;текстур не&nbsp;оставит равнодушным ни&nbsp;одного покупателя.
+              </p>
+              <p>Мы предлагаем мебельные фасады:</p>
+              <ul className="space-y-1.5 ml-1">
+                <li>— Фасады МДФ с ПВХ плёнкой (стандарт и премиум)</li>
+                <li>— Пластиковые фасады HPL</li>
+                <li>— Патинированные фасады</li>
+                <li>— Эмаль (матовая, глянцевая, металлик)</li>
+                <li>— Каменные фасады</li>
+                <li>— Радиусные фасады</li>
+                <li>— Декоративные элементы и спинки кроватные</li>
+                <li>— Дверные панели и полотна для шкафов-купе</li>
+              </ul>
+              <p>
+                Всё сырьё, используемое для изготовления, отвечает евростандартам качества. Компания не&nbsp;стоит на&nbsp;месте: мы&nbsp;занимаем передовые позиции в&nbsp;Поволжье и&nbsp;осваиваем новые регионы.
+              </p>
+              <p>
+                Для создания новых моделей мы&nbsp;регулярно проводим мониторинг модных тенденций на&nbsp;рынке производства мебели. Своим покупателям мы&nbsp;предоставляем отличное качество по&nbsp;выгодным ценам и&nbsp;в&nbsp;минимальные сроки.
+              </p>
+              <p>
+                Фасады представлены в&nbsp;огромной цветовой гамме и&nbsp;множестве дизайнерских решений. Компания активно внедряет новые технологии в&nbsp;процессе производства, постоянно повышая качество продукции.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="section-py bg-brand-50">
+      {/* Gallery */}
+      <section className="section-py bg-bg">
         <div className="container-site">
-          <div className="mb-12 lg:mb-16">
-            <p className="section-label mb-3">Процесс</p>
-            <h2 className="heading-section">
-              Как рождается<br />
-              <em className="not-italic text-accent">каждый фасад</em>
-            </h2>
-          </div>
+          <p className="label mb-3">Галерея</p>
+          <h2 className="h2 mb-10">Наша продукция</h2>
 
-          <div className="space-y-px bg-brand-200">
-            {steps.map(({ num, title, text }) => (
-              <div key={num} className="bg-brand-50 px-8 py-8 lg:px-12 lg:py-10 grid grid-cols-[auto_1fr] gap-8 items-start">
-                <span className="font-display text-3xl font-light text-brand-300 w-12">{num}</span>
-                <div>
-                  <h3 className="font-sans font-medium text-brand-950">{title}</h3>
-                  <p className="mt-2 text-sm text-brand-500 leading-relaxed">{text}</p>
-                </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+            {gallery.map((item, i) => (
+              <div
+                key={i}
+                className="relative aspect-square bg-bg-alt border border-line rounded-md overflow-hidden group"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.04]"
+                />
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link href="/catalog" className="btn-outline">
+              Смотреть весь каталог
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-py bg-brand-950">
-        <div className="container-site text-center">
-          <h2 className="font-display font-light text-display-md text-white">
-            Готовы обсудить<br />
-            <em className="not-italic text-accent">ваш проект?</em>
-          </h2>
-          <div className="mt-10 flex flex-wrap gap-4 justify-center">
-            <Link href="/contacts" className="btn-primary">
-              Связаться с нами
-            </Link>
-            <Link href="/catalog" className="btn-outline border-white/30 text-white hover:bg-white hover:text-brand-950">
-              Смотреть каталог
-            </Link>
+      <section className="section-py bg-bg-dark">
+        <div className="container-site">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-h2 font-medium text-white">Готовы обсудить ваш проект?</h2>
+              <p className="mt-4 text-white/60 max-w-md">
+                Позвоните или оставьте заявку — менеджер ответит на все вопросы и&nbsp;подберёт нужные материалы.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <a
+                href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                className="inline-flex items-center bg-mint text-ink font-medium text-sm px-6 py-3 rounded-md hover:bg-mint-light transition-colors"
+              >
+                {siteConfig.phone}
+              </a>
+              <Link
+                href="/contacts"
+                className="inline-flex items-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-md hover:bg-white/5 transition-colors"
+              >
+                Написать
+              </Link>
+            </div>
           </div>
         </div>
       </section>

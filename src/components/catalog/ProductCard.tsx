@@ -1,8 +1,6 @@
-// src/components/catalog/ProductCard.tsx
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/types";
-import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
@@ -15,41 +13,36 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       href={`/catalog/${product.category}/${product.slug}`}
       className="group block"
     >
-      {/* Image */}
-      <div className="product-card-img aspect-[4/3]">
+      {/* Image — vertical aspect, contain to show full facade */}
+      <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-md overflow-hidden group-hover:border-ink-subtle transition-colors">
         <Image
           src={product.image}
           alt={product.title}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
           priority={priority}
         />
-        {/* Badges */}
-        <div className="absolute top-4 left-4 flex gap-2 z-10">
+        <div className="absolute top-3 left-3 flex gap-1.5 z-10">
           {product.new && (
-            <span className="bg-accent text-white text-xs font-sans font-medium px-3 py-1 tracking-wide">
+            <span className="bg-mint text-ink text-[10px] font-semibold px-2 py-1 rounded-sm tracking-wider uppercase">
               Новинка
             </span>
           )}
           {product.featured && !product.new && (
-            <span className="bg-brand-950 text-white text-xs font-sans font-medium px-3 py-1 tracking-wide">
+            <span className="bg-ink text-white text-[10px] font-semibold px-2 py-1 rounded-sm tracking-wider uppercase">
               Хит
             </span>
           )}
         </div>
       </div>
 
-      {/* Info */}
-      <div className="pt-4">
-        <h3 className="font-display text-xl font-light text-brand-950 group-hover:text-accent transition-colors duration-200">
+      <div className="pt-3">
+        <h3 className="text-sm font-medium text-ink group-hover:text-mint-dark transition-colors leading-tight">
           {product.title}
         </h3>
         {product.material && (
-          <p className="mt-1 text-sm text-brand-500 font-sans">{product.material}</p>
-        )}
-        {product.price && (
-          <p className="mt-2 text-sm font-medium font-sans text-brand-700">{product.price}</p>
+          <p className="mt-1 text-xs text-ink-subtle">{product.material}</p>
         )}
       </div>
     </Link>

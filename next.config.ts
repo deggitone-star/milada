@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/**",
       },
+      // Временно — для галереи проектов со старого сайта
+      {
+        protocol: "https",
+        hostname: "milada73.ru",
+        pathname: "/**",
+      },
     ],
     formats: ["image/avif", "image/webp"],
   },
