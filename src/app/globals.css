@@ -1,0 +1,102 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 72px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Кастомный скроллбар */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.brand.300');
+    border-radius: 2px;
+  }
+
+  /* Выделение текста */
+  ::selection {
+    background: theme('colors.accent.DEFAULT');
+    color: theme('colors.brand.950');
+  }
+}
+
+@layer components {
+  /* Типографика */
+  .heading-display {
+    @apply font-display font-light text-display-xl text-brand-950 leading-none tracking-tight;
+  }
+
+  .heading-section {
+    @apply font-display font-light text-display-md text-brand-950;
+  }
+
+  /* Декоративная линия под заголовками */
+  .section-label {
+    @apply font-sans text-xs font-medium tracking-[0.2em] uppercase text-accent;
+  }
+
+  /* Кнопки */
+  .btn-primary {
+    @apply inline-flex items-center gap-3 bg-brand-950 text-white font-sans text-sm font-medium tracking-wide px-8 py-4 hover:bg-brand-800 transition-colors duration-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-3 border border-brand-950 text-brand-950 font-sans text-sm font-medium tracking-wide px-8 py-4 hover:bg-brand-950 hover:text-white transition-colors duration-300;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-brand-950 font-sans text-sm font-medium tracking-wide hover:text-accent transition-colors duration-200;
+  }
+
+  /* Контейнер */
+  .container-site {
+    @apply max-w-8xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-16;
+  }
+
+  /* Отступы секций */
+  .section-py {
+    @apply py-20 lg:py-32;
+  }
+
+  /* Карточка товара hover */
+  .product-card-img {
+    @apply relative overflow-hidden bg-brand-100;
+  }
+
+  .product-card-img img {
+    @apply transition-transform duration-700 ease-out-expo group-hover:scale-105;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+
+  /* Маскирование для анимации появления */
+  .overflow-clip {
+    overflow: clip;
+  }
+}
