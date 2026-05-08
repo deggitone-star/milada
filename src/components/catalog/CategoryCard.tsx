@@ -13,7 +13,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link
       href={`/catalog/${category.slug}`}
-      className="group bg-bg-alt border border-line rounded-lg p-6 hover:border-ink transition-all duration-200 block"
+      className="group bg-bg-alt border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200 block"
     >
       <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
         <CategoryIcon slug={category.slug} className="w-10 h-10" />

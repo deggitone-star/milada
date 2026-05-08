@@ -106,7 +106,7 @@ export default function AboutPage() {
             {gallery.map((item, i) => (
               <div
                 key={i}
-                className="relative aspect-square bg-bg-alt border border-line rounded-md overflow-hidden group"
+                className="relative aspect-square bg-bg-alt border border-line rounded-soft overflow-hidden group"
               >
                 <Image
                   src={item.src}
@@ -143,13 +143,13 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <a
                 href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                className="inline-flex items-center bg-mint text-ink font-medium text-sm px-6 py-3 rounded-md hover:bg-mint-light transition-colors"
+                className="inline-flex items-center bg-mint text-ink font-medium text-sm px-6 py-3 rounded-soft hover:bg-mint-light transition-colors"
               >
                 {siteConfig.phone}
               </a>
               <Link
                 href="/contacts"
-                className="inline-flex items-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-md hover:bg-white/5 transition-colors"
+                className="inline-flex items-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-soft hover:bg-white/5 transition-colors"
               >
                 Написать
               </Link>

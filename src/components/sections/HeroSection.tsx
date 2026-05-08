@@ -9,7 +9,7 @@ const slides = [
   {
     eyebrow: "Производство с 2012 года",
     title: "Мебельные фасады MILADA",
-    subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство, индивидуальный раскрой.",
+    subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство в Ульяновске, индивидуальный раскрой.",
     image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176567/milada/pvh-arka-premium.png",
   },
   {
@@ -39,9 +39,14 @@ export default function HeroSection() {
       className="relative bg-bg-alt border-b border-line overflow-hidden"
       style={{ paddingTop: "var(--header-h)" }}
     >
-      <div className="container-site py-12 lg:py-20">
+      {/* Декоративный мятный круг на фоне — отсылка к логотипу */}
+      <div
+        aria-hidden
+        className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-bg-mint blur-3xl opacity-60 pointer-events-none"
+      />
+
+      <div className="container-site relative py-12 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[460px]">
-          {/* Left — text */}
           <div>
             <p className="label mb-5">{slides[active].eyebrow}</p>
             <h1 className="h1 text-balance">{slides[active].title}</h1>
@@ -57,15 +62,14 @@ export default function HeroSection() {
               <Link href="/contacts" className="btn-outline">Получить расчёт</Link>
             </div>
 
-            {/* Slider dots */}
             <div className="mt-12 flex items-center gap-2">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
                   className={cn(
-                    "h-1 rounded-full transition-all",
-                    i === active ? "w-8 bg-ink" : "w-4 bg-line hover:bg-ink-subtle"
+                    "h-1.5 rounded-pill transition-all",
+                    i === active ? "w-8 bg-mint-dark" : "w-4 bg-line hover:bg-ink-subtle"
                   )}
                   aria-label={`Слайд ${i + 1}`}
                 />
@@ -73,8 +77,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — image */}
-          <div className="relative aspect-[4/3] lg:aspect-square bg-bg rounded-lg overflow-hidden border border-line">
+          <div className="relative aspect-[4/3] lg:aspect-square bg-bg rounded-soft overflow-hidden border border-line">
             {slides.map((s, i) => (
               <Image
                 key={i}

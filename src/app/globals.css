@@ -11,7 +11,7 @@
 
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb { background: #d4d4d2; border-radius: 3px; }
   ::selection { background: theme('colors.mint.DEFAULT'); color: theme('colors.ink.DEFAULT'); }
 }
 
@@ -24,13 +24,22 @@
   .h2    { @apply text-h2 font-medium text-ink; }
   .h3    { @apply text-h3 font-medium text-ink; }
 
+  /* Pill buttons — перекликаются с круглой формой лого */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-ink text-white font-medium text-sm px-6 py-3 rounded-md hover:bg-ink-muted transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-mint-dark transition-colors duration-200;
+  }
+  .btn-mint {
+    @apply inline-flex items-center justify-center gap-2 bg-mint text-mint-dark font-medium text-sm px-6 py-3 rounded-pill hover:bg-mint-light transition-colors duration-200;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 border border-line text-ink font-medium text-sm px-6 py-3 rounded-md hover:border-ink hover:bg-bg-alt transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 border border-line text-ink font-medium text-sm px-6 py-3 rounded-pill bg-bg-alt hover:border-ink hover:shadow-soft transition-all duration-200;
   }
   .btn-ghost {
-    @apply inline-flex items-center gap-1.5 text-ink-muted font-medium text-sm hover:text-ink transition-colors;
+    @apply inline-flex items-center gap-1.5 text-ink-muted font-medium text-sm hover:text-mint-dark transition-colors;
+  }
+
+  /* Card surfaces */
+  .card {
+    @apply bg-bg-alt border border-line rounded-soft;
   }
 }

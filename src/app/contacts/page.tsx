@@ -54,7 +54,7 @@ export default function ContactsPage() {
               </dl>
 
               {/* Яндекс-карта */}
-              <div className="mt-10 aspect-video bg-bg-alt border border-line rounded-md overflow-hidden">
+              <div className="mt-10 aspect-video bg-bg-alt border border-line rounded-soft overflow-hidden">
                 <iframe
                   src="https://yandex.ru/map-widget/v1/?ll=48.342896%2C54.314192&mode=search&sctx=ZAAAAAgBEAAaKAoSCfIzm3Tr9khAEa%2FTEN1cF0tAEhIJnYo2c4ZH5z8RiGYBbMvg7T8iBgABAgMEBSgKOABAoIYGSAFqAnJ1nQHNzMw9oAEAqAEAvQEAAAAAxQGwn1g%2BwgEAggIm0YPQuy5Lq2Et0LXQu9C40LDQtdGCINGB0Lwu0YHQutC40Lk%3D%2COrgvzDB1NS5TIHN0cmVldA%3D%3D&z=16"
                   width="100%"
@@ -93,7 +93,7 @@ function ContactForm() {
         <label htmlFor="name" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Имя *</label>
         <input
           id="name" name="name" type="text" required placeholder="Иван Иванов"
-          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
+          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
@@ -101,7 +101,7 @@ function ContactForm() {
         <label htmlFor="phone" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Телефон *</label>
         <input
           id="phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"
-          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
+          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
@@ -109,7 +109,7 @@ function ContactForm() {
         <label htmlFor="email" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Email</label>
         <input
           id="email" name="email" type="email" placeholder="example@mail.ru"
-          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
+          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
         />
       </div>
 
@@ -118,7 +118,7 @@ function ContactForm() {
         <textarea
           id="message" name="message" rows={5}
           placeholder="Материал, размеры, количество фасадов..."
-          className="w-full bg-bg-alt border border-line rounded-md px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors resize-none"
+          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors resize-none"
         />
       </div>
 

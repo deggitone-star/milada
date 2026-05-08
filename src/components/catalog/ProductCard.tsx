@@ -14,7 +14,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       className="group block"
     >
       {/* Image — vertical aspect, contain to show full facade */}
-      <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-md overflow-hidden group-hover:border-ink-subtle transition-colors">
+      <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-soft overflow-hidden group-hover:border-ink-subtle group-hover:shadow-lift transition-all duration-200">
         <Image
           src={product.image}
           alt={product.title}
@@ -25,12 +25,12 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         />
         <div className="absolute top-3 left-3 flex gap-1.5 z-10">
           {product.new && (
-            <span className="bg-mint text-ink text-[10px] font-semibold px-2 py-1 rounded-sm tracking-wider uppercase">
+            <span className="bg-mint text-ink text-[10px] font-semibold px-2 py-1 rounded-pill tracking-wider uppercase">
               Новинка
             </span>
           )}
           {product.featured && !product.new && (
-            <span className="bg-ink text-white text-[10px] font-semibold px-2 py-1 rounded-sm tracking-wider uppercase">
+            <span className="bg-ink text-white text-[10px] font-semibold px-2 py-1 rounded-pill tracking-wider uppercase">
               Хит
             </span>
           )}

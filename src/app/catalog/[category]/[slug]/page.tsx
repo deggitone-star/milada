@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
         <section className="bg-bg-alt">
           <div className="container-site py-10 lg:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-              <div className="relative aspect-[3/4] bg-bg border border-line rounded-lg overflow-hidden">
+              <div className="relative aspect-[3/4] bg-bg border border-line rounded-soft overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -69,7 +69,7 @@ export default async function ProductPage({ params }: Props) {
                   priority
                 />
                 {product.new && (
-                  <span className="absolute top-4 left-4 bg-mint text-ink text-[10px] font-semibold px-3 py-1.5 rounded-sm tracking-wider uppercase">
+                  <span className="absolute top-4 left-4 bg-mint text-ink text-[10px] font-semibold px-3 py-1.5 rounded-pill tracking-wider uppercase">
                     Новинка
                   </span>
                 )}

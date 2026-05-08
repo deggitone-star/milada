@@ -27,7 +27,7 @@ export default function CategoriesSection() {
               <Link
                 key={cat.slug}
                 href={`/catalog/${cat.slug}`}
-                className="group bg-bg-alt border border-line rounded-lg p-6 hover:border-ink transition-all duration-200"
+                className="group bg-bg-alt border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200"
               >
                 <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
                   <CategoryIcon slug={cat.slug} className="w-10 h-10" />

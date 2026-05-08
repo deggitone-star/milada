@@ -17,8 +17,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `MILADA — Производство мебельных фасадов`,
-    template: `%s | MILADA`,
+    default: "MILADA — Производство мебельных фасадов",
+    template: "%s | MILADA",
   },
   description: siteConfig.description,
   keywords: [
@@ -28,14 +28,31 @@ export const metadata: Metadata = {
     "эмалевые фасады",
     "ПВХ фасады",
     "производство фасадов",
+    "MILADA",
+    "Ульяновск",
   ],
+  // Иконки — favicon и mobile bookmark icons
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.json",
+  themeColor: "#1f4d3f",
   openGraph: {
     type: "website",
     locale: "ru_RU",
     url: siteConfig.url,
     siteName: "MILADA",
-    title: `MILADA — Производство мебельных фасадов`,
+    title: "MILADA — Производство мебельных фасадов",
     description: siteConfig.description,
+    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "MILADA" }],
   },
   robots: { index: true, follow: true },
 };

@@ -37,7 +37,7 @@ export default function Header() {
       >
         <div className="container-site h-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5" aria-label="MILADA">
-            <Image src="/logo.png" alt="MILADA" width={36} height={36} className="rounded-full" priority />
+            <Image src="/logo.png" alt="MILADA" width={40} height={40} className="rounded-full shadow-soft" priority />
             <span className="font-semibold tracking-wider text-ink text-base">MILADA</span>
           </Link>
 
