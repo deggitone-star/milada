@@ -36,9 +36,17 @@ export default function Header() {
         style={{ height: "var(--header-h)" }}
       >
         <div className="container-site h-full flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5" aria-label="MILADA">
-            <Image src="/logo.png" alt="MILADA" width={40} height={40} className="rounded-full shadow-soft" priority />
-            <span className="font-semibold tracking-wider text-ink text-base">MILADA</span>
+          <Link href="/" className="flex items-center gap-3" aria-label="MILADA">
+            <Image
+              src="/logo.png"
+              alt="MILADA"
+              width={48}
+              height={48}
+              className="rounded-full"
+              priority
+              quality={100}
+            />
+            <span className="font-semibold tracking-wider text-ink text-lg">MILADA</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">

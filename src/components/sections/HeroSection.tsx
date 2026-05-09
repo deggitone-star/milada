@@ -5,24 +5,29 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
+// Cloudinary трансформации для оптимальной загрузки:
+// f_auto — автоформат (AVIF/WebP), q_auto — автокачество, w_1600 — макс ширина
+const opt = (url: string, w = 1600) =>
+  url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
+
 const slides = [
   {
     eyebrow: "Производство с 2012 года",
     title: "Мебельные фасады MILADA",
     subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство в Ульяновске, индивидуальный раскрой.",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176567/milada/pvh-arka-premium.png",
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_01_1_hspb3e.png"),
   },
   {
     eyebrow: "Более 100 декоров",
     title: "Любые материалы и фрезеровки",
     subtitle: "ПВХ плёнка, HPL-пластик, эмаль RAL, искусственный камень, патина.",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176594/milada/hpl-dub-rustikal.jpg",
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_3_z5bwrj.png"),
   },
   {
     eyebrow: "Опт и розница",
     title: "Поставки по всей России",
     subtitle: "Работаем с мебельными производствами и частными заказчиками.",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778176600/milada/stone-white.jpg",
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_2_qziqqs.png"),
   },
 ];
 
@@ -39,7 +44,7 @@ export default function HeroSection() {
       className="relative bg-bg-alt border-b border-line overflow-hidden"
       style={{ paddingTop: "var(--header-h)" }}
     >
-      {/* Декоративный мятный круг на фоне — отсылка к логотипу */}
+      {/* Декоративный мятный круг */}
       <div
         aria-hidden
         className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-bg-mint blur-3xl opacity-60 pointer-events-none"
@@ -86,6 +91,7 @@ export default function HeroSection() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority={i === 0}
+                quality={85}
                 className={cn(
                   "object-cover transition-opacity duration-700",
                   i === active ? "opacity-100" : "opacity-0"
