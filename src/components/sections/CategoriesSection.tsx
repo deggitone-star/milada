@@ -11,8 +11,8 @@ export default function CategoriesSection() {
           <div>
             <p className="label mb-3">Производственный каталог</p>
             <h2 className="h2">Типы фасадов и материалов</h2>
-            <p className="mt-3 text-ink-muted max-w-xl">
-              {categories.length} категорий продукции для мебельных производств, салонов и&nbsp;дилеров.
+            <p className="mt-4 text-base text-ink-muted max-w-xl leading-relaxed">
+              {categories.length} категорий продукции для мебельных производств, салонов и дилеров.
             </p>
           </div>
           <Link href="/catalog" className="btn-ghost shrink-0 hidden sm:inline-flex">

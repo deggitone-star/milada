@@ -12,8 +12,8 @@ export default function FeaturedSection() {
           <div>
             <p className="label mb-3">Каталог</p>
             <h2 className="h2">Популярные серии фасадов</h2>
-            <p className="mt-3 text-ink-muted max-w-xl">
-              Серийные модели мебельных фасадов, доступные для оптовых поставок и&nbsp;индивидуальных заказов.
+            <p className="mt-4 text-base text-ink-muted max-w-xl leading-relaxed">
+              Серийные модели мебельных фасадов, доступные для оптовых поставок и индивидуальных заказов.
             </p>
           </div>
           <Link href="/catalog" className="btn-ghost shrink-0 hidden sm:inline-flex">

@@ -33,9 +33,9 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        "h1": ["clamp(2.25rem, 5vw, 4rem)", { lineHeight: "1.05", letterSpacing: "-0.025em" }],
-        "h2": ["clamp(1.75rem, 3.5vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "h3": ["clamp(1.25rem, 2vw, 1.5rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "h1": ["clamp(2rem, 4.5vw, 3.25rem)", { lineHeight: "1.1", letterSpacing: "-0.025em" }],
+        "h2": ["clamp(1.5rem, 2.8vw, 2rem)", { lineHeight: "1.2", letterSpacing: "-0.015em" }],
+        "h3": ["clamp(1.125rem, 1.6vw, 1.375rem)", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
       },
       maxWidth: {
         "8xl": "88rem",
