@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import YandexMetrika from "@/components/ui/YandexMetrika";
+import { LocalBusinessSchema, OrganizationSchema } from "@/components/seo/SchemaOrg";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -17,30 +18,42 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "MILADA — Производство мебельных фасадов",
+    default: "MILADA — Мебельные фасады в Ульяновске | От производителя",
     template: "%s | MILADA",
   },
-  description: siteConfig.description,
+  description:
+    "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, камень, патина, радиусные. Опт и розница. Доставка по России. ☎ +7 (8422) 27-82-02",
   keywords: [
     "мебельные фасады",
-    "кухонные фасады",
-    "фасады МДФ",
-    "эмалевые фасады",
-    "ПВХ фасады",
+    "мебельные фасады ульяновск",
+    "фасады для кухни",
+    "фасады мдф",
+    "фасады мдф ульяновск",
     "производство фасадов",
+    "производство фасадов ульяновск",
+    "фасады пвх",
+    "эмалевые фасады",
+    "пластиковые фасады",
+    "купить фасады ульяновск",
+    "фасады на заказ",
     "MILADA",
-    "Ульяновск",
+    "Милада",
   ],
-  // Иконки — favicon и mobile bookmark icons
+  authors: [{ name: "MILADA" }],
+  creator: "MILADA",
+  publisher: "MILADA",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
@@ -50,17 +63,42 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: siteConfig.url,
     siteName: "MILADA",
-    title: "MILADA — Производство мебельных фасадов",
-    description: siteConfig.description,
-    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "MILADA" }],
+    title: "MILADA — Мебельные фасады в Ульяновске | От производителя",
+    description:
+      "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, камень, патина, радиусные. Опт и розница.",
+    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "MILADA — Производство мебельных фасадов" }],
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "MILADA — Мебельные фасады в Ульяновске",
+    description: "Производство мебельных фасадов с 2012 года. Опт и розница.",
+    images: ["/icon-512.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // Яндекс.Webmaster verification — добавьте код после регистрации
+  other: {
+    "yandex-verification": process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={inter.variable}>
-      <head><YandexMetrika /></head>
+      <head>
+        <YandexMetrika />
+        {/* Глобальные Schema.org — на каждой странице */}
+        <LocalBusinessSchema />
+        <OrganizationSchema />
+      </head>
       <body className="bg-bg text-ink font-sans antialiased">
         <Header />
         <main>{children}</main>

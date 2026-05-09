@@ -6,6 +6,7 @@ import { getProductBySlug, getProductsByCategory, products } from "@/data/produc
 import { getCategoryBySlug } from "@/data/categories";
 import { siteConfig } from "@/lib/config";
 import ProductCard from "@/components/catalog/ProductCard";
+import { BreadcrumbSchema, ProductSchema } from "@/components/seo/SchemaOrg";
 
 interface Props { params: Promise<{ category: string; slug: string }> }
 
@@ -17,11 +18,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return {};
+
+  const category = getCategoryBySlug(product.category);
+  const categoryName = category?.title || "";
+
   return {
-    title: product.title,
-    description: product.description,
+    title: `Фасад ${product.title} — ${categoryName} | MILADA Ульяновск`,
+    description: `${product.title} — ${product.description.slice(0, 140)} Производство MILADA, Ульяновск. ☎ +7 (8422) 27-82-02`,
     alternates: { canonical: `${siteConfig.url}/catalog/${product.category}/${product.slug}` },
-    openGraph: { images: [{ url: product.image, width: 800, height: 600 }] },
+    openGraph: {
+      title: `${product.title} — мебельный фасад MILADA`,
+      description: product.description,
+      url: `${siteConfig.url}/catalog/${product.category}/${product.slug}`,
+      images: [{ url: product.image, width: 800, height: 1000, alt: `Мебельный фасад ${product.title} от производителя MILADA` }],
+    },
   };
 }
 
@@ -33,12 +43,23 @@ export default async function ProductPage({ params }: Props) {
   const category = getCategoryBySlug(categorySlug);
   const related = getProductsByCategory(categorySlug).filter((p) => p.slug !== slug).slice(0, 4);
 
+  const breadcrumbs = [
+    { name: "Главная", url: siteConfig.url },
+    { name: "Каталог", url: `${siteConfig.url}/catalog` },
+    ...(category ? [{ name: category.title, url: `${siteConfig.url}/catalog/${categorySlug}` }] : []),
+    { name: product.title, url: `${siteConfig.url}/catalog/${categorySlug}/${slug}` },
+  ];
+
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <ProductSchema product={product} category={category} />
+
       <div style={{ paddingTop: "var(--header-h)" }}>
+        {/* Breadcrumb */}
         <div className="bg-bg-alt border-b border-line">
           <div className="container-site py-4">
-            <nav className="flex items-center gap-2 text-xs text-ink-subtle">
+            <nav aria-label="breadcrumb" className="flex items-center gap-2 text-xs text-ink-subtle">
               <Link href="/" className="hover:text-ink transition-colors">Главная</Link>
               <span>/</span>
               <Link href="/catalog" className="hover:text-ink transition-colors">Каталог</Link>
@@ -56,17 +77,19 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
 
+        {/* Product */}
         <section className="bg-bg-alt">
           <div className="container-site py-10 lg:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               <div className="relative aspect-[3/4] bg-bg border border-line rounded-soft overflow-hidden">
                 <Image
                   src={product.image}
-                  alt={product.title}
+                  alt={`Мебельный фасад ${product.title} от производителя MILADA в Ульяновске${product.material ? ` — ${product.material}` : ""}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-6"
                   priority
+                  quality={90}
                 />
                 {product.new && (
                   <span className="absolute top-4 left-4 bg-mint text-ink text-[10px] font-semibold px-3 py-1.5 rounded-pill tracking-wider uppercase">
@@ -77,7 +100,7 @@ export default async function ProductPage({ params }: Props) {
 
               <div className="flex flex-col">
                 {category && <p className="label mb-4">{category.title}</p>}
-                <h1 className="h1">{product.title}</h1>
+                <h1 className="h1">Фасад {product.title}</h1>
 
                 {product.price && (
                   <p className="mt-4 text-2xl font-medium text-mint-dark">{product.price}</p>
@@ -104,11 +127,15 @@ export default async function ProductPage({ params }: Props) {
                       <dd className="text-ink text-right">{product.finishes.join(", ")}</dd>
                     </div>
                   )}
+                  <div className="flex justify-between gap-4 text-sm">
+                    <dt className="text-ink-subtle">Производитель</dt>
+                    <dd className="text-ink text-right">MILADA, Ульяновск</dd>
+                  </div>
                 </dl>
 
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link href="/contacts" className="btn-primary">Заказать фасад</Link>
-                  <Link href="/catalog" className="btn-ghost">← Каталог</Link>
+                  <Link href={`/catalog/${categorySlug}`} className="btn-ghost">← В категорию</Link>
                 </div>
               </div>
             </div>
@@ -118,7 +145,7 @@ export default async function ProductPage({ params }: Props) {
         {related.length > 0 && (
           <section className="section-py bg-bg border-t border-line">
             <div className="container-site">
-              <p className="label mb-6">Похожие фасады</p>
+              <h2 className="h3 mb-6">Похожие фасады из категории «{category?.title}»</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                 {related.map((p) => <ProductCard key={p.slug} product={p} />)}
               </div>

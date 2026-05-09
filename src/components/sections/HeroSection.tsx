@@ -15,7 +15,7 @@ const slides = [
     eyebrow: "Производство с 2012 года",
     title: "Мебельные фасады MILADA",
     subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство в Ульяновске, индивидуальный раскрой.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778323836/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._14_50_22_iin4ko.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_01_1_hspb3e.png"),
   },
   {
     eyebrow: "Более 100 декоров",

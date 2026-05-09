@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { getCategoryBySlug, categories } from "@/data/categories";
 import { getProductsByCategory } from "@/data/products";
+import { getCategorySeo } from "@/data/category-seo";
 import { siteConfig } from "@/lib/config";
 import ProductCard from "@/components/catalog/ProductCard";
 import CategoryIcon from "@/components/ui/CategoryIcon";
+import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
 
 interface Props { params: Promise<{ category: string }> }
 
@@ -18,10 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category: slug } = await params;
   const category = getCategoryBySlug(slug);
   if (!category) return {};
+  const seo = getCategorySeo(slug);
+
   return {
-    title: category.title,
-    description: `${category.description} Производство, индивидуальный раскрой.`,
+    title: seo?.metaTitle || category.title,
+    description: seo?.metaDescription || category.description,
     alternates: { canonical: `${siteConfig.url}/catalog/${slug}` },
+    openGraph: {
+      title: seo?.metaTitle || category.title,
+      description: seo?.metaDescription || category.description,
+      url: `${siteConfig.url}/catalog/${slug}`,
+      images: [{ url: category.image, width: 1200, height: 630, alt: category.title }],
+    },
   };
 }
 
@@ -31,43 +41,51 @@ export default async function CategoryPage({ params }: Props) {
   if (!category) notFound();
 
   const items = getProductsByCategory(slug);
-  // Берём первый товар категории как фон hero (если есть)
+  const seo = getCategorySeo(slug);
   const heroImage = items[0]?.image || category.image;
+
+  const breadcrumbs = [
+    { name: "Главная", url: siteConfig.url },
+    { name: "Каталог", url: `${siteConfig.url}/catalog` },
+    { name: category.title, url: `${siteConfig.url}/catalog/${slug}` },
+  ];
 
   return (
     <>
-      {/* HERO BANNER ─────────────────────────────────────────────── */}
+      <BreadcrumbSchema items={breadcrumbs} />
+      <CollectionPageSchema
+        title={seo?.h1 || category.title}
+        description={seo?.metaDescription || category.description}
+        url={`${siteConfig.url}/catalog/${slug}`}
+        itemCount={items.length}
+      />
+
+      {/* HERO BANNER */}
       <section
         className="relative overflow-hidden bg-bg-dark"
         style={{ paddingTop: "var(--header-h)" }}
       >
-        {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
             src={heroImage}
-            alt={category.title}
+            alt={`${category.title} — производство MILADA Ульяновск`}
             fill
             sizes="100vw"
             className="object-cover opacity-40"
             priority
             quality={85}
           />
-          {/* Затемняющий градиент: слева темнее (для читаемости текста), справа прозрачнее */}
           <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/40" />
-          {/* Дополнительный тёмный оверлей снизу */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-dark/60" />
         </div>
 
-        {/* Декоративный мятный круг — отсылка к лого */}
         <div
           aria-hidden
           className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-mint blur-3xl opacity-10 pointer-events-none"
         />
 
-        {/* Content */}
         <div className="container-site relative z-10 py-16 lg:py-24">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center gap-2 text-xs text-white/50 mb-6">
+          <nav aria-label="breadcrumb" className="flex items-center gap-2 text-xs text-white/50 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Главная</Link>
             <span>/</span>
             <Link href="/catalog" className="hover:text-white transition-colors">Каталог</Link>
@@ -85,14 +103,13 @@ export default async function CategoryPage({ params }: Props) {
               </div>
 
               <h1 className="text-h1 font-medium text-white leading-tight max-w-2xl">
-                {category.title}
+                {seo?.h1 || category.title}
               </h1>
               <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-xl">
-                {category.description}
+                {seo?.intro || category.description}
               </p>
             </div>
 
-            {/* Кол-во позиций — справа */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-soft px-5 py-4 shrink-0 lg:self-end">
               <p className="text-3xl font-medium text-white">{items.length}</p>
               <p className="text-xs text-white/60 mt-0.5">
@@ -103,7 +120,7 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* PRODUCTS ────────────────────────────────────────────────── */}
+      {/* PRODUCTS */}
       <section className="section-py bg-bg">
         <div className="container-site">
           {items.length > 0 ? (
@@ -115,6 +132,46 @@ export default async function CategoryPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      {/* SEO TEXT */}
+      {seo && (
+        <section className="section-py bg-bg-alt border-t border-line">
+          <div className="container-site max-w-4xl">
+            <h2 className="h2 mb-8">О категории «{category.title}»</h2>
+
+            <div className="space-y-5 text-ink-muted leading-relaxed">
+              {seo.fullText.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+
+            {seo.features && seo.features.length > 0 && (
+              <>
+                <h3 className="h3 mt-10 mb-5">Преимущества</h3>
+                <ul className="space-y-2.5 text-ink-muted">
+                  {seo.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint-dark shrink-0 mt-0.5">
+                        <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            <div className="mt-10 pt-8 border-t border-line flex flex-wrap gap-3">
+              <Link href="/contacts" className="btn-primary">
+                Заказать расчёт
+              </Link>
+              <Link href="/catalog" className="btn-outline">
+                Все категории
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

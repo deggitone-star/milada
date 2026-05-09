@@ -2,11 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
+import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "О компании",
-  description: "Компания MILADA в Ульяновске — производство и продажа мебельных фасадов. ПВХ, эмаль, HPL-пластик, камень, патина, радиусные фасады, спинки кроватные.",
+  title: "О компании MILADA — производство мебельных фасадов в Ульяновске",
+  description:
+    "MILADA — производитель мебельных фасадов в Ульяновске с 2012 года. Собственный завод, более 500 проектов в год, евростандарты качества. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: `${siteConfig.url}/about` },
+  keywords: [
+    "milada ульяновск",
+    "о компании милада",
+    "производитель фасадов ульяновск",
+    "завод мебельных фасадов",
+  ],
 };
 
 const stats = [
@@ -16,35 +24,39 @@ const stats = [
   { value: "10",   label: "дней срок" },
 ];
 
-// Галерея реальных фото фасадов из Cloudinary
 const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 
 const gallery = [
-  { src: `${CDN}/v1778176567/milada/pvh-arka-premium.png`,    alt: "Фасад МДФ премиум фрезеровка" },
-  { src: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg`,    alt: "Пластиковый фасад HPL дуб" },
-  { src: `${CDN}/v1778176600/milada/stone-white.jpg`,         alt: "Каменный фасад" },
-  { src: `${CDN}/v1778176610/milada/enamel-mat.jpg`,          alt: "Эмалевый фасад" },
-  { src: `${CDN}/v1778176579/milada/pvh-praga.png`,           alt: "Премиум фрезеровка Прага" },
-  { src: `${CDN}/v1778177149/milada/headboard-sk1.png`,       alt: "Спинка кроватная" },
-  { src: `${CDN}/v1778176614/milada/patina-classic.jpg`,      alt: "Патинированный фасад" },
-  { src: `${CDN}/v1778177331/milada/door-panel-p7.png`,       alt: "Дверная панель" },
+  { src: `${CDN}/v1778176567/milada/pvh-arka-premium.png`, alt: "Фасад МДФ премиум фрезеровка от MILADA" },
+  { src: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg`, alt: "Пластиковый фасад HPL дуб MILADA" },
+  { src: `${CDN}/v1778176600/milada/stone-white.jpg`,      alt: "Каменный фасад MILADA Ульяновск" },
+  { src: `${CDN}/v1778176610/milada/enamel-mat.jpg`,       alt: "Эмалевый матовый фасад MILADA" },
+  { src: `${CDN}/v1778176579/milada/pvh-praga.png`,        alt: "Премиум фрезеровка Прага MILADA" },
+  { src: `${CDN}/v1778177149/milada/headboard-sk1.png`,    alt: "Кроватная спинка МДФ MILADA" },
+  { src: `${CDN}/v1778176614/milada/patina-classic.jpg`,   alt: "Патинированный фасад MILADA" },
+  { src: `${CDN}/v1778177331/milada/door-panel-p7.png`,    alt: "Дверная панель МДФ MILADA" },
 ];
 
 export default function AboutPage() {
+  const breadcrumbs = [
+    { name: "Главная", url: siteConfig.url },
+    { name: "О компании", url: `${siteConfig.url}/about` },
+  ];
+
   return (
     <>
-      {/* Header */}
+      <BreadcrumbSchema items={breadcrumbs} />
+
       <div className="bg-bg-alt border-b border-line" style={{ paddingTop: "var(--header-h)" }}>
         <div className="container-site py-10 lg:py-14">
           <p className="label mb-3">О компании</p>
-          <h1 className="h1">MILADA</h1>
+          <h1 className="h1">Производство мебельных фасадов MILADA в Ульяновске</h1>
           <p className="mt-4 text-ink-muted max-w-2xl">
-            Производство и продажа мебельных фасадов в Ульяновске. Большой ассортимент материалов, расцветок и текстур.
+            Производитель с 2012 года. Собственный завод, индивидуальный раскрой, опт и розница по всей России.
           </p>
         </div>
       </div>
 
-      {/* Stats */}
       <section className="section-py bg-bg">
         <div className="container-site">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line">
@@ -58,7 +70,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* About text */}
       <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
@@ -69,11 +80,13 @@ export default function AboutPage() {
 
             <div className="lg:col-span-2 space-y-5 text-ink-muted leading-relaxed">
               <p>
-                Компания «Милада» в&nbsp;Ульяновске специализируется на&nbsp;производстве и&nbsp;продаже фасадов для мебели. Большой ассортимент материалов, расцветок и&nbsp;текстур не&nbsp;оставит равнодушным ни&nbsp;одного покупателя.
+                Компания «Милада» в&nbsp;Ульяновске специализируется на&nbsp;производстве и&nbsp;продаже
+                <strong className="text-ink"> мебельных фасадов</strong> с 2012 года. Большой ассортимент
+                материалов, расцветок и&nbsp;текстур не&nbsp;оставит равнодушным ни&nbsp;одного покупателя.
               </p>
               <p>Мы предлагаем мебельные фасады:</p>
               <ul className="space-y-1.5 ml-1">
-                <li>— Фасады МДФ с ПВХ плёнкой (стандарт и премиум)</li>
+                <li>— Фасады МДФ с ПВХ-плёнкой (стандарт и премиум фрезеровки)</li>
                 <li>— Пластиковые фасады HPL</li>
                 <li>— Патинированные фасады</li>
                 <li>— Эмаль (матовая, глянцевая, металлик)</li>
@@ -83,31 +96,33 @@ export default function AboutPage() {
                 <li>— Дверные панели и полотна для шкафов-купе</li>
               </ul>
               <p>
-                Всё сырьё, используемое для изготовления, отвечает евростандартам качества. Компания не&nbsp;стоит на&nbsp;месте: мы&nbsp;занимаем передовые позиции в&nbsp;Поволжье и&nbsp;осваиваем новые регионы.
+                Всё сырьё, используемое для&nbsp;изготовления, отвечает евростандартам качества.
+                Компания не&nbsp;стоит на&nbsp;месте: мы&nbsp;занимаем передовые позиции в&nbsp;Поволжье
+                и&nbsp;осваиваем новые регионы.
               </p>
               <p>
-                Для создания новых моделей мы&nbsp;регулярно проводим мониторинг модных тенденций на&nbsp;рынке производства мебели. Своим покупателям мы&nbsp;предоставляем отличное качество по&nbsp;выгодным ценам и&nbsp;в&nbsp;минимальные сроки.
+                Для&nbsp;создания новых моделей мы&nbsp;регулярно проводим мониторинг модных тенденций
+                на&nbsp;рынке производства мебели. Своим покупателям мы&nbsp;предоставляем отличное качество
+                по&nbsp;выгодным ценам и&nbsp;в&nbsp;минимальные сроки.
               </p>
               <p>
-                Фасады представлены в&nbsp;огромной цветовой гамме и&nbsp;множестве дизайнерских решений. Компания активно внедряет новые технологии в&nbsp;процессе производства, постоянно повышая качество продукции.
+                Фасады представлены в&nbsp;огромной цветовой гамме и&nbsp;множестве дизайнерских решений.
+                Компания активно внедряет новые технологии в&nbsp;процессе производства, постоянно повышая
+                качество продукции.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
       <section className="section-py bg-bg">
         <div className="container-site">
           <p className="label mb-3">Галерея</p>
-          <h2 className="h2 mb-10">Наша продукция</h2>
+          <h2 className="h2 mb-10">Продукция MILADA</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
             {gallery.map((item, i) => (
-              <div
-                key={i}
-                className="relative aspect-square bg-bg-alt border border-line rounded-soft overflow-hidden group"
-              >
+              <div key={i} className="relative aspect-square bg-bg-alt border border-line rounded-soft overflow-hidden group">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -130,26 +145,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section-py bg-bg-dark">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-h2 font-medium text-white">Готовы обсудить ваш проект?</h2>
               <p className="mt-4 text-white/60 max-w-md">
-                Позвоните или оставьте заявку — менеджер ответит на все вопросы и&nbsp;подберёт нужные материалы.
+                Позвоните или оставьте заявку — менеджер ответит на все вопросы и подберёт нужные материалы.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
               <a
                 href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                className="inline-flex items-center bg-mint text-ink font-medium text-sm px-6 py-3 rounded-soft hover:bg-mint-light transition-colors"
+                className="inline-flex items-center bg-mint text-mint-dark font-medium text-sm px-6 py-3 rounded-pill hover:bg-mint-light transition-colors"
               >
                 {siteConfig.phone}
               </a>
               <Link
                 href="/contacts"
-                className="inline-flex items-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-soft hover:bg-white/5 transition-colors"
+                className="inline-flex items-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors"
               >
                 Написать
               </Link>

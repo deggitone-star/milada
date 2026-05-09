@@ -8,20 +8,24 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
+  // SEO-оптимизированный alt с ключевыми запросами
+  const altText = `Мебельный фасад ${product.title}${product.material ? ` — ${product.material}` : ""} от производителя MILADA Ульяновск`;
+
   return (
     <Link
       href={`/catalog/${product.category}/${product.slug}`}
       className="group block"
+      title={`Фасад ${product.title} — MILADA`}
     >
-      {/* Image — vertical aspect, contain to show full facade */}
       <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-soft overflow-hidden group-hover:border-ink-subtle group-hover:shadow-lift transition-all duration-200">
         <Image
           src={product.image}
-          alt={product.title}
+          alt={altText}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
           priority={priority}
+          quality={85}
         />
         <div className="absolute top-3 left-3 flex gap-1.5 z-10">
           {product.new && (

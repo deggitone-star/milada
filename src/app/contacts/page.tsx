@@ -1,21 +1,36 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
+import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Контакты",
-  description: `Производство мебельных фасадов MILADA в Ульяновске. ${siteConfig.phone}, ${siteConfig.address}.`,
+  title: "Контакты MILADA — Ульяновск, ул. Хваткова 11 | Заказ фасадов",
+  description: `Адрес: ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Производство мебельных фасадов на заказ.`,
   alternates: { canonical: `${siteConfig.url}/contacts` },
+  keywords: [
+    "milada контакты",
+    "milada ульяновск телефон",
+    "купить фасады ульяновск адрес",
+    "фасады хваткова ульяновск",
+  ],
 };
 
 export default function ContactsPage() {
+  const breadcrumbs = [
+    { name: "Главная", url: siteConfig.url },
+    { name: "Контакты", url: `${siteConfig.url}/contacts` },
+  ];
+
   return (
     <>
+      <BreadcrumbSchema items={breadcrumbs} />
+
       <div className="bg-bg-alt border-b border-line" style={{ paddingTop: "var(--header-h)" }}>
         <div className="container-site py-10 lg:py-14">
           <p className="label mb-3">Связаться</p>
-          <h1 className="h1">Контакты</h1>
-          <p className="mt-4 text-ink-muted max-w-xl">
-            Производство и офис в Ульяновске. Звоните или оставьте заявку — менеджер свяжется в течение часа.
+          <h1 className="h1">Контакты MILADA в Ульяновске</h1>
+          <p className="mt-4 text-ink-muted max-w-2xl">
+            Свяжитесь с нами для расчёта стоимости и заказа мебельных фасадов.
+            Производство, опт и розница.
           </p>
         </div>
       </div>
@@ -23,14 +38,13 @@ export default function ContactsPage() {
       <section className="section-py bg-bg">
         <div className="container-site">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Контакты + карта */}
             <div>
               <h2 className="h3 mb-8">Реквизиты</h2>
               <dl className="space-y-6">
                 <div>
                   <dt className="label mb-1.5">Телефон</dt>
                   <dd>
-                    <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-lg font-medium text-ink hover:text-mint-dark transition-colors">
+                    <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-lg text-ink hover:text-mint-dark transition-colors">
                       {siteConfig.phone}
                     </a>
                   </dd>
@@ -44,7 +58,7 @@ export default function ContactsPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="label mb-1.5">Адрес</dt>
+                  <dt className="label mb-1.5">Адрес производства</dt>
                   <dd className="text-ink">{siteConfig.address}</dd>
                 </div>
                 <div>
@@ -53,20 +67,16 @@ export default function ContactsPage() {
                 </div>
               </dl>
 
-              {/* Яндекс-карта */}
-              <div className="mt-10 aspect-video bg-bg-alt border border-line rounded-soft overflow-hidden">
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/?ll=48.342896%2C54.314192&mode=search&sctx=ZAAAAAgBEAAaKAoSCfIzm3Tr9khAEa%2FTEN1cF0tAEhIJnYo2c4ZH5z8RiGYBbMvg7T8iBgABAgMEBSgKOABAoIYGSAFqAnJ1nQHNzMw9oAEAqAEAvQEAAAAAxQGwn1g%2BwgEAggIm0YPQuy5Lq2Et0LXQu9C40LDQtdGCINGB0Lwu0YHQutC40Lk%3D%2COrgvzDB1NS5TIHN0cmVldA%3D%3D&z=16"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="MILADA на карте"
-                  loading="lazy"
-                />
+              <div className="mt-10 pt-8 border-t border-line">
+                <h3 className="h3 mb-4">Как нас найти</h3>
+                <p className="text-ink-muted leading-relaxed">
+                  Производство MILADA расположено по адресу: г. Ульяновск,
+                  ул. Хваткова, д. 11. Принимаем заказы на изготовление мебельных фасадов
+                  для частных клиентов и оптовых партнёров.
+                </p>
               </div>
             </div>
 
-            {/* Форма */}
             <div>
               <h2 className="h3 mb-8">Получить расчёт</h2>
               <ContactForm />
@@ -88,6 +98,7 @@ function ContactForm() {
       <input type="hidden" name="_subject" value="Новая заявка с сайта MILADA" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="/contacts?sent=1" />
+      <input type="hidden" name="_template" value="table" />
 
       <div>
         <label htmlFor="name" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Имя *</label>
