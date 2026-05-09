@@ -2,21 +2,40 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 
+// Cloudinary с авто-оптимизацией
+const opt = (url: string, w = 2000) =>
+  url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
+
+const CTA_IMAGE = opt(
+  "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778322343/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._14_24_31_vz0h98.png"
+);
+
 export default function CtaSection() {
   return (
-    <section className="section-py bg-bg-dark relative overflow-hidden">
-      {/* Watermark лого на фоне */}
-      <div aria-hidden className="absolute -right-20 -bottom-20 opacity-[0.04] pointer-events-none">
-        <Image src="/logo.png" alt="" width={420} height={420} />
+    <section className="relative overflow-hidden bg-bg-dark">
+      {/* Фоновое фото кухни */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={CTA_IMAGE}
+          alt="Кухня с фасадами MILADA"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          quality={85}
+        />
+        {/* Зелёный градиент: слева плотный (для формы и текста), справа прозрачнее (видно интерьер) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/30" />
+        {/* Доп. лёгкий градиент снизу для глубины */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-dark/50" />
       </div>
 
-      {/* Декоративный мятный круг для глубины */}
+      {/* Декоративный мятный круг */}
       <div
         aria-hidden
-        className="absolute -top-40 -left-40 w-[480px] h-[480px] rounded-full bg-mint blur-3xl opacity-[0.07] pointer-events-none"
+        className="absolute -top-40 -left-40 w-[480px] h-[480px] rounded-full bg-mint blur-3xl opacity-[0.08] pointer-events-none z-[1]"
       />
 
-      <div className="container-site relative">
+      <div className="container-site relative z-10 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — text */}
           <div>
@@ -26,33 +45,23 @@ export default function CtaSection() {
             <h2 className="text-h2 font-medium text-white">
               Нужен расчёт фасадов?
             </h2>
-            <p className="mt-4 text-white/60 max-w-md leading-relaxed">
+            <p className="mt-4 text-white/70 max-w-md leading-relaxed">
               Оставьте номер — менеджер перезвонит в течение часа, обсудим материалы, размеры и сроки.
             </p>
 
-            {/* Дополнительные плюшки */}
+            {/* Преимущества */}
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-              <div className="flex items-center gap-2 text-sm text-white/70">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Бесплатный расчёт
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/70">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Ответ за 1 час
-              </div>
-              <div className="flex items-center gap-2 text-sm text-white/70">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
-                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Без обязательств
-              </div>
+              {["Бесплатный расчёт", "Ответ за 1 час", "Без обязательств"].map((t) => (
+                <div key={t} className="flex items-center gap-2 text-sm text-white/80">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
+                    <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {t}
+                </div>
+              ))}
             </div>
 
-            {/* Прямой телефон, как альтернатива */}
+            {/* Прямой телефон */}
             <div className="mt-8 pt-8 border-t border-white/10">
               <p className="text-xs text-white/40 mb-2">Или позвоните напрямую</p>
               <a
@@ -68,7 +77,7 @@ export default function CtaSection() {
           <form
             action="https://formsubmit.co/milada.73@mail.ru"
             method="POST"
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-soft p-6 lg:p-8"
+            className="bg-white/[0.07] backdrop-blur-md border border-white/15 rounded-soft p-6 lg:p-8 shadow-2xl"
           >
             <input type="hidden" name="_subject" value="Заявка с сайта MILADA — Быстрый расчёт" />
             <input type="hidden" name="_captcha" value="false" />
@@ -88,20 +97,20 @@ export default function CtaSection() {
                 name="name"
                 placeholder="Ваше имя"
                 required
-                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <input
                 type="tel"
                 name="phone"
                 placeholder="+7 (___) ___-__-__"
                 required
-                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <textarea
                 name="message"
                 placeholder="Опишите проект (необязательно)"
                 rows={3}
-                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all resize-none"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
               />
             </div>
 
@@ -115,7 +124,7 @@ export default function CtaSection() {
               </svg>
             </button>
 
-            <p className="mt-4 text-[11px] text-white/40 leading-relaxed">
+            <p className="mt-4 text-[11px] text-white/50 leading-relaxed">
               Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.{" "}
               <Link href="/contacts" className="text-mint hover:underline">
                 Развёрнутая форма
