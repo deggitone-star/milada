@@ -8,8 +8,23 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
-  // SEO-оптимизированный alt с ключевыми запросами
   const altText = `Мебельный фасад ${product.title}${product.material ? ` — ${product.material}` : ""} от производителя MILADA Ульяновск`;
+
+  // Категория для технической пометки
+  const categoryLabel: Record<string, string> = {
+    "pvh-standart":   "Серия Стандарт",
+    "pvh-premium":    "Серия Премиум",
+    "plastic":        "HPL",
+    "patina":         "Премиум",
+    "enamel":         "Эмаль",
+    "stone":          "Камень",
+    "door-panels":    "Дверная панель",
+    "kupe":           "Купе",
+    "radius":         "Радиусный",
+    "decor-elements": "Декоративный",
+    "headboards":     "Спинка",
+    "decors":         "Накладка",
+  };
 
   return (
     <Link
@@ -17,6 +32,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       className="group block"
       title={`Фасад ${product.title} — MILADA`}
     >
+      {/* Image */}
       <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-soft overflow-hidden group-hover:border-ink-subtle group-hover:shadow-lift transition-all duration-200">
         <Image
           src={product.image}
@@ -27,22 +43,14 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           priority={priority}
           quality={85}
         />
-        <div className="absolute top-3 left-3 flex gap-1.5 z-10">
-          {product.new && (
-            <span className="bg-mint text-ink text-[10px] font-semibold px-2 py-1 rounded-pill tracking-wider uppercase">
-              Новинка
-            </span>
-          )}
-          {product.featured && !product.new && (
-            <span className="bg-ink text-white text-[10px] font-semibold px-2 py-1 rounded-pill tracking-wider uppercase">
-              Хит
-            </span>
-          )}
-        </div>
       </div>
 
+      {/* Info — техническая, B2B-стиль */}
       <div className="pt-3">
-        <h3 className="text-sm font-medium text-ink group-hover:text-mint-dark transition-colors leading-tight">
+        <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-ink-subtle">
+          {categoryLabel[product.category] || ""}
+        </p>
+        <h3 className="mt-1 text-sm font-medium text-ink group-hover:text-mint-dark transition-colors leading-tight">
           {product.title}
         </h3>
         {product.material && (

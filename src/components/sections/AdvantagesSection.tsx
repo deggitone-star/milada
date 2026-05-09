@@ -1,8 +1,34 @@
 const advantages = [
-  { num: "12+",  label: "лет опыта", text: "На рынке производства фасадов с 2012 года" },
-  { num: "500+", label: "проектов в год", text: "Индивидуальные заказы для частных клиентов и оптовых партнёров" },
-  { num: "100+", label: "декоров",    text: "ПВХ плёнки, HPL-пластик, эмаль RAL, искусственный камень" },
-  { num: "10",   label: "дней",       text: "Стандартный срок изготовления заказа" },
+  {
+    num: "01",
+    title: "Собственное производство",
+    text: "Полный цикл изготовления на собственном заводе в Ульяновске. Без посредников и торговых наценок.",
+  },
+  {
+    num: "02",
+    title: "Стабильные сроки",
+    text: "Серийное производство от 5 рабочих дней. Выдерживаем оговорённые сроки даже на крупных партиях.",
+  },
+  {
+    num: "03",
+    title: "Контроль качества",
+    text: "Многоступенчатая проверка на каждом этапе производства. Соответствие евростандартам.",
+  },
+  {
+    num: "04",
+    title: "Индивидуальный раскрой",
+    text: "Изготовление под точные размеры заказчика. Допуски по размерам и геометрии в пределах ±0,5 мм.",
+  },
+  {
+    num: "05",
+    title: "Работа по договору",
+    text: "Официальное оформление, отсрочка платежей для постоянных партнёров, документы для бухгалтерии.",
+  },
+  {
+    num: "06",
+    title: "Доставка по России",
+    text: "Поставки через проверенные транспортные компании. Многослойная упаковка, страхование грузов.",
+  },
 ];
 
 export default function AdvantagesSection() {
@@ -10,15 +36,18 @@ export default function AdvantagesSection() {
     <section className="section-py bg-bg">
       <div className="container-site">
         <div className="mb-10 lg:mb-14">
-          <p className="label mb-3">О нас</p>
-          <h2 className="h2">Почему MILADA</h2>
+          <p className="label mb-3">Почему выбирают MILADA</p>
+          <h2 className="h2">Условия работы с производством</h2>
+          <p className="mt-3 text-ink-muted max-w-xl">
+            12+ лет опыта в производстве мебельных фасадов для мебельных компаний, салонов и&nbsp;дилеров по всей России.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line">
-          {advantages.map(({ num, label, text }) => (
-            <div key={label} className="bg-bg p-6 lg:p-8">
-              <p className="text-3xl lg:text-4xl font-medium text-ink">{num}</p>
-              <p className="mt-1 text-sm font-medium text-mint-dark">{label}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-line">
+          {advantages.map(({ num, title, text }) => (
+            <div key={num} className="bg-bg p-6 lg:p-8 group">
+              <p className="text-sm font-medium tracking-[0.15em] text-mint-dark">{num}</p>
+              <h3 className="mt-4 text-base font-medium text-ink">{title}</h3>
               <p className="mt-3 text-sm text-ink-muted leading-relaxed">{text}</p>
             </div>
           ))}

@@ -9,10 +9,13 @@ export default function CategoriesSection() {
       <div className="container-site">
         <div className="flex items-end justify-between mb-10 lg:mb-14 gap-4">
           <div>
-            <p className="label mb-3">Каталог</p>
-            <h2 className="h2">Категории фасадов</h2>
+            <p className="label mb-3">Производственный каталог</p>
+            <h2 className="h2">Типы фасадов и материалов</h2>
+            <p className="mt-3 text-ink-muted max-w-xl">
+              {categories.length} категорий продукции для мебельных производств, салонов и&nbsp;дилеров.
+            </p>
           </div>
-          <Link href="/catalog" className="btn-ghost shrink-0">
+          <Link href="/catalog" className="btn-ghost shrink-0 hidden sm:inline-flex">
             Все категории
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
               <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -33,7 +36,9 @@ export default function CategoriesSection() {
                   <CategoryIcon slug={cat.slug} className="w-10 h-10" />
                 </div>
                 <h3 className="mt-6 text-base font-medium text-ink leading-tight">{cat.title}</h3>
-                <p className="mt-1 text-xs text-ink-subtle">{count} {count === 1 ? "позиция" : count < 5 ? "позиции" : "позиций"}</p>
+                <p className="mt-1 text-xs text-ink-subtle">
+                  {count} {count === 1 ? "модель" : count < 5 ? "модели" : "моделей"}
+                </p>
               </Link>
             );
           })}

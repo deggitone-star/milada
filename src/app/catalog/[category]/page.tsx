@@ -163,7 +163,7 @@ export default async function CategoryPage({ params }: Props) {
 
             <div className="mt-10 pt-8 border-t border-line flex flex-wrap gap-3">
               <Link href="/contacts" className="btn-primary">
-                Заказать расчёт
+                Запросить расчёт
               </Link>
               <Link href="/catalog" className="btn-outline">
                 Все категории

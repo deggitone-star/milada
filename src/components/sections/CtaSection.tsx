@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "@/lib/config";
+import { siteConfig, messengers } from "@/lib/config";
 
-// Cloudinary с авто-оптимизацией
 const opt = (url: string, w = 2000) =>
   url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
 
@@ -13,23 +12,20 @@ const CTA_IMAGE = opt(
 export default function CtaSection() {
   return (
     <section className="relative overflow-hidden bg-bg-dark">
-      {/* Фоновое фото кухни */}
+      {/* Фоновое фото */}
       <div className="absolute inset-0 z-0">
         <Image
           src={CTA_IMAGE}
-          alt="Кухня с фасадами MILADA"
+          alt="Производство мебельных фасадов MILADA"
           fill
           sizes="100vw"
           className="object-cover"
           quality={85}
         />
-        {/* Зелёный градиент: слева плотный (для формы и текста), справа прозрачнее (видно интерьер) */}
         <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/85 to-bg-dark/30" />
-        {/* Доп. лёгкий градиент снизу для глубины */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg-dark/50" />
       </div>
 
-      {/* Декоративный мятный круг */}
       <div
         aria-hidden
         className="absolute -top-40 -left-40 w-[480px] h-[480px] rounded-full bg-mint blur-3xl opacity-[0.08] pointer-events-none z-[1]"
@@ -40,18 +36,23 @@ export default function CtaSection() {
           {/* Left — text */}
           <div>
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">
-              Начать проект
+              Заявка на расчёт
             </p>
             <h2 className="text-h2 font-medium text-white">
-              Нужен расчёт фасадов?
+              Рассчитаем стоимость фасадов для вашего производства
             </h2>
             <p className="mt-4 text-white/70 max-w-md leading-relaxed">
-              Оставьте номер — менеджер перезвонит в течение часа, обсудим материалы, размеры и сроки.
+              Работаем с мебельными компаниями и&nbsp;дилерами по&nbsp;всей России.
+              Поможем подобрать материалы, покрытия и&nbsp;сроки производства.
             </p>
 
-            {/* Преимущества */}
+            {/* Trust points */}
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-              {["Бесплатный расчёт", "Ответ за 1 час", "Без обязательств"].map((t) => (
+              {[
+                "Производство в Ульяновске",
+                "Доставка по РФ",
+                "Ответ в течение часа",
+              ].map((t) => (
                 <div key={t} className="flex items-center gap-2 text-sm text-white/80">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
                     <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -63,13 +64,33 @@ export default function CtaSection() {
 
             {/* Прямой телефон */}
             <div className="mt-8 pt-8 border-t border-white/10">
-              <p className="text-xs text-white/40 mb-2">Или позвоните напрямую</p>
-              <a
-                href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                className="text-2xl font-medium text-white hover:text-mint transition-colors"
-              >
-                {siteConfig.phone}
-              </a>
+              <p className="text-xs text-white/40 mb-2">Связаться напрямую</p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <a
+                  href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                  className="text-2xl font-medium text-white hover:text-mint transition-colors"
+                >
+                  {siteConfig.phone}
+                </a>
+                <a
+                  href={messengers.max || "#max-pending"}
+                  target={messengers.max ? "_blank" : undefined}
+                  rel={messengers.max ? "noopener noreferrer" : undefined}
+                  onClick={(e) => {
+                    if (!messengers.max) {
+                      e.preventDefault();
+                      alert("Канал MAX скоро появится. Свяжитесь по телефону: " + siteConfig.phone);
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-mint transition-colors"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Написать в MAX
+                </a>
+              </div>
             </div>
           </div>
 
@@ -79,24 +100,30 @@ export default function CtaSection() {
             method="POST"
             className="bg-white/[0.07] backdrop-blur-md border border-white/15 rounded-soft p-6 lg:p-8 shadow-2xl"
           >
-            <input type="hidden" name="_subject" value="Заявка с сайта MILADA — Быстрый расчёт" />
+            <input type="hidden" name="_subject" value="Заявка с сайта MILADA — Расчёт фасадов" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="/?sent=1" />
             <input type="hidden" name="_template" value="table" />
 
             <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-1">
-              Быстрая заявка
+              Заявка на расчёт
             </p>
             <p className="text-lg font-medium text-white mb-6">
-              Перезвоним за 1 час
+              Перезвоним в течение часа
             </p>
 
             <div className="space-y-3">
               <input
                 type="text"
                 name="name"
-                placeholder="Ваше имя"
+                placeholder="Имя"
                 required
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+              />
+              <input
+                type="text"
+                name="company"
+                placeholder="Компания"
                 className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <input
@@ -108,7 +135,7 @@ export default function CtaSection() {
               />
               <textarea
                 name="message"
-                placeholder="Опишите проект (необязательно)"
+                placeholder="Материал, объем или тип фасадов"
                 rows={3}
                 className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
               />

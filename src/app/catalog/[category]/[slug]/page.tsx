@@ -91,11 +91,6 @@ export default async function ProductPage({ params }: Props) {
                   priority
                   quality={90}
                 />
-                {product.new && (
-                  <span className="absolute top-4 left-4 bg-mint text-ink text-[10px] font-semibold px-3 py-1.5 rounded-pill tracking-wider uppercase">
-                    Новинка
-                  </span>
-                )}
               </div>
 
               <div className="flex flex-col">
@@ -134,7 +129,7 @@ export default async function ProductPage({ params }: Props) {
                 </dl>
 
                 <div className="mt-10 flex flex-wrap gap-3">
-                  <Link href="/contacts" className="btn-primary">Заказать фасад</Link>
+                  <Link href="/contacts" className="btn-primary">Запросить расчёт</Link>
                   <Link href={`/catalog/${categorySlug}`} className="btn-ghost">← В категорию</Link>
                 </div>
               </div>

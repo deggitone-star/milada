@@ -10,10 +10,13 @@ export default function FeaturedSection() {
       <div className="container-site">
         <div className="flex items-end justify-between mb-10 lg:mb-14 gap-4">
           <div>
-            <p className="label mb-3">Популярное</p>
-            <h2 className="h2">Хиты каталога</h2>
+            <p className="label mb-3">Каталог</p>
+            <h2 className="h2">Популярные серии фасадов</h2>
+            <p className="mt-3 text-ink-muted max-w-xl">
+              Серийные модели мебельных фасадов, доступные для оптовых поставок и&nbsp;индивидуальных заказов.
+            </p>
           </div>
-          <Link href="/catalog" className="btn-ghost shrink-0">
+          <Link href="/catalog" className="btn-ghost shrink-0 hidden sm:inline-flex">
             Весь каталог
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
               <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -25,6 +28,11 @@ export default function FeaturedSection() {
           {products.map((p, i) => (
             <ProductCard key={p.slug} product={p} priority={i < 4} />
           ))}
+        </div>
+
+        {/* Mobile catalog link */}
+        <div className="mt-8 sm:hidden">
+          <Link href="/catalog" className="btn-outline w-full">Весь каталог</Link>
         </div>
       </div>
     </section>

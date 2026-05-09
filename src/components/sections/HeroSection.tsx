@@ -4,38 +4,80 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { messengers, siteConfig } from "@/lib/config";
 
-// Cloudinary трансформации для оптимальной загрузки:
-// f_auto — автоформат (AVIF/WebP), q_auto — автокачество, w_1600 — макс ширина
 const opt = (url: string, w = 1600) =>
   url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
 
 const slides = [
   {
-    eyebrow: "Производство с 2012 года",
-    title: "Мебельные фасады MILADA",
-    subtitle: "ПВХ, эмаль, HPL, камень. Собственное производство в Ульяновске, индивидуальный раскрой.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778323836/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._14_50_22_iin4ko.png"),
+    eyebrow: "Производство · Ульяновск",
+    title: "Производство мебельных фасадов с доставкой по России",
+    subtitle: "Фасады МДФ, ПВХ, эмаль, HPL и камень для мебельных компаний, салонов и дилеров. Серийные модели и индивидуальные заказы.",
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778319588/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_39_19_ncqdti.png"),
   },
   {
-    eyebrow: "Более 100 декоров",
-    title: "Любые материалы и фрезеровки",
-    subtitle: "ПВХ плёнка, HPL-пластик, эмаль RAL, искусственный камень, патина.",
+    eyebrow: "12+ лет на рынке",
+    title: "Производственный партнёр для мебельных компаний",
+    subtitle: "Серийные поставки и индивидуальный раскрой. Работаем по договору, выдерживаем сроки и объёмы.",
     image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_3_z5bwrj.png"),
   },
   {
-    eyebrow: "Опт и розница",
-    title: "Поставки по всей России",
-    subtitle: "Работаем с мебельными производствами и частными заказчиками.",
+    eyebrow: "100+ декоров и материалов",
+    title: "Полный спектр мебельных фасадов",
+    subtitle: "ПВХ-плёнка, эмаль RAL, HPL-пластик, искусственный камень, патина, радиусные модели.",
     image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_2_qziqqs.png"),
   },
 ];
+
+const trustBadges = [
+  { icon: "factory", text: "Собственное производство" },
+  { icon: "calendar", text: "Сроки от 5 дней" },
+  { icon: "truck", text: "Доставка по РФ" },
+  { icon: "handshake", text: "Работаем с мебельными компаниями" },
+];
+
+function BadgeIcon({ name }: { name: string }) {
+  const className = "w-4 h-4";
+  switch (name) {
+    case "factory":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+          <path d="M2 20V8l5 3V8l5 3V8l5 3V8l5 3v9H2zM6 14h2M11 14h2M16 14h2M6 17h2M11 17h2M16 17h2"
+            stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      );
+    case "calendar":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+          <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+          <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        </svg>
+      );
+    case "truck":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+          <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7M5.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM18.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"
+            stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      );
+    case "handshake":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className}>
+          <path d="M11 17l2 2 4-4M21 11V7a2 2 0 0 0-2-2h-3l-3-3H7a2 2 0 0 0-2 2v9l3 3h2"
+            stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 export default function HeroSection() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setActive((v) => (v + 1) % slides.length), 6000);
+    const id = setInterval(() => setActive((v) => (v + 1) % slides.length), 7000);
     return () => clearInterval(id);
   }, []);
 
@@ -44,19 +86,20 @@ export default function HeroSection() {
       className="relative bg-bg-alt border-b border-line overflow-hidden"
       style={{ paddingTop: "var(--header-h)" }}
     >
-      {/* Декоративный мятный круг */}
+      {/* Декоративный мятный круг — отсылка к лого */}
       <div
         aria-hidden
         className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-bg-mint blur-3xl opacity-60 pointer-events-none"
       />
 
       <div className="container-site relative py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[460px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[480px]">
           <div>
             <p className="label mb-5">{slides[active].eyebrow}</p>
             <h1 className="h1 text-balance">{slides[active].title}</h1>
-            <p className="mt-6 text-lg text-ink-muted max-w-md">{slides[active].subtitle}</p>
+            <p className="mt-6 text-lg text-ink-muted max-w-xl">{slides[active].subtitle}</p>
 
+            {/* CTA-кнопки */}
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/catalog" className="btn-primary">
                 Смотреть каталог
@@ -65,9 +108,40 @@ export default function HeroSection() {
                 </svg>
               </Link>
               <Link href="/contacts" className="btn-outline">Получить расчёт</Link>
+              <a
+                href={messengers.max || "#max-pending"}
+                target={messengers.max ? "_blank" : undefined}
+                rel={messengers.max ? "noopener noreferrer" : undefined}
+                onClick={(e) => {
+                  if (!messengers.max) {
+                    e.preventDefault();
+                    alert("Канал MAX скоро появится. Пока свяжитесь по телефону: " + siteConfig.phone);
+                  }
+                }}
+                className="btn-outline"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Написать в MAX
+              </a>
             </div>
 
-            <div className="mt-12 flex items-center gap-2">
+            {/* Trust badges — критично для B2B */}
+            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 max-w-md">
+              {trustBadges.map(({ icon, text }) => (
+                <div key={text} className="flex items-center gap-2 text-sm text-ink-muted">
+                  <span className="text-mint-dark shrink-0">
+                    <BadgeIcon name={icon} />
+                  </span>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Slider dots */}
+            <div className="mt-10 flex items-center gap-2">
               {slides.map((_, i) => (
                 <button
                   key={i}
@@ -82,6 +156,7 @@ export default function HeroSection() {
             </div>
           </div>
 
+          {/* Image */}
           <div className="relative aspect-[4/3] lg:aspect-square bg-bg rounded-soft overflow-hidden border border-line">
             {slides.map((s, i) => (
               <Image
