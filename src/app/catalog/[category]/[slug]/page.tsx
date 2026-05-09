@@ -6,6 +6,7 @@ import { getProductBySlug, getProductsByCategory, products } from "@/data/produc
 import { getCategoryBySlug } from "@/data/categories";
 import { siteConfig } from "@/lib/config";
 import ProductCard from "@/components/catalog/ProductCard";
+import ProductGallery from "@/components/catalog/ProductGallery";
 import { BreadcrumbSchema, ProductSchema } from "@/components/seo/SchemaOrg";
 
 interface Props { params: Promise<{ category: string; slug: string }> }
@@ -81,17 +82,28 @@ export default async function ProductPage({ params }: Props) {
         <section className="bg-bg-alt">
           <div className="container-site py-10 lg:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-              <div className="relative aspect-[3/4] bg-bg border border-line rounded-soft overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={`Мебельный фасад ${product.title} от производителя MILADA в Ульяновске${product.material ? ` — ${product.material}` : ""}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-contain p-6"
-                  priority
-                  quality={90}
-                />
-              </div>
+              <ProductGallery
+                title={product.title}
+                images={[
+                  {
+                    src: product.image,
+                    alt: `Мебельный фасад ${product.title} от производителя MILADA в Ульяновске${product.material ? ` — ${product.material}` : ""}`,
+                    type: "product",
+                  },
+                  ...(product.interiorImage
+                    ? [{
+                        src: product.interiorImage,
+                        alt: `Кухня с фасадом ${product.title} — пример в интерьере, MILADA`,
+                        type: "interior" as const,
+                      }]
+                    : []),
+                  ...(product.gallery?.map((src, i) => ({
+                    src,
+                    alt: `${product.title} — фото ${i + 2}`,
+                    type: "gallery" as const,
+                  })) || []),
+                ]}
+              />
 
               <div className="flex flex-col">
                 {category && <p className="label mb-4">{category.title}</p>}

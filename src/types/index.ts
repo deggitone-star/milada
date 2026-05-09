@@ -13,6 +13,9 @@ export interface Product {
   price?: string;
   featured?: boolean;
   new?: boolean;
+  // Дополнительные фото
+  interiorImage?: string;   // фото фасада в интерьере (кухня и т.д.)
+  gallery?: string[];        // дополнительные фото — галерея миниатюр
 }
 
 export interface Category {

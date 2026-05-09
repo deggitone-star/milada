@@ -48,6 +48,19 @@ export const products: Product[] = [
   { title: "Мадрид с косичкой", slug: "pvh-madrid-kosichka", image: `${CDN}/v1778176587/milada/pvh-madrid-kosichka.png`, description: "Премиум фрезеровка «Мадрид с косичкой».", category: "pvh-premium", material: "МДФ + ПВХ плёнка" },
   { title: "Варшава", slug: "pvh-varshava", image: `${CDN}/v1778176588/milada/pvh-varshava.png`, description: "Премиум фрезеровка «Варшава».", category: "pvh-premium", material: "МДФ + ПВХ плёнка" },
   { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: `${CDN}/v1778176590/milada/pvh-int-ruchka.png`, description: "Премиум фрезеровка с интегрированной ручкой.", category: "pvh-premium", material: "МДФ + ПВХ плёнка", new: true },
+  {
+    title: "Лион",
+    slug: "pvh-lion",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/5_hw7uzw.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/ChatGPT_Image_10_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._00_41_54_wgti7p.png",
+    description: "Премиум фрезеровка «Лион» — глубокий рельеф с классическим обрамлением. Подходит для кухонь в стилях неоклассика, прованс и классика. Возможна отделка ПВХ-плёнкой любого декора из каталога производителя.",
+    category: "pvh-premium",
+    material: "МДФ + ПВХ плёнка",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Матовый", "Глянцевый", "Текстурный"],
+    featured: true,
+    new: true,
+  },
 
   // ── Пластик HPL ─────────────────────────────────────────────────────────────
   { title: "Сосна тёмная (HPL)", slug: "hpl-sosna-dark", image: `${CDN}/v1778176591/milada/hpl-sosna-dark.jpg`, description: "HPL-пластик, декор «Сосна тёмная 2537». Влагостойкий, устойчив к царапинам.", category: "plastic", material: "МДФ + HPL пластик" },
