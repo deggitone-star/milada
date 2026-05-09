@@ -5,29 +5,123 @@ import { siteConfig } from "@/lib/config";
 export default function CtaSection() {
   return (
     <section className="section-py bg-bg-dark relative overflow-hidden">
-      {/* Декоративный логотип на фоне */}
+      {/* Watermark лого на фоне */}
       <div aria-hidden className="absolute -right-20 -bottom-20 opacity-[0.04] pointer-events-none">
         <Image src="/logo.png" alt="" width={420} height={420} />
       </div>
 
+      {/* Декоративный мятный круг для глубины */}
+      <div
+        aria-hidden
+        className="absolute -top-40 -left-40 w-[480px] h-[480px] rounded-full bg-mint blur-3xl opacity-[0.07] pointer-events-none"
+      />
+
       <div className="container-site relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — text */}
           <div>
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">Начать проект</p>
-            <h2 className="text-h2 font-medium text-white">Нужен расчёт фасадов?</h2>
-            <p className="mt-4 text-white/60 max-w-md">
-              Оставьте заявку и менеджер свяжется в течение часа — обсудим материалы, размеры и сроки.
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">
+              Начать проект
             </p>
+            <h2 className="text-h2 font-medium text-white">
+              Нужен расчёт фасадов?
+            </h2>
+            <p className="mt-4 text-white/60 max-w-md leading-relaxed">
+              Оставьте номер — менеджер перезвонит в течение часа, обсудим материалы, размеры и сроки.
+            </p>
+
+            {/* Дополнительные плюшки */}
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Бесплатный расчёт
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Ответ за 1 час
+              </div>
+              <div className="flex items-center gap-2 text-sm text-white/70">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Без обязательств
+              </div>
+            </div>
+
+            {/* Прямой телефон, как альтернатива */}
+            <div className="mt-8 pt-8 border-t border-white/10">
+              <p className="text-xs text-white/40 mb-2">Или позвоните напрямую</p>
+              <a
+                href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                className="text-2xl font-medium text-white hover:text-mint transition-colors"
+              >
+                {siteConfig.phone}
+              </a>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-            <Link href="/contacts" className="btn-mint">Получить расчёт</Link>
-            <a
-              href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-              className="inline-flex items-center justify-center border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors"
+
+          {/* Right — quick form */}
+          <form
+            action="https://formsubmit.co/milada.73@mail.ru"
+            method="POST"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-soft p-6 lg:p-8"
+          >
+            <input type="hidden" name="_subject" value="Заявка с сайта MILADA — Быстрый расчёт" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="/?sent=1" />
+            <input type="hidden" name="_template" value="table" />
+
+            <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-1">
+              Быстрая заявка
+            </p>
+            <p className="text-lg font-medium text-white mb-6">
+              Перезвоним за 1 час
+            </p>
+
+            <div className="space-y-3">
+              <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                required
+                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all"
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+7 (___) ___-__-__"
+                required
+                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all"
+              />
+              <textarea
+                name="message"
+                placeholder="Опишите проект (необязательно)"
+                rows={3}
+                className="w-full bg-white/[0.04] border border-white/10 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.06] transition-all resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-mint text-mint-dark font-medium text-sm px-6 py-3.5 rounded-pill hover:bg-mint-light transition-colors duration-200"
             >
-              {siteConfig.phone}
-            </a>
-          </div>
+              Получить расчёт
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            <p className="mt-4 text-[11px] text-white/40 leading-relaxed">
+              Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.{" "}
+              <Link href="/contacts" className="text-mint hover:underline">
+                Развёрнутая форма
+              </Link>
+            </p>
+          </form>
         </div>
       </div>
     </section>
