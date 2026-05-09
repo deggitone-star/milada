@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import YandexMetrika from "@/components/ui/YandexMetrika";
+import FloatingContacts from "@/components/ui/FloatingContacts";
 import { LocalBusinessSchema, OrganizationSchema } from "@/components/seo/SchemaOrg";
 
 const inter = Inter({
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingContacts />
       </body>
     </html>
   );
