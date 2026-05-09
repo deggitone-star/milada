@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <Image src="/logo.png" alt="MILADA" width={48} height={48} className="rounded-full" quality={100} />
+              <Image src="/logo.png" alt="MILADA" width={48} height={48} quality={100} />
               <span className="font-semibold tracking-wider text-white text-lg">MILADA</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/50">

@@ -42,7 +42,6 @@ export default function Header() {
               alt="MILADA"
               width={48}
               height={48}
-              className="rounded-full"
               priority
               quality={100}
             />
