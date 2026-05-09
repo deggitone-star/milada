@@ -8,9 +8,10 @@ import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/config";
 
 const navLinks = [
-  { href: "/catalog", label: "Каталог" },
-  { href: "/about",   label: "О компании" },
-  { href: "/contacts",label: "Контакты" },
+  { href: "/catalog",                  label: "Каталог" },
+  { href: "/dlya-mebelnyh-kompaniy",   label: "Для бизнеса" },
+  { href: "/about",                    label: "О компании" },
+  { href: "/contacts",                 label: "Контакты" },
 ];
 
 export default function Header() {

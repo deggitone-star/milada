@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import CategoriesSection from "@/components/sections/CategoriesSection";
 import FeaturedSection from "@/components/sections/FeaturedSection";
 import AdvantagesSection from "@/components/sections/AdvantagesSection";
+import SuppliersSection from "@/components/sections/SuppliersSection";
 import CtaSection from "@/components/sections/CtaSection";
 
 export const metadata: Metadata = {
@@ -30,9 +31,10 @@ export default function HomePage() {
       <CategoriesSection />
       <FeaturedSection />
       <AdvantagesSection />
+      <SuppliersSection />
 
       {/* SEO-блок под B2B */}
-      <section className="section-py bg-bg-alt border-y border-line">
+      <section className="section-py bg-bg">
         <div className="container-site max-w-4xl">
           <div className="prose prose-neutral max-w-none">
             <p className="label mb-3">О производстве</p>
@@ -56,7 +58,7 @@ export default function HomePage() {
 
               <h3 className="h3 mt-8 mb-4">Условия работы</h3>
               <ul className="space-y-2 ml-1">
-                <li>— Минимальный заказ для опта — от 10 м² фасадов</li>
+                <li>— Минимальный заказ для опта — от 50 м² фасадов</li>
                 <li>— Отсрочка платежа для постоянных партнёров</li>
                 <li>— Полный пакет документов для бухгалтерии</li>
                 <li>— Индивидуальный раскрой с&nbsp;допусками ±0,5 мм</li>

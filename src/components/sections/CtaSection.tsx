@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, messengers } from "@/lib/config";
+import { siteConfig } from "@/lib/config";
+import MaxButton from "@/components/ui/MaxButton";
 
 const opt = (url: string, w = 2000) =>
   url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
@@ -72,24 +73,7 @@ export default function CtaSection() {
                 >
                   {siteConfig.phone}
                 </a>
-                <a
-                  href={messengers.max || "#max-pending"}
-                  target={messengers.max ? "_blank" : undefined}
-                  rel={messengers.max ? "noopener noreferrer" : undefined}
-                  onClick={(e) => {
-                    if (!messengers.max) {
-                      e.preventDefault();
-                      alert("Канал MAX скоро появится. Свяжитесь по телефону: " + siteConfig.phone);
-                    }
-                  }}
-                  className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-mint transition-colors"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Написать в MAX
-                </a>
+                <MaxButton className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-mint transition-colors" />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
@@ -15,6 +15,12 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#1f4d3f",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -58,7 +64,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
-  themeColor: "#1f4d3f",
   openGraph: {
     type: "website",
     locale: "ru_RU",
