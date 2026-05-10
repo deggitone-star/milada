@@ -32,9 +32,9 @@ export default function Header() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-          scrolled || menuOpen ? "bg-bg/95 backdrop-blur-sm border-line" : "bg-bg/80 border-transparent"
+          scrolled || menuOpen ? "bg-bg/95 backdrop-blur-sm border-line" : "bg-bg border-transparent"
         )}
-        style={{ height: "var(--header-h)" }}
+        style={{ height: "var(--header-h)", paddingTop: "env(safe-area-inset-top, 0px)" }}
       >
         <div className="container-site h-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3" aria-label="MILADA">
