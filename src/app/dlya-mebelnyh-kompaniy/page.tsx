@@ -204,8 +204,8 @@ export default function PartnerPage() {
             <p className="label mb-3">Кому подходит</p>
             <h2 className="h2">Производственный партнёр для B2B</h2>
             <p className="mt-3 text-ink-muted max-w-xl">
-              Поставляем фасады мебельным предприятиям всех типов — от&nbsp;небольших цехов
-              до&nbsp;крупных производственных линий.
+              Поставляем фасады мебельным предприятиям всех типов — от небольших цехов
+              до крупных производственных линий.
             </p>
           </div>
 
@@ -251,8 +251,8 @@ export default function PartnerPage() {
               <p className="label mb-3">Преимущества</p>
               <h2 className="h2">Что получает партнёр</h2>
               <p className="mt-4 text-ink-muted leading-relaxed">
-                Опыт 12+ лет, собственное производство, контроль качества на&nbsp;каждом этапе
-                и&nbsp;логистика по&nbsp;всей России.
+                Опыт 12+ лет, собственное производство, контроль качества на каждом этапе
+                и логистика по всей России.
               </p>
             </div>
 
@@ -285,8 +285,8 @@ export default function PartnerPage() {
               <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">Заявка</p>
               <h2 className="text-h2 font-medium text-white">Запросить условия и прайс</h2>
               <p className="mt-4 text-white/70 max-w-md leading-relaxed">
-                Расскажите о&nbsp;вашей компании и&nbsp;предполагаемом объёме —
-                подготовим персональное коммерческое предложение в&nbsp;течение часа.
+                Расскажите о вашей компании и предполагаемом объёме —
+                подготовим персональное коммерческое предложение в течение часа.
               </p>
 
               <div className="mt-8 pt-8 border-t border-white/10">
