@@ -13,19 +13,25 @@ const slides = [
   {
     eyebrow: "Производство · Ульяновск",
     title: "Производство мебельных фасадов с доставкой по России",
+    mobileTitle: "Мебельные фасады от производителя",
     subtitle: "Фасады МДФ, ПВХ, эмаль, HPL и камень для мебельных компаний, салонов и дилеров. Серийные модели и индивидуальные заказы.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/ChatGPT_Image_10_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._00_41_54_wgti7p.png"),
+    mobileSubtitle: "МДФ, ПВХ, эмаль, HPL, камень. Опт и розница.",
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778319588/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_39_19_ncqdti.png"),
   },
   {
     eyebrow: "12+ лет на рынке",
     title: "Производственный партнёр для мебельных компаний",
+    mobileTitle: "Партнёр для мебельных компаний",
     subtitle: "Серийные поставки и индивидуальный раскрой. Работаем по договору, выдерживаем сроки и объёмы.",
+    mobileSubtitle: "Серийные поставки, договор, сроки.",
     image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_3_z5bwrj.png"),
   },
   {
-    eyebrow: "100+ декоров и материалов",
+    eyebrow: "100+ декоров",
     title: "Полный спектр мебельных фасадов",
+    mobileTitle: "Полный спектр фасадов",
     subtitle: "ПВХ-плёнка, эмаль RAL, HPL-пластик, искусственный камень, патина, радиусные модели.",
+    mobileSubtitle: "ПВХ, эмаль RAL, HPL, камень, патина.",
     image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_2_qziqqs.png"),
   },
 ];
@@ -86,69 +92,44 @@ export default function HeroSection() {
       className="relative bg-bg-alt border-b border-line overflow-hidden"
       style={{ paddingTop: "var(--header-h)" }}
     >
-      {/* Декоративный мятный круг — отсылка к лого */}
+      {/* Декоративный мятный круг */}
       <div
         aria-hidden
         className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-bg-mint blur-3xl opacity-60 pointer-events-none"
       />
 
-      <div className="container-site relative py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[480px]">
-          <div>
-            <p className="label mb-5">{slides[active].eyebrow}</p>
-            <h1 className="h1 text-balance">{slides[active].title}</h1>
-            <p className="mt-6 text-lg text-ink-muted max-w-xl">{slides[active].subtitle}</p>
+      <div className="container-site relative">
+        {/* ═══ MOBILE LAYOUT ═══ */}
+        <div className="lg:hidden">
+          {/* Фото сверху — edge-to-edge */}
+          <div className="relative aspect-[16/10] -mx-4 sm:-mx-6 overflow-hidden">
+            {slides.map((s, i) => (
+              <Image
+                key={i}
+                src={s.image}
+                alt={s.title}
+                fill
+                sizes="100vw"
+                priority={i === 0}
+                quality={80}
+                className={cn(
+                  "object-cover transition-opacity duration-700",
+                  i === active ? "opacity-100" : "opacity-0"
+                )}
+              />
+            ))}
+            {/* Градиент снизу */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-bg-alt to-transparent" />
 
-            {/* CTA-кнопки */}
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/catalog" className="btn-primary">
-                Смотреть каталог
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-              <Link href="/contacts" className="btn-outline">Получить расчёт</Link>
-              <a
-                href={messengers.max || "#max-pending"}
-                target={messengers.max ? "_blank" : undefined}
-                rel={messengers.max ? "noopener noreferrer" : undefined}
-                onClick={(e) => {
-                  if (!messengers.max) {
-                    e.preventDefault();
-                    alert("Канал MAX скоро появится. Пока свяжитесь по телефону: " + siteConfig.phone);
-                  }
-                }}
-                className="btn-outline"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Написать в MAX
-              </a>
-            </div>
-
-            {/* Trust badges — критично для B2B */}
-            <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 max-w-md">
-              {trustBadges.map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-ink-muted">
-                  <span className="text-mint-dark shrink-0">
-                    <BadgeIcon name={icon} />
-                  </span>
-                  <span>{text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Slider dots */}
-            <div className="mt-10 flex items-center gap-2">
+            {/* Dots на фото */}
+            <div className="absolute bottom-4 left-4 flex items-center gap-2">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
                   className={cn(
                     "h-1.5 rounded-pill transition-all",
-                    i === active ? "w-8 bg-mint-dark" : "w-4 bg-line hover:bg-ink-subtle"
+                    i === active ? "w-6 bg-white" : "w-3 bg-white/50"
                   )}
                   aria-label={`Слайд ${i + 1}`}
                 />
@@ -156,23 +137,114 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Image */}
-          <div className="relative aspect-[4/3] lg:aspect-square bg-bg rounded-soft overflow-hidden border border-line">
-            {slides.map((s, i) => (
-              <Image
-                key={i}
-                src={s.image}
-                alt={s.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority={i === 0}
-                quality={85}
-                className={cn(
-                  "object-cover transition-opacity duration-700",
-                  i === active ? "opacity-100" : "opacity-0"
-                )}
-              />
-            ))}
+          {/* Текст — компактно */}
+          <div className="py-6">
+            <p className="label mb-3 text-[10px]">{slides[active].eyebrow}</p>
+            <h1 className="text-[1.6rem] font-medium text-ink leading-tight tracking-tight">
+              {slides[active].mobileTitle}
+            </h1>
+            <p className="mt-3 text-sm text-ink-muted leading-relaxed">
+              {slides[active].mobileSubtitle}
+            </p>
+
+            {/* 2 кнопки в ряд */}
+            <div className="mt-6 flex gap-2.5">
+              <Link href="/catalog" className="btn-primary text-xs px-5 py-2.5">
+                Каталог
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+              <Link href="/contacts" className="btn-outline text-xs px-5 py-2.5">
+                Получить расчёт
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* ═══ DESKTOP LAYOUT ═══ */}
+        <div className="hidden lg:block py-20">
+          <div className="grid grid-cols-2 gap-16 items-center min-h-[480px]">
+            <div>
+              <p className="label mb-5">{slides[active].eyebrow}</p>
+              <h1 className="h1 text-balance">{slides[active].title}</h1>
+              <p className="mt-6 text-lg text-ink-muted max-w-xl">{slides[active].subtitle}</p>
+
+              {/* CTA-кнопки */}
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/catalog" className="btn-primary">
+                  Смотреть каталог
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+                <Link href="/contacts" className="btn-outline">Получить расчёт</Link>
+                <a
+                  href={messengers.max || "#max-pending"}
+                  target={messengers.max ? "_blank" : undefined}
+                  rel={messengers.max ? "noopener noreferrer" : undefined}
+                  onClick={(e) => {
+                    if (!messengers.max) {
+                      e.preventDefault();
+                      alert("Канал MAX скоро появится. Пока свяжитесь по телефону: " + siteConfig.phone);
+                    }
+                  }}
+                  className="btn-outline"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Написать в MAX
+                </a>
+              </div>
+
+              {/* Trust badges — только десктоп */}
+              <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 max-w-md">
+                {trustBadges.map(({ icon, text }) => (
+                  <div key={text} className="flex items-center gap-2 text-sm text-ink-muted">
+                    <span className="text-mint-dark shrink-0">
+                      <BadgeIcon name={icon} />
+                    </span>
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Slider dots */}
+              <div className="mt-10 flex items-center gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={cn(
+                      "h-1.5 rounded-pill transition-all",
+                      i === active ? "w-8 bg-mint-dark" : "w-4 bg-line hover:bg-ink-subtle"
+                    )}
+                    aria-label={`Слайд ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Image — десктоп */}
+            <div className="relative aspect-square bg-bg rounded-soft overflow-hidden border border-line">
+              {slides.map((s, i) => (
+                <Image
+                  key={i}
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  sizes="50vw"
+                  priority={i === 0}
+                  quality={85}
+                  className={cn(
+                    "object-cover transition-opacity duration-700",
+                    i === active ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
