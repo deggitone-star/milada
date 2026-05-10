@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --header-h: 76px;
+    --header-h: calc(76px + env(safe-area-inset-top, 0px));
   }
   html { scroll-behavior: smooth; }
   * { box-sizing: border-box; }
