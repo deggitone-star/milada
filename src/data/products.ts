@@ -85,7 +85,18 @@ export const products: Product[] = [
   { title: "Каменный V-02 (перламутр)", slug: "stone-v02", image: `${CDN}/v1778176609/milada/stone-v02.jpg`, description: "Искусственный камень с перламутровым эффектом V-02.", category: "stone", material: "МДФ + искусственный камень" },
 
   // ── Эмаль ───────────────────────────────────────────────────────────────────
-  { title: "Эмаль матовая", slug: "enamel-mat", image: `${CDN}/v1778176610/milada/enamel-mat.jpg`, description: "МДФ с матовой эмалью. Любой цвет по каталогу RAL. Грунт + шлифовка + эмаль.", category: "enamel", material: "МДФ + эмаль", finishes: ["Матовый"], featured: true },
+  {
+    title: "Эмаль матовая",
+    slug: "enamel-mat",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778527676/ChatGPT_Image_12_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._02_25_06_kgk9m1.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778527631/ChatGPT_Image_12_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._02_26_21_rr43fp.png",
+    description: "Премиальные фасады МДФ с покрытием матовой эмалью. Любой цвет из каталога RAL — более 1600 оттенков на выбор. Технология производства включает 7 этапов: грунтование, шлифовка, нанесение эмали в несколько слоёв, промежуточные сушки, финишная полировка. Идеальная плоскость и однотонность поверхности. Бархатистая матовая фактура поглощает свет без бликов.",
+    category: "enamel",
+    material: "МДФ + матовая эмаль",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Матовый"],
+    featured: true,
+  },
   { title: "Эмаль глянцевая", slug: "enamel-gloss", image: `${CDN}/v1778176611/milada/enamel-gloss.jpg`, description: "МДФ с глянцевой эмалью. Цвет по RAL. Финишный высокоглянцевый лак.", category: "enamel", material: "МДФ + эмаль + лак", finishes: ["Глянцевый"] },
   { title: "Эмаль металлик", slug: "enamel-metallic", image: `${CDN}/v1778176612/milada/enamel-metallic.jpg`, description: "МДФ с эмалью металлик. Цвет по RAL.", category: "enamel", material: "МДФ + эмаль металлик", finishes: ["Металлик"], new: true },
 
