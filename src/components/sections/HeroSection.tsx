@@ -16,7 +16,7 @@ const slides = [
     mobileTitle: "Мебельные фасады от производителя",
     subtitle: "Фасады МДФ, ПВХ, эмаль, HPL и камень для мебельных компаний, салонов и дилеров. Серийные модели и индивидуальные заказы.",
     mobileSubtitle: "МДФ, ПВХ, эмаль, HPL, камень. Опт и розница.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/ChatGPT_Image_10_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._00_41_54_wgti7p.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778774587/11_ioklt9.png"),
   },
   {
     eyebrow: "12+ лет на рынке",
@@ -32,7 +32,7 @@ const slides = [
     mobileTitle: "Полный спектр фасадов",
     subtitle: "ПВХ-плёнка, эмаль RAL, HPL-пластик, искусственный камень, патина, радиусные модели.",
     mobileSubtitle: "ПВХ, эмаль RAL, HPL, камень, патина.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_2_qziqqs.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778774605/ChatGPT_Image_14_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._23_03_17_aqn7d3.png"),
   },
 ];
 
