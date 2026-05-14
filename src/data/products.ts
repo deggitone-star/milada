@@ -28,7 +28,7 @@ export const products: Product[] = [
   { title: "Лира", slug: "pvh-lira", image: `${CDN}/v1778176560/milada/pvh-lira.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Лира».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Классик 2", slug: "pvh-klassik-2", image: `${CDN}/v1778176561/milada/pvh-klassik-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Классик 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Арка 2", slug: "pvh-arka-2", image: `${CDN}/v1778176563/milada/pvh-arka-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Арка 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
-  { title: "Иллюзия", slug: "pvh-illyuziya", image: `${CDN}/v1778176564/milada/pvh-illyuziya.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Иллюзия».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
+  { title: "Иллюзия", slug: "pvh-illyuziya", image: `${CDN}/v1778176564/milada/pvh-illyuziya.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Иллюзия».", category: "pvh-premium", material: "МДФ + ПВХ плёнка" },
   { title: "Дуэт", slug: "pvh-duet", image: `${CDN}/v1778176565/milada/pvh-duet.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Дуэт».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
 
   // ── МДФ + ПВХ Премиум ───────────────────────────────────────────────────────
@@ -52,7 +52,7 @@ export const products: Product[] = [
     title: "Лион",
     slug: "pvh-lion",
     image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/5_hw7uzw.png",
-    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/ChatGPT_Image_10_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._00_41_54_wgti7p.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775340/CTA_an2w49.png",
     description: "Премиум фрезеровка «Лион» — глубокий рельеф с классическим обрамлением. Подходит для кухонь в стилях неоклассика, прованс и классика. Возможна отделка ПВХ-плёнкой любого декора из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ + ПВХ плёнка",
@@ -88,8 +88,8 @@ export const products: Product[] = [
   {
     title: "Эмаль матовая",
     slug: "enamel-mat",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778527676/ChatGPT_Image_12_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._02_25_06_kgk9m1.png",
-    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778527631/ChatGPT_Image_12_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._02_26_21_rr43fp.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/5_1_nakrql.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/6_s9qd48.png",
     description: "Премиальные фасады МДФ с покрытием матовой эмалью. Любой цвет из каталога RAL — более 1600 оттенков на выбор. Технология производства включает 7 этапов: грунтование, шлифовка, нанесение эмали в несколько слоёв, промежуточные сушки, финишная полировка. Идеальная плоскость и однотонность поверхности. Бархатистая матовая фактура поглощает свет без бликов.",
     category: "enamel",
     material: "МДФ + матовая эмаль",

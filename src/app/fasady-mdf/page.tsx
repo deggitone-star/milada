@@ -27,7 +27,7 @@ const opt = (url: string, w = 2000) =>
   url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
 
 const HERO_IMG = opt(
-  "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/ChatGPT_Image_10_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._00_41_54_wgti7p.png"
+  "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/1_g3ao5n.png"
 );
 
 export default function FasadyMdfPage() {

@@ -16,7 +16,7 @@ const slides = [
     mobileTitle: "Мебельные фасады от производителя",
     subtitle: "Фасады МДФ, ПВХ, эмаль, HPL и камень для мебельных компаний, салонов и дилеров. Серийные модели и индивидуальные заказы.",
     mobileSubtitle: "МДФ, ПВХ, эмаль, HPL, камень. Опт и розница.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778774587/11_ioklt9.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/1_g3ao5n.png"),
   },
   {
     eyebrow: "12+ лет на рынке",
@@ -24,7 +24,7 @@ const slides = [
     mobileTitle: "Партнёр для мебельных компаний",
     subtitle: "Серийные поставки и индивидуальный раскрой. Работаем по договору, выдерживаем сроки и объёмы.",
     mobileSubtitle: "Серийные поставки, договор, сроки.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778318952/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._13_28_02_3_z5bwrj.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/2_m4bagt.png"),
   },
   {
     eyebrow: "100+ декоров",
@@ -32,7 +32,7 @@ const slides = [
     mobileTitle: "Полный спектр фасадов",
     subtitle: "ПВХ-плёнка, эмаль RAL, HPL-пластик, искусственный камень, патина, радиусные модели.",
     mobileSubtitle: "ПВХ, эмаль RAL, HPL, камень, патина.",
-    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778774605/ChatGPT_Image_14_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._23_03_17_aqn7d3.png"),
+    image: opt("https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/3_nykkjo.png"),
   },
 ];
 

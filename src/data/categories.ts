@@ -5,7 +5,7 @@ const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 
 export const categories: Category[] = [
   { slug: "pvh-standart", title: "МДФ с ПВХ — Стандарт", description: "Фасады МДФ с ПВХ плёнкой. Более 20 форм фрезеровки, более 100 видов плёнок. Индивидуальный раскрой.", image: `${CDN}/v1778176541/milada/pvh-klassik.png` },
-  { slug: "pvh-premium", title: "МДФ с ПВХ — Премиум", description: "Премиальные фрезеровки МДФ с ПВХ плёнкой. Европейские мотивы, интегрированные ручки.", image: `${CDN}/v1778176579/milada/pvh-praga.png` },
+  { slug: "pvh-premium", title: "МДФ — Премиум", description: "Премиальные фрезеровки МДФ с ПВХ плёнкой. Европейские мотивы, интегрированные ручки.", image: `${CDN}/v1778176579/milada/pvh-praga.png` },
   { slug: "plastic", title: "Пластиковые фасады HPL", description: "МДФ с облицовкой HPL-пластиком. Влагостойкие, устойчивы к царапинам. Огромный выбор декоров.", image: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg` },
   { slug: "patina", title: "Патинированные фасады", description: "Фасады премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", image: `${CDN}/v1778176614/milada/patina-classic.jpg` },
   { slug: "enamel", title: "Эмалевые фасады", description: "МДФ с покрытием эмалью. Любой цвет по каталогу RAL. Матовые, глянцевые, металлик.", image: `${CDN}/v1778176610/milada/enamel-mat.jpg` },

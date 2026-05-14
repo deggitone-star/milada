@@ -24,7 +24,7 @@ const opt = (url: string, w = 2000) =>
   url.replace("/upload/", `/upload/f_auto,q_auto,w_${w}/`);
 
 const HERO_IMG = opt(
-  "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778322343/ChatGPT_Image_9_%D0%BC%D0%B0%D1%8F_2026_%D0%B3._14_24_31_vz0h98.png"
+  "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775340/CTA_an2w49.png"
 );
 
 const audiences = [
