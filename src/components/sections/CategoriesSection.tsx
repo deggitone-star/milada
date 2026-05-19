@@ -42,6 +42,21 @@ export default function CategoriesSection() {
               </Link>
             );
           })}
+
+          {/* Технические параметры — отдельная карточка */}
+          <Link
+            href="/tekhnicheskie-parametry"
+            className="group bg-bg-alt border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200"
+          >
+            <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <h3 className="mt-6 text-base font-medium text-ink leading-tight">Технические параметры</h3>
+            <p className="mt-1 text-xs text-ink-subtle">Схемы и размеры</p>
+          </Link>
         </div>
       </div>
     </section>

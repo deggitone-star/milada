@@ -57,7 +57,7 @@ export default function ProizvodstvoPage() {
         <div className="container-site">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line">
             {[
-              { value: "12+", label: "лет на рынке" },
+              { value: "14+", label: "лет на рынке" },
               { value: "500+", label: "проектов в год" },
               { value: "100+", label: "декоров и материалов" },
               { value: "5 дней", label: "минимальный срок" },
@@ -102,7 +102,6 @@ export default function ProizvodstvoPage() {
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               { title: "ПВХ-плёнка", desc: "100+ декоров, 3D-фрезеровки, стандарт и премиум", link: "/fasady-mdf" },
-              { title: "Эмаль по RAL", desc: "1600+ цветов, матовая/глянцевая/металлик", link: "/krashenye-fasady" },
               { title: "HPL-пластик", desc: "Максимальная стойкость, 50+ декоров", link: "/hpl-fasady" },
               { title: "Искусственный камень", desc: "26 цветов, термостойкий лак", link: "/kamennye-fasady" },
             ].map(({ title, desc, link }) => (

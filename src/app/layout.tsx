@@ -91,10 +91,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Яндекс.Webmaster verification — добавьте код после регистрации
-  other: {
-    "yandex-verification": process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "",
-  },
+  ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
+    ? { other: { "yandex-verification": process.env.NEXT_PUBLIC_YANDEX_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

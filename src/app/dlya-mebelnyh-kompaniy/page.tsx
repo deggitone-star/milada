@@ -251,7 +251,7 @@ export default function PartnerPage() {
               <p className="label mb-3">Преимущества</p>
               <h2 className="h2">Что получает партнёр</h2>
               <p className="mt-4 text-ink-muted leading-relaxed">
-                Опыт 12+ лет, собственное производство, контроль качества на каждом этапе
+                Опыт 14+ лет, собственное производство, контроль качества на каждом этапе
                 и логистика по всей России.
               </p>
             </div>

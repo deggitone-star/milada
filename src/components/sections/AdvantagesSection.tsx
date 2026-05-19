@@ -39,7 +39,7 @@ export default function AdvantagesSection() {
           <p className="label mb-3">Почему выбирают MILADA</p>
           <h2 className="h2">Условия работы с производством</h2>
           <p className="mt-4 text-base text-ink-muted max-w-xl leading-relaxed">
-            12+ лет опыта в производстве мебельных фасадов для мебельных компаний, салонов и дилеров по всей России.
+            14+ лет опыта в производстве мебельных фасадов для мебельных компаний, салонов и дилеров по всей России.
           </p>
         </div>
 

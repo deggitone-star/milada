@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "12+",  label: "лет опыта" },
+  { value: "14+",  label: "лет опыта" },
   { value: "500+", label: "проектов в год" },
   { value: "100+", label: "декоров" },
   { value: "10",   label: "дней срок" },

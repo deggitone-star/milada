@@ -6,21 +6,29 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        pathname: "/**",
-      },
-      // Временно — для галереи проектов со старого сайта
-      {
-        protocol: "https",
-        hostname: "milada73.ru",
-        pathname: "/**",
+        pathname: "/dx9tcpnkg/**",
       },
     ],
     formats: ["image/avif", "image/webp"],
   },
-  // Оптимизация для Яндекс SEO
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+
+  // Security headers
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -4,7 +4,6 @@ import HeroSection from "@/components/sections/HeroSection";
 import CategoriesSection from "@/components/sections/CategoriesSection";
 import FeaturedSection from "@/components/sections/FeaturedSection";
 import AdvantagesSection from "@/components/sections/AdvantagesSection";
-import SuppliersSection from "@/components/sections/SuppliersSection";
 import CtaSection from "@/components/sections/CtaSection";
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export default function HomePage() {
       <CategoriesSection />
       <FeaturedSection />
       <AdvantagesSection />
-      <SuppliersSection />
 
       {/* SEO-блок под B2B */}
       <section className="section-py bg-bg">
@@ -70,10 +68,6 @@ export default function HomePage() {
               <p>
                 <strong>Фасады МДФ с ПВХ-плёнкой</strong> — стандартные и премиум фрезеровки.
                 Более 100 декоров плёнки: однотонные, под дерево, металлик, глянец.
-              </p>
-              <p>
-                <strong>Эмалевые фасады</strong> — покраска по каталогу RAL.
-                Матовые, глянцевые и металлик. Любой цвет под заказ.
               </p>
               <p>
                 <strong>Пластиковые фасады HPL</strong> — повышенная стойкость к влаге,
