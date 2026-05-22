@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/catalog`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/materialy`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${base}/materialy/plastik-hpl`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${base}/dlya-mebelnyh-kompaniy`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/fasady-mdf`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/hpl-fasady`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
