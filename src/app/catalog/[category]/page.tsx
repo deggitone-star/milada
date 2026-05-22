@@ -121,19 +121,6 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* PRODUCTS */}
-      <section className="section-py bg-bg">
-        <div className="container-site">
-          {items.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-              {items.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
-            </div>
-          ) : (
-            <p className="text-ink-subtle">В этой категории пока нет товаров.</p>
-          )}
-        </div>
-      </section>
-
       {/* КОЛЛЕКЦИИ ДЕКОРОВ — только для пластика */}
       {slug === "plastic" && (
         <section className="section-py bg-bg-alt border-y border-line">
@@ -173,6 +160,19 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </section>
       )}
+
+      {/* PRODUCTS */}
+      <section className="section-py bg-bg">
+        <div className="container-site">
+          {items.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+              {items.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
+            </div>
+          ) : (
+            <p className="text-ink-subtle">В этой категории пока нет товаров.</p>
+          )}
+        </div>
+      </section>
 
       {/* SEO TEXT */}
       {seo && (

@@ -129,17 +129,17 @@ export default async function CollectionPage({ params }: PageProps) {
             Для выбора декора ориентируйтесь на реальные образцы. Цвета на экране могут незначительно отличаться от фактических. Перед заказом рекомендуем сверить декор с физическим образцом.
           </p>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {col.catalogPages.map((src, i) => (
-              <div key={i} className="relative w-full rounded-soft overflow-hidden border border-line bg-white">
+              <div key={i} className="relative rounded-soft overflow-hidden border border-line bg-white">
                 <Image
                   src={src}
                   alt={`Декоры ${col.title} — страница ${i + 1}`}
-                  width={920}
-                  height={1300}
+                  width={680}
+                  height={960}
                   className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 920px"
-                  quality={90}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
                 />
               </div>
             ))}
