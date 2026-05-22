@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
 import { products } from "@/data/products";
 import { categories } from "@/data/categories";
+import { tadzhCollections } from "@/data/tadzhCollections";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -36,5 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...categoryPages, ...productPages];
+  const collectionPages: MetadataRoute.Sitemap = tadzhCollections.map((col) => ({
+    url: `${base}/catalog/plastic/${col.slug}`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...categoryPages, ...collectionPages, ...productPages];
 }

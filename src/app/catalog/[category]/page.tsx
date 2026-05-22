@@ -9,6 +9,7 @@ import { siteConfig } from "@/lib/config";
 import ProductCard from "@/components/catalog/ProductCard";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
+import { tadzhCollections } from "@/data/tadzhCollections";
 
 interface Props { params: Promise<{ category: string }> }
 
@@ -132,6 +133,46 @@ export default async function CategoryPage({ params }: Props) {
           )}
         </div>
       </section>
+
+      {/* КОЛЛЕКЦИИ ДЕКОРОВ — только для пластика */}
+      {slug === "plastic" && (
+        <section className="section-py bg-bg-alt border-y border-line">
+          <div className="container-site">
+            <p className="label mb-3">Коллекции декоров</p>
+            <h2 className="h2 mb-3">Выберите коллекцию пластиковых фасадов</h2>
+            <p className="text-ink-muted mb-8 max-w-2xl">
+              4 коллекции декоров HPL-пластика: однотонные, дерево, камень, мрамор, фантазийные узоры. Все декоры доступны для производства фасадов.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {tadzhCollections.map((col) => (
+                <Link
+                  key={col.slug}
+                  href={`/catalog/plastic/${col.slug}`}
+                  className="group block rounded-soft border border-line overflow-hidden hover:border-ink hover:shadow-lift transition-all duration-200"
+                >
+                  <div className="relative aspect-[4/3] bg-bg">
+                    <Image
+                      src={col.heroExample}
+                      alt={`Фасады ${col.title}`}
+                      fill
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      quality={75}
+                    />
+                  </div>
+                  <div className="p-5 bg-bg">
+                    <h3 className="text-base font-medium text-ink group-hover:text-mint-dark transition-colors">
+                      {col.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-ink-muted line-clamp-2">{col.subtitle}</p>
+                    <p className="mt-3 text-xs font-medium text-mint-dark">Смотреть декоры →</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SEO TEXT */}
       {seo && (
