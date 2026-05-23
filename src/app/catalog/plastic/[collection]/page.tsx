@@ -79,6 +79,17 @@ export default async function CollectionPage({ params }: PageProps) {
         </div>
 
         <div className="container-site py-16 lg:py-24 relative z-10">
+          {/* Мобильная кнопка «Назад» */}
+          <Link
+            href="/catalog/plastic"
+            className="md:hidden inline-flex items-center gap-1.5 text-white/60 text-sm mb-4 hover:text-white transition-colors -ml-1"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Назад
+          </Link>
+
           {/* Breadcrumb */}
           <nav aria-label="breadcrumb" className="flex items-center gap-2 text-xs text-white/50 mb-6 flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">Главная</Link>
@@ -124,30 +135,6 @@ export default async function CollectionPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-
-      {/* ──── ПРИМЕРЫ В ИНТЕРЬЕРЕ ──── */}
-      {meta.examples.length > 1 && (
-        <section className="section-py bg-bg">
-          <div className="container-site">
-            <p className="label mb-3">Варианты применения</p>
-            <h2 className="h2 mb-8">Примеры в интерьере</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-4">
-              {meta.examples.map((src, i) => (
-                <div key={i} className="relative aspect-[4/3] rounded-soft overflow-hidden border border-line bg-bg-alt">
-                  <Image
-                    src={src}
-                    alt={`Фасады ${meta.title} — пример ${i + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    quality={80}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ──── КАТАЛОГ ДЕКОРОВ — СЕТКА КАРТОЧЕК ──── */}
       <section
@@ -220,6 +207,40 @@ export default async function CollectionPage({ params }: PageProps) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/contacts" className="btn-primary">Запросить расчёт</Link>
             <Link href="/catalog/plastic" className="btn-outline">Все пластиковые фасады</Link>
+          </div>
+        </div>
+      </section>
+      {/* ──── ДРУГИЕ КОЛЛЕКЦИИ ──── */}
+      <section className="py-12 lg:py-16 bg-bg-alt border-t border-line">
+        <div className="container-site">
+          <p className="label mb-3">Смотрите также</p>
+          <h2 className="h3 mb-6">Другие коллекции пластиковых фасадов</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {tadzhCollections
+              .filter((c) => c.slug !== slug)
+              .map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/catalog/plastic/${c.slug}`}
+                  className="group card p-5 hover:border-ink-subtle hover:shadow-lift transition-all duration-200"
+                >
+                  <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-ink-subtle">
+                    Коллекция
+                  </p>
+                  <h3 className="mt-1 text-base font-medium text-ink group-hover:text-mint-dark transition-colors">
+                    {c.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-ink-muted leading-relaxed line-clamp-2">
+                    {c.subtitle}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-mint-dark">
+                    Смотреть декоры
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
           </div>
         </div>
       </section>

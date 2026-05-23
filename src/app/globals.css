@@ -42,4 +42,13 @@
   .card {
     @apply bg-bg-alt border border-line rounded-soft;
   }
+
+  /* Скрытие скроллбара для горизонтального скролла */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
