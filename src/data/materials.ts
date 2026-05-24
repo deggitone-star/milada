@@ -6,6 +6,9 @@ export interface Decor {
   name: string;
   article: string;
   isNew?: boolean;
+  /** Имя файла на Cloudinary (без расширения), если отличается от артикула.
+   *  Используется для Прованса, где один артикул = разные рисунки. */
+  imageId?: string;
 }
 
 export interface SubGroup {
@@ -164,7 +167,7 @@ export const plasticHPL: MaterialType = {
             { name: "Мрамор верде", article: "3157" },
             { name: "Лавант", article: "3094" },
             { name: "Имперадор", article: "3060" },
-            { name: "Семолина бежевая", article: "б/н" },
+            { name: "Семолина бежевая", article: "б/н", imageId: "semolina" },
             { name: "Вево", article: "3104" },
             { name: "Антарес", article: "4040" },
             { name: "Чёрная бронза", article: "4059" },
@@ -279,11 +282,11 @@ export const plasticHPL: MaterialType = {
             { name: "Оранжевые цветы", article: "2203" },
             { name: "Зелёные цветы", article: "2809" },
             { name: "Белая лоза", article: "2553" },
-            { name: "Ванильная лоза", article: "2812" },
-            { name: "Серая лоза", article: "2503" },
-            { name: "Шоколадная лоза", article: "7137" },
-            { name: "Зелёная лоза", article: "2809" },
-            { name: "Роза белая", article: "2553" },
+            { name: "Ванильная лоза", article: "2812", imageId: "2812_alt" },
+            { name: "Серая лоза", article: "2503", imageId: "2503_alt" },
+            { name: "Шоколадная лоза", article: "7137", imageId: "7137_alt" },
+            { name: "Зелёная лоза", article: "2809", imageId: "2809_alt" },
+            { name: "Роза белая", article: "2553", imageId: "2553_rose" },
           ],
         },
         {

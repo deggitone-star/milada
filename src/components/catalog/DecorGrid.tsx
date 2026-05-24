@@ -66,7 +66,7 @@ export default function DecorGrid({
                 key={`${collectionSlug}-${decor.article}-${decor.name}`}
                 name={decor.name}
                 article={decor.article}
-                imageSrc={getDecorSrc(collectionSlug, decor.article)}
+                imageSrc={getDecorSrc(collectionSlug, decor.article, decor.imageId)}
                 surface={sg.surface}
                 isNew={decor.isNew}
               />

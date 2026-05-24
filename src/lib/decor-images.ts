@@ -29,14 +29,35 @@ const MATERIAL_TO_FOLDER: Record<string, string> = {
 
 /**
  * Возвращает Cloudinary URL фото декора с автооптимизацией.
+ * Если фото нет в папке текущей коллекции — берёт из другой.
  */
+
+const CROSS_COLLECTION: Record<string, string> = {
+  // Wood & Stone → фото в другой коллекции
+  "wood-and-stone:2503": "klassik",
+  "wood-and-stone:103": "indiya",
+  "wood-and-stone:1014": "klassik",
+  // India → фото в другой коллекции
+  "indiya:2503": "klassik",
+  "indiya:101": "indiya",
+  // Classic → фото в другой коллекции
+  "klassik:7137": "provans",
+  // Provence → фото в другой коллекции
+  "provans:103": "indiya",
+  "provans:4011": "indiya",
+};
+
 export function getDecorSrc(
   collectionSlug: string,
   article: string,
+  imageId?: string,
 ): string {
-  const filename = articleToFilename(article);
+  // Если задан imageId — использовать его вместо артикула
+  const filename = imageId || articleToFilename(article);
   if (!filename) return "";
 
-  const folder = MATERIAL_TO_FOLDER[collectionSlug] || collectionSlug;
+  const key = `${collectionSlug}:${article}`;
+  const resolvedSlug = CROSS_COLLECTION[key] || collectionSlug;
+  const folder = MATERIAL_TO_FOLDER[resolvedSlug] || resolvedSlug;
   return `${CLOUDINARY_BASE}/f_auto,q_auto,w_400/milada/decors/${folder}/${filename}`;
 }
