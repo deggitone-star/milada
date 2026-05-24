@@ -1,7 +1,5 @@
 // src/components/ui/FloatingContacts.tsx
-// Плавающие кнопки в правом нижнем углу — звонок и MAX
-// Видны на всех страницах, на десктопе и мобильных
-
+// Плавающие кнопки связи — правый нижний угол
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,7 +10,6 @@ export default function FloatingContacts() {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  // Появляются после прокрутки на 300px (чтобы не перекрывали Hero)
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300);
     onScroll();
@@ -20,8 +17,16 @@ export default function FloatingContacts() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Закрытие по клику вне виджета
+  useEffect(() => {
+    if (!expanded) return;
+    const close = () => setExpanded(false);
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [expanded]);
+
   const phoneHref = `tel:${siteConfig.phone.replace(/\D/g, "")}`;
-  const maxHref = messengers.max || "#max-pending"; // если пусто, кнопка-плейсхолдер
+  const maxHref = messengers.max || "#max-pending";
 
   return (
     <div
@@ -29,6 +34,7 @@ export default function FloatingContacts() {
         "fixed bottom-5 right-5 lg:bottom-7 lg:right-7 z-50 flex flex-col-reverse items-end gap-3 transition-all duration-300",
         visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-4"
       )}
+      onClick={(e) => e.stopPropagation()}
     >
       {/* Раскрывающиеся кнопки */}
       <div
@@ -79,20 +85,32 @@ export default function FloatingContacts() {
         </a>
       </div>
 
-      {/* Главная кнопка-переключатель */}
+      {/* Главная кнопка */}
       <button
         onClick={() => setExpanded((v) => !v)}
         className={cn(
-          "w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-mint-dark text-mint flex items-center justify-center shadow-lift hover:shadow-2xl transition-all duration-300",
-          expanded && "rotate-45 bg-ink"
+          "w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-lift hover:shadow-2xl transition-all duration-300",
+          expanded
+            ? "bg-ink text-white"
+            : "bg-mint-dark text-white"
         )}
         aria-label={expanded ? "Закрыть" : "Связаться с нами"}
         aria-expanded={expanded}
       >
-        {/* + / x иконка */}
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        </svg>
+        {expanded ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+          </svg>
+        ) : (
+          /* Облачко чата с тремя точками — понятная иконка «связаться» */
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <circle cx="8.5" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="12" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="15.5" cy="10" r="1.2" fill="currentColor"/>
+          </svg>
+        )}
       </button>
     </div>
   );

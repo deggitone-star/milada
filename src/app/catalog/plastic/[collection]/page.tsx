@@ -160,6 +160,41 @@ export default async function CollectionPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* ──── ДРУГИЕ КОЛЛЕКЦИИ ──── */}
+      <section className="py-12 lg:py-16 bg-bg border-t border-line">
+        <div className="container-site">
+          <p className="label mb-3">Смотрите также</p>
+          <h2 className="h3 mb-6">Другие коллекции пластиковых фасадов</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {tadzhCollections
+              .filter((c) => c.slug !== slug)
+              .map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/catalog/plastic/${c.slug}`}
+                  className="group card p-5 hover:border-ink-subtle hover:shadow-lift transition-all duration-200"
+                >
+                  <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-ink-subtle">
+                    Коллекция
+                  </p>
+                  <h3 className="mt-1 text-base font-medium text-ink group-hover:text-mint-dark transition-colors">
+                    {c.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-ink-muted leading-relaxed line-clamp-2">
+                    {c.subtitle}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-mint-dark">
+                    Смотреть декоры
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* ──── CTA ──── */}
       <section className="section-py bg-bg-dark">
         <div className="container-site text-center max-w-2xl mx-auto">
@@ -207,40 +242,6 @@ export default async function CollectionPage({ params }: PageProps) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/contacts" className="btn-primary">Запросить расчёт</Link>
             <Link href="/catalog/plastic" className="btn-outline">Все пластиковые фасады</Link>
-          </div>
-        </div>
-      </section>
-      {/* ──── ДРУГИЕ КОЛЛЕКЦИИ ──── */}
-      <section className="py-12 lg:py-16 bg-bg-alt border-t border-line">
-        <div className="container-site">
-          <p className="label mb-3">Смотрите также</p>
-          <h2 className="h3 mb-6">Другие коллекции пластиковых фасадов</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {tadzhCollections
-              .filter((c) => c.slug !== slug)
-              .map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/catalog/plastic/${c.slug}`}
-                  className="group card p-5 hover:border-ink-subtle hover:shadow-lift transition-all duration-200"
-                >
-                  <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-ink-subtle">
-                    Коллекция
-                  </p>
-                  <h3 className="mt-1 text-base font-medium text-ink group-hover:text-mint-dark transition-colors">
-                    {c.title}
-                  </h3>
-                  <p className="mt-1.5 text-xs text-ink-muted leading-relaxed line-clamp-2">
-                    {c.subtitle}
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-mint-dark">
-                    Смотреть декоры
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              ))}
           </div>
         </div>
       </section>

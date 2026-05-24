@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { plasticHPL, getTotalDecorsCount, getCollectionDecorsCount } from "@/data/materials";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
+import DecorGrid from "@/components/catalog/DecorGrid";
 
 const totalDecors = getTotalDecorsCount(plasticHPL);
 
@@ -83,7 +84,7 @@ export default function PlastikHplPage() {
         </div>
       </section>
 
-      {/* КОЛЛЕКЦИИ */}
+      {/* КОЛЛЕКЦИИ — с фото декоров */}
       {plasticHPL.collections.map((collection, colIdx) => (
         <section
           key={collection.slug}
@@ -92,75 +93,27 @@ export default function PlastikHplPage() {
           style={{ scrollMarginTop: "140px" }}
         >
           <div className="container-site">
-            {/* Заголовок коллекции */}
             <div className="mb-10 max-w-3xl">
               <p className="label mb-3">Коллекция</p>
               <h2 className="h2">{collection.title}</h2>
               <p className="mt-3 text-ink-muted leading-relaxed">{collection.description}</p>
-              <p className="mt-2 text-sm text-ink-subtle">
-                {getCollectionDecorsCount(collection)} декоров
-              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <span className="text-sm text-ink-subtle">
+                  {getCollectionDecorsCount(collection)} декоров
+                </span>
+                <Link
+                  href={`/catalog/plastic/${collectionUrlSlug(collection.slug)}`}
+                  className="text-sm font-medium text-mint-dark hover:text-ink transition-colors"
+                >
+                  Страница коллекции →
+                </Link>
+              </div>
             </div>
 
-            {/* Подгруппы */}
-            <div className="space-y-12">
-              {collection.subGroups.map((sg, sgIdx) => (
-                <div key={sgIdx}>
-                  {/* Подзаголовок подгруппы */}
-                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-5 pb-4 border-b border-line">
-                    <h3 className="h3">{sg.title}</h3>
-                    <div className="flex flex-wrap gap-3 text-xs text-ink-subtle">
-                      {sg.surface && (
-                        <span className="inline-flex items-center gap-1">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-ink-subtle">
-                            <path d="M4 8h16M4 16h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                          </svg>
-                          {sg.surface}
-                        </span>
-                      )}
-                      {sg.size && (
-                        <span className="inline-flex items-center gap-1">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-ink-subtle">
-                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
-                          </svg>
-                          {sg.size}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Сетка декоров */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                    {sg.decors.map((decor, dIdx) => (
-                      <div key={dIdx} className="group">
-                        {/* Плашка цвета */}
-                        <div className="relative aspect-square rounded-soft border border-line bg-gradient-to-br from-bg-alt to-bg overflow-hidden">
-                          {/* Абстрактная заглушка — имитация текстуры */}
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-[10px] font-mono text-ink-subtle/40 select-none">
-                              {decor.article}
-                            </span>
-                          </div>
-                          {/* Бейдж "новинка" */}
-                          {decor.isNew && (
-                            <span className="absolute top-1.5 right-1.5 bg-mint text-mint-dark text-[9px] font-bold px-1.5 py-0.5 rounded-pill uppercase tracking-wider">
-                              new
-                            </span>
-                          )}
-                        </div>
-                        {/* Подпись */}
-                        <p className="mt-2 text-xs font-medium text-ink leading-tight line-clamp-2">
-                          {decor.name}
-                        </p>
-                        <p className="text-[11px] text-ink-subtle mt-0.5">
-                          арт. {decor.article}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <DecorGrid
+              subGroups={collection.subGroups}
+              collectionSlug={collection.slug}
+            />
           </div>
         </section>
       ))}
@@ -215,4 +168,15 @@ export default function PlastikHplPage() {
       </section>
     </>
   );
+}
+
+/** materials.ts slug → URL slug */
+function collectionUrlSlug(materialSlug: string): string {
+  const map: Record<string, string> = {
+    indiya: "india",
+    "wood-and-stone": "wood-stone",
+    klassik: "classic",
+    provans: "provence",
+  };
+  return map[materialSlug] || materialSlug;
 }
