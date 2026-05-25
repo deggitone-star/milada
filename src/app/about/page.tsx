@@ -26,15 +26,25 @@ const stats = [
 
 const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 
+/* Фото производства и здания — блок «О нас» */
+const aboutPhotos = [
+  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                alt: "Здание завода MILADA в Ульяновске" },
+  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство MILADA" },
+  { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на заводе MILADA" },
+  { src: `${CDN}/v1779706573/image-25-05-26-02-36-1_w8hino.jpg`,  alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },
+  { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`,  alt: "Фрезеровка декоративных панелей на производстве MILADA" },
+];
+
+/* Галерея — реальные фото мебели из фасадов MILADA */
 const gallery = [
-  { src: `${CDN}/v1778176567/milada/pvh-arka-premium.png`, alt: "Фасад МДФ премиум фрезеровка от MILADA" },
-  { src: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg`, alt: "Пластиковый фасад HPL дуб MILADA" },
-  { src: `${CDN}/v1778176600/milada/stone-white.jpg`,      alt: "Каменный фасад MILADA Ульяновск" },
-  { src: `${CDN}/v1778176610/milada/enamel-mat.jpg`,       alt: "Эмалевый матовый фасад MILADA" },
-  { src: `${CDN}/v1778176579/milada/pvh-praga.png`,        alt: "Премиум фрезеровка Прага MILADA" },
-  { src: `${CDN}/v1778177149/milada/headboard-sk1.png`,    alt: "Кроватная спинка МДФ MILADA" },
-  { src: `${CDN}/v1778176614/milada/patina-classic.jpg`,   alt: "Патинированный фасад MILADA" },
-  { src: `${CDN}/v1778177331/milada/door-panel-p7.png`,    alt: "Дверная панель МДФ MILADA" },
+  { src: `${CDN}/v1779706220/image-25-05-26-02-27-5_accodf.jpg`,  alt: "Кухня с фасадами MILADA — проект клиента" },
+  { src: `${CDN}/v1779706220/image-25-05-26-02-27-6_ro6te5.jpg`,  alt: "Мебельные фасады MILADA в интерьере кухни" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_ydyh3i.jpg`,  alt: "Кухонный гарнитур с фасадами от MILADA" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-3_fbxldt.jpg`,  alt: "Современная кухня — фасады производства MILADA" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27-2_heqjiv.jpg`,  alt: "Мебель с фасадами MILADA Ульяновск" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27_pykxhf.jpg`,    alt: "Интерьер с мебельными фасадами MILADA" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27-1_knsx0l.jpg`,  alt: "Фасады MILADA — реальный проект заказчика" },
+  { src: `${CDN}/v1779706217/image-25-05-26-02-27-1_fnca2q.webp`, alt: "Гарнитур с фасадами MILADA в современном интерьере" },
 ];
 
 export default function AboutPage() {
@@ -72,6 +82,27 @@ export default function AboutPage() {
 
       <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site">
+          {/* Фото производства */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-12">
+            {aboutPhotos.map((photo, i) => (
+              <div
+                key={i}
+                className={`relative overflow-hidden rounded-soft ${
+                  i === 0 ? "col-span-2 aspect-[2/1]" : "aspect-[4/3]"
+                }`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={i === 0 ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             <div>
               <p className="label mb-3">О производстве</p>
@@ -117,17 +148,17 @@ export default function AboutPage() {
       <section className="section-py bg-bg">
         <div className="container-site">
           <p className="label mb-3">Галерея</p>
-          <h2 className="h2 mb-10">Продукция MILADA</h2>
+          <h2 className="h2 mb-10">Мебель из наших фасадов</h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
             {gallery.map((item, i) => (
-              <div key={i} className="relative aspect-square bg-bg-alt border border-line rounded-soft overflow-hidden group">
+              <div key={i} className="relative aspect-[4/3] bg-bg-alt border border-line rounded-soft overflow-hidden group">
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
               </div>
             ))}
