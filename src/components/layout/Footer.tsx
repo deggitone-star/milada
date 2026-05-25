@@ -37,7 +37,6 @@ export default function Footer() {
             <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Компания</p>
             <ul className="space-y-2.5">
               <li><Link href="/about" className="text-sm hover:text-white transition-colors">О компании</Link></li>
-              <li><Link href="/materialy" className="text-sm hover:text-white transition-colors">Материалы</Link></li>
               <li><Link href="/dlya-mebelnyh-kompaniy" className="text-sm hover:text-white transition-colors">Для бизнеса</Link></li>
               <li><Link href="/catalog" className="text-sm hover:text-white transition-colors">Все фасады</Link></li>
               <li><Link href="/contacts" className="text-sm hover:text-white transition-colors">Контакты</Link></li>

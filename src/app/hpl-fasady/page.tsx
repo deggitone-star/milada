@@ -46,7 +46,7 @@ export default function HplFasadyPage() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/contacts" className="btn-mint">Запросить расчёт</Link>
-            <Link href="/materialy/plastik-hpl" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
+            <Link href="/catalog/plastic" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
               Каталог декоров HPL
             </Link>
             <Link href="/catalog/plastic" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
@@ -114,7 +114,7 @@ export default function HplFasadyPage() {
               <p className="text-base font-medium text-ink">Выбрать декор пластика</p>
               <p className="mt-1 text-sm text-ink-muted">Более 100 декоров: дерево, мрамор, камень, однотонные</p>
             </div>
-            <Link href="/materialy/plastik-hpl" className="btn-primary shrink-0">Каталог декоров →</Link>
+            <Link href="/catalog/plastic" className="btn-primary shrink-0">Каталог декоров →</Link>
           </div>
         </div>
       </section>

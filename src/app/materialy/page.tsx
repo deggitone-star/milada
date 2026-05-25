@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const materials = [
   {
     title: "Пластик HPL",
-    href: "/materialy/plastik-hpl",
+    href: "/catalog/plastic",
     count: getTotalDecorsCount(plasticHPL),
     description: "Ламинат высокого давления — однотонные, древесные, каменные, фантазийные декоры. 4 коллекции.",
     icon: (

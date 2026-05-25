@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/materialy/plastik-hpl",
+      "destination": "/catalog/plastic",
+      "permanent": true
+    },
+    {
+      "source": "/materialy",
+      "destination": "/catalog",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

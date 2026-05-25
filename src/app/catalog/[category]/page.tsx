@@ -14,7 +14,8 @@ import { tadzhCollections } from "@/data/tadzhCollections";
 interface Props { params: Promise<{ category: string }> }
 
 export async function generateStaticParams() {
-  return categories.map((c) => ({ category: c.slug }));
+  // plastic has its own dedicated page at /catalog/plastic/page.tsx
+  return categories.filter((c) => c.slug !== "plastic").map((c) => ({ category: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
