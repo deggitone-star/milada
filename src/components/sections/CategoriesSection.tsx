@@ -2,6 +2,9 @@ import Link from "next/link";
 import { categories } from "@/data/categories";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 import { products } from "@/data/products";
+import { plasticHPL, getTotalDecorsCount } from "@/data/materials";
+
+const plasticDecorsCount = getTotalDecorsCount(plasticHPL);
 
 export default function CategoriesSection() {
   return (
@@ -25,7 +28,11 @@ export default function CategoriesSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
           {categories.map((cat) => {
-            const count = products.filter(p => p.category === cat.slug).length;
+            const isPlastic = cat.slug === "plastic";
+            const count = isPlastic ? plasticDecorsCount : products.filter(p => p.category === cat.slug).length;
+            const unit = isPlastic
+              ? (count === 1 ? "декор" : count < 5 ? "декора" : "декоров")
+              : (count === 1 ? "модель" : count < 5 ? "модели" : "моделей");
             return (
               <Link
                 key={cat.slug}
@@ -37,7 +44,7 @@ export default function CategoriesSection() {
                 </div>
                 <h3 className="mt-6 text-base font-medium text-ink leading-tight">{cat.title}</h3>
                 <p className="mt-1 text-xs text-ink-subtle">
-                  {count} {count === 1 ? "модель" : count < 5 ? "модели" : "моделей"}
+                  {count} {unit}
                 </p>
               </Link>
             );

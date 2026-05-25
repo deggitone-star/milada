@@ -47,7 +47,7 @@ export const products: Product[] = [
   { title: "Рим", slug: "pvh-rim", image: `${CDN}/v1778176586/milada/pvh-rim.png`, description: "Премиум фрезеровка «Рим».", category: "pvh-premium", material: "МДФ" },
   { title: "Мадрид с косичкой", slug: "pvh-madrid-kosichka", image: `${CDN}/v1778176587/milada/pvh-madrid-kosichka.png`, description: "Премиум фрезеровка «Мадрид с косичкой».", category: "pvh-premium", material: "МДФ" },
   { title: "Варшава", slug: "pvh-varshava", image: `${CDN}/v1778176588/milada/pvh-varshava.png`, description: "Премиум фрезеровка «Варшава».", category: "pvh-premium", material: "МДФ" },
-  { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: `${CDN}/v1778176590/milada/pvh-int-ruchka.png`, description: "Премиум фрезеровка с интегрированной ручкой.", category: "pvh-premium", material: "МДФ" },
+  { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1779709005/__2022-04-17_22.59.21-46f13d93b9_qbp3xm.png", description: "Премиум фрезеровка с интегрированной ручкой.", category: "pvh-premium", material: "МДФ" },
   { title: "Инт. ручка 1", slug: "pvh-int-ruchka-1", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832136/milada/pvh-int-ruchka-1.png", description: "Интегрированная ручка, вариант 1. Безручечное решение для минималистичных интерьеров.", category: "pvh-premium", material: "МДФ" },
   { title: "Инт. ручка 2", slug: "pvh-int-ruchka-2", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832138/milada/pvh-int-ruchka-2.png", description: "Интегрированная ручка, вариант 2. Безручечное решение для современных кухонь.", category: "pvh-premium", material: "МДФ" },
   {

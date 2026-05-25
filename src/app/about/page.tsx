@@ -70,9 +70,9 @@ export default function AboutPage() {
       <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site">
           {/* Фото производства — 2 ряда */}
-          <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-12">
-            {/* Ряд 1: здание (2 колонки) + вход (1 колонка) */}
-            <div className="col-span-2 relative overflow-hidden rounded-soft aspect-[16/9]">
+          <div className="grid grid-cols-3 grid-rows-[280px_220px] lg:grid-rows-[340px_240px] gap-3 lg:gap-4 mb-12">
+            {/* Ряд 1: здание (2 колонки) + вход (1 колонка) — одна высота */}
+            <div className="col-span-2 relative overflow-hidden rounded-soft">
               <Image
                 src={aboutPhotos[0].src}
                 alt={aboutPhotos[0].alt}
@@ -82,7 +82,7 @@ export default function AboutPage() {
                 priority
               />
             </div>
-            <div className="relative overflow-hidden rounded-soft aspect-[16/9]">
+            <div className="relative overflow-hidden rounded-soft">
               <Image
                 src={aboutPhotos[1].src}
                 alt={aboutPhotos[1].alt}
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </div>
             {/* Ряд 2: 3 фото станков */}
             {aboutPhotos.slice(2).map((photo, i) => (
-              <div key={i} className="relative overflow-hidden rounded-soft aspect-[16/9]">
+              <div key={i} className="relative overflow-hidden rounded-soft">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
