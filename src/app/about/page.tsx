@@ -1,21 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { siteConfig } from "@/lib/config";
-import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
-
-export const metadata: Metadata = {
-  title: "О компании MILADA — производство мебельных фасадов в Ульяновске",
-  description:
-    "MILADA — производитель мебельных фасадов в Ульяновске с 2012 года. Собственный завод, более 500 проектов в год, евростандарты качества. ☎ +7 (8422) 27-82-02",
-  alternates: { canonical: `${siteConfig.url}/about` },
-  keywords: [
-    "milada ульяновск",
-    "о компании милада",
-    "производитель фасадов ульяновск",
-    "завод мебельных фасадов",
-  ],
-};
+import Lightbox from "@/components/ui/Lightbox";
 
 const stats = [
   { value: "14+",  label: "лет опыта" },
@@ -28,35 +17,33 @@ const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 
 /* Фото производства и здания — блок «О нас» */
 const aboutPhotos = [
-  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                alt: "Здание завода MILADA в Ульяновске" },
-  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство MILADA" },
-  { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на заводе MILADA" },
+  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                   alt: "Здание завода MILADA в Ульяновске" },
+  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`,  alt: "Вход в производство MILADA" },
+  { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,    alt: "ЧПУ-фрезеровка фасадов МДФ на заводе MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-1_w8hino.jpg`,  alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`,  alt: "Фрезеровка декоративных панелей на производстве MILADA" },
 ];
 
-/* Галерея — реальные фото мебели из фасадов MILADA */
+/* Галерея — все реальные фото мебели из фасадов MILADA */
 const gallery = [
-  { src: `${CDN}/v1779706220/image-25-05-26-02-27-5_accodf.jpg`,  alt: "Кухня с фасадами MILADA — проект клиента" },
-  { src: `${CDN}/v1779706220/image-25-05-26-02-27-6_ro6te5.jpg`,  alt: "Мебельные фасады MILADA в интерьере кухни" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_ydyh3i.jpg`,  alt: "Кухонный гарнитур с фасадами от MILADA" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-3_fbxldt.jpg`,  alt: "Современная кухня — фасады производства MILADA" },
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27-2_heqjiv.jpg`,  alt: "Мебель с фасадами MILADA Ульяновск" },
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27_pykxhf.jpg`,    alt: "Интерьер с мебельными фасадами MILADA" },
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27-1_knsx0l.jpg`,  alt: "Фасады MILADA — реальный проект заказчика" },
-  { src: `${CDN}/v1779706217/image-25-05-26-02-27-1_fnca2q.webp`, alt: "Гарнитур с фасадами MILADA в современном интерьере" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27_pykxhf.jpg`,    alt: "Кухонный остров с мраморной отделкой — фасады MILADA" },
+  { src: `${CDN}/v1779706217/image-25-05-26-02-27_lfycit.webp`,   alt: "Экран для радиатора с фрезеровкой MILADA" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27-1_knsx0l.jpg`,  alt: "Встроенный шкаф с золотыми ручками — фасады MILADA" },
+  { src: `${CDN}/v1779706217/image-25-05-26-02-27-1_fnca2q.webp`, alt: "Настенная полка с декоративным орнаментом MILADA" },
+  { src: `${CDN}/v1779706218/image-25-05-26-02-27-2_heqjiv.jpg`,  alt: "Тумба для ванной с рифлёными фасадами MILADA" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-2_yv3ami.webp`, alt: "Ванная комната с двойным умывальником — фасады MILADA" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-3_fbxldt.jpg`,  alt: "Классическая кухня с фасадами MILADA" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_ydyh3i.jpg`,  alt: "Встроенный шкаф от пола до потолка — MILADA" },
+  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_a2wior.webp`, alt: "Рифлёные фасады шкафа крупным планом — MILADA" },
+  { src: `${CDN}/v1779706220/image-25-05-26-02-27-5_accodf.jpg`,  alt: "ТВ-тумба с классической фрезеровкой — MILADA" },
+  { src: `${CDN}/v1779706220/image-25-05-26-02-27-6_ro6te5.jpg`,  alt: "Настенный шкафчик с орнаментом — фасады MILADA" },
 ];
 
 export default function AboutPage() {
-  const breadcrumbs = [
-    { name: "Главная", url: siteConfig.url },
-    { name: "О компании", url: `${siteConfig.url}/about` },
-  ];
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <>
-      <BreadcrumbSchema items={breadcrumbs} />
-
       <div className="bg-bg-alt border-b border-line" style={{ paddingTop: "var(--header-h)" }}>
         <div className="container-site py-10 lg:py-14">
           <p className="label mb-3">О компании</p>
@@ -82,22 +69,37 @@ export default function AboutPage() {
 
       <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site">
-          {/* Фото производства */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 mb-12">
-            {aboutPhotos.map((photo, i) => (
-              <div
-                key={i}
-                className={`relative overflow-hidden rounded-soft ${
-                  i === 0 ? "col-span-2 aspect-[2/1]" : "aspect-[4/3]"
-                }`}
-              >
+          {/* Фото производства — 2 ряда */}
+          <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-12">
+            {/* Ряд 1: здание (2 колонки) + вход (1 колонка) */}
+            <div className="col-span-2 relative overflow-hidden rounded-soft aspect-[16/9]">
+              <Image
+                src={aboutPhotos[0].src}
+                alt={aboutPhotos[0].alt}
+                fill
+                sizes="(max-width: 1024px) 66vw, 66vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-soft aspect-[16/9]">
+              <Image
+                src={aboutPhotos[1].src}
+                alt={aboutPhotos[1].alt}
+                fill
+                sizes="(max-width: 1024px) 33vw, 33vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Ряд 2: 3 фото станков */}
+            {aboutPhotos.slice(2).map((photo, i) => (
+              <div key={i} className="relative overflow-hidden rounded-soft aspect-[16/9]">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  sizes={i === 0 ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 50vw, 33vw"}
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover"
-                  priority={i === 0}
                 />
               </div>
             ))}
@@ -152,7 +154,11 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
             {gallery.map((item, i) => (
-              <div key={i} className="relative aspect-[4/3] bg-bg-alt border border-line rounded-soft overflow-hidden group">
+              <button
+                key={i}
+                onClick={() => setLightbox(item)}
+                className="relative aspect-[4/3] bg-bg-alt border border-line rounded-soft overflow-hidden group cursor-zoom-in"
+              >
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -160,7 +166,8 @@ export default function AboutPage() {
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-              </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+              </button>
             ))}
           </div>
 
@@ -201,6 +208,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </>
   );
 }
