@@ -2,13 +2,20 @@ import Link from "next/link";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 import type { Category } from "@/types";
 import { products } from "@/data/products";
+import { plasticHPL, getTotalDecorsCount } from "@/data/materials";
+
+const plasticDecors = getTotalDecorsCount(plasticHPL);
 
 interface CategoryCardProps {
   category: Category;
 }
 
 export default function CategoryCard({ category }: CategoryCardProps) {
-  const count = products.filter(p => p.category === category.slug).length;
+  const isPlastic = category.slug === "plastic";
+  const count = isPlastic ? plasticDecors : products.filter(p => p.category === category.slug).length;
+  const unit = isPlastic
+    ? (count === 1 ? "декор" : count < 5 ? "декора" : "декоров")
+    : (count === 1 ? "позиция" : count < 5 ? "позиции" : "позиций");
 
   return (
     <Link
@@ -20,7 +27,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       </div>
       <h3 className="mt-6 text-base font-medium text-ink leading-tight">{category.title}</h3>
       <p className="mt-1 text-xs text-ink-subtle">
-        {count} {count === 1 ? "позиция" : count < 5 ? "позиции" : "позиций"}
+        {count} {unit}
       </p>
     </Link>
   );

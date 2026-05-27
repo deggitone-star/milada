@@ -3,14 +3,18 @@ import { siteConfig } from "@/lib/config";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Контакты MILADA — Ульяновск, ул. Хваткова 11 | Заказ фасадов",
-  description: `Адрес: ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Производство мебельных фасадов на заказ.`,
+  title: "Контакты MILADA — завод мебельных фасадов, Ульяновск, ул. Хваткова 11",
+  description: `Завод мебельных фасадов MILADA: адрес ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Заказ фасадов МДФ, ПВХ, эмаль, HPL — производство в Ульяновске, доставка по России.`,
   alternates: { canonical: `${siteConfig.url}/contacts` },
   keywords: [
     "milada контакты",
-    "milada ульяновск телефон",
-    "купить фасады ульяновск адрес",
+    "milada ульяновск адрес",
+    "milada телефон",
+    "мебельные фасады ульяновск адрес",
+    "заказать фасады ульяновск",
+    "купить фасады мдф ульяновск",
     "фасады хваткова ульяновск",
+    "производство фасадов контакты",
   ],
 };
 
