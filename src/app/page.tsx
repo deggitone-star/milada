@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import HeroSection from "@/components/sections/HeroSection";
 import CategoriesSection from "@/components/sections/CategoriesSection";
@@ -9,7 +10,7 @@ import CtaSection from "@/components/sections/CtaSection";
 export const metadata: Metadata = {
   title: "MILADA — Производство мебельных фасадов в Ульяновске | МДФ, ПВХ, HPL, эмаль",
   description:
-    "Завод мебельных фасадов MILADA в Ульяновске. Фасады МДФ с ПВХ-плёнкой, эмаль по RAL, HPL-пластик, камень, патина. Для мебельных компаний, салонов и дилеров. Опт и розница, доставка по России. ☎ +7 (8422) 27-82-02",
+    "Завод мебельных фасадов MILADA в Ульяновске с 2012 года. Фасады МДФ с ПВХ-плёнкой, эмаль по RAL, HPL-пластик, камень, патина. Для мебельных компаний, салонов и дилеров. Работа по договору, доставка по России. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: siteConfig.url },
   keywords: [
     "мебельные фасады ульяновск",
@@ -33,56 +34,29 @@ export default function HomePage() {
       <FeaturedSection />
       <AdvantagesSection />
 
-      {/* SEO-блок под B2B */}
-      <section className="section-py bg-bg">
+      {/* SEO-якорный блок — короткий, с перелинковкой */}
+      <section className="section-py bg-bg-alt border-y border-line">
         <div className="container-site max-w-4xl">
-          <div className="prose prose-neutral max-w-none">
-            <p className="label mb-3">О производстве</p>
-            <h2 className="h2 mb-6">Производство мебельных фасадов в Ульяновске</h2>
+          <p className="label mb-3">О производстве</p>
+          <h2 className="h2 mb-6">Производство мебельных фасадов в Ульяновске</h2>
 
-            <div className="space-y-4 text-ink-muted leading-relaxed">
-              <p>
-                <strong className="text-ink">MILADA</strong> — производитель мебельных фасадов
-                в Ульяновске с 2012 года. Изготавливаем фасады МДФ с ПВХ-плёнкой,
-                эмалевые, пластиковые HPL, каменные, патинированные и радиусные фасады
-                для мебельных компаний, кухонных салонов, мебельных цехов и дилеров
-                по всей России.
-              </p>
+          <div className="space-y-4 text-ink-muted leading-relaxed">
+            <p>
+              <strong className="text-ink">MILADA</strong> — собственный завод по производству мебельных фасадов в Ульяновске с 2012 года.
+              Изготавливаем <Link href="/fasady-mdf" className="text-mint-dark hover:underline">фасады МДФ с ПВХ-плёнкой</Link>,{" "}
+              <Link href="/krashenye-fasady" className="text-mint-dark hover:underline">эмалевые</Link>,{" "}
+              <Link href="/hpl-fasady" className="text-mint-dark hover:underline">пластиковые HPL</Link>,{" "}
+              <Link href="/kamennye-fasady" className="text-mint-dark hover:underline">каменные</Link>, патинированные и радиусные фасады для мебельных компаний, кухонных салонов, цехов и дилеров по всей России.
+            </p>
+            <p>
+              Работаем по договору с юрлицами и ИП, принимаем серийные заказы и индивидуальные проекты, изготавливаем фасады под точные размеры заказчика. Доставка через проверенные транспортные компании по всей России. Подробнее об условиях работы — на странице <Link href="/dlya-mebelnyh-kompaniy" className="text-mint-dark hover:underline">для мебельных компаний</Link>.
+            </p>
+          </div>
 
-              <p>
-                Работаем по договору с юридическими лицами и ИП. Принимаем
-                серийные заказы для мебельных производств и индивидуальные проекты.
-                Срок изготовления — от 5 рабочих дней. Доставка через проверенные
-                транспортные компании по всей России с многослойной упаковкой.
-              </p>
-
-              <h3 className="h3 mt-8 mb-4">Условия работы</h3>
-              <ul className="space-y-2 ml-1">
-                <li>— Минимальный заказ для опта — от 50 м² фасадов</li>
-                <li>— Отсрочка платежа для постоянных партнёров</li>
-                <li>— Полный пакет документов для бухгалтерии</li>
-                <li>— Индивидуальный раскрой с допусками ±0,5 мм</li>
-                <li>— Контроль качества на каждом этапе производства</li>
-                <li>— Доставка по Поволжью и всей России</li>
-              </ul>
-
-              <h3 className="h3 mt-8 mb-4">Категории продукции</h3>
-              <p>
-                <strong>Фасады МДФ с ПВХ-плёнкой</strong> — стандартные и премиум фрезеровки.
-                Более 100 декоров плёнки: однотонные, под дерево, металлик, глянец.
-              </p>
-              <p>
-                <strong>Пластиковые фасады HPL</strong> — повышенная стойкость к влаге,
-                царапинам и выгоранию.
-              </p>
-              <p>
-                <strong>Каменные фасады</strong> — нанесение искусственного камня на МДФ.
-                18 однотонных цветов и 8 перламутровых.
-              </p>
-              <p>
-                Также производим: <strong>радиусные фасады</strong>, <strong>дверные панели</strong>, <strong>полотна для шкафов-купе</strong>, <strong>спинки кроватные</strong>, <strong>декоративные элементы</strong> и накладки.
-              </p>
-            </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/catalog" className="btn-primary">Перейти в каталог</Link>
+            <Link href="/dlya-mebelnyh-kompaniy" className="btn-outline">Условия для бизнеса</Link>
+            <Link href="/about" className="btn-outline">О компании</Link>
           </div>
         </div>
       </section>
