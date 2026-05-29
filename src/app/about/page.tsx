@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import CollageGallery from "@/components/ui/CollageGallery";
+import { galleryPhotos } from "@/data/gallery";
 import type { LightboxImage } from "@/components/ui/Lightbox";
 
 const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
@@ -29,20 +30,8 @@ const productionPhotos: LightboxImage[] = [
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`, alt: "Фрезеровка декоративных панелей на производстве MILADA" },
 ];
 
-/* Галерея проектов клиентов */
-const galleryPhotos: LightboxImage[] = [
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27_pykxhf.jpg`,    alt: "Кухня с мраморным островом — фасады MILADA" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-3_fbxldt.jpg`,  alt: "Классическая кухня с фасадами MILADA" },
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27-2_heqjiv.jpg`,  alt: "Тумба для ванной с рифлёными фасадами MILADA" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-2_yv3ami.webp`, alt: "Ванная комната с двойным умывальником — фасады MILADA" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_ydyh3i.jpg`,  alt: "Встроенный шкаф от пола до потолка — MILADA" },
-  { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_a2wior.webp`, alt: "Рифлёные фасады шкафа крупным планом — MILADA" },
-  { src: `${CDN}/v1779706218/image-25-05-26-02-27-1_knsx0l.jpg`,  alt: "Встроенный шкаф с золотыми ручками — фасады MILADA" },
-  { src: `${CDN}/v1779706217/image-25-05-26-02-27-1_fnca2q.webp`, alt: "Настенная полка с декоративным орнаментом MILADA" },
-  { src: `${CDN}/v1779706220/image-25-05-26-02-27-5_accodf.jpg`,  alt: "ТВ-тумба с классической фрезеровкой — MILADA" },
-  { src: `${CDN}/v1779706220/image-25-05-26-02-27-6_ro6te5.jpg`,  alt: "Классическая кухня MILADA — другой ракурс" },
-  { src: `${CDN}/v1779706217/image-25-05-26-02-27_lfycit.webp`,   alt: "Декоративная полка с орнаментом крупным планом — MILADA" },
-];
+/* Галерея проектов — превью из общего файла данных */
+const galleryPreview = galleryPhotos.slice(0, 6);
 
 const facadeTypes = [
   { label: "Фасады МДФ / ПВХ", href: "/fasady-mdf" },
@@ -158,11 +147,11 @@ export default function AboutPage() {
               Реальные проекты, выполненные с фасадами MILADA — кухни, шкафы, тумбы и декоративные элементы.
             </p>
           </div>
-          <CollageGallery images={galleryPhotos} featured={[0, 7]} />
+          <CollageGallery images={galleryPreview} featured={[0]} />
 
           <div className="mt-10 text-center">
-            <Link href="/catalog" className="btn-outline">
-              Смотреть весь каталог
+            <Link href="/galereya" className="btn-outline">
+              Смотреть все проекты
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

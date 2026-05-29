@@ -9,6 +9,11 @@
       "source": "/materialy",
       "destination": "/catalog",
       "permanent": true
+    },
+    {
+      "source": "/fotogalereya",
+      "destination": "/galereya",
+      "permanent": true
     }
   ],
   "headers": [

@@ -9,6 +9,7 @@ import { siteConfig } from "@/lib/config";
 
 const navLinks = [
   { href: "/catalog",                  label: "Каталог" },
+  { href: "/galereya",                 label: "Галерея" },
   { href: "/dlya-mebelnyh-kompaniy",   label: "Для бизнеса" },
   { href: "/about",                    label: "О компании" },
   { href: "/contacts",                 label: "Контакты" },
