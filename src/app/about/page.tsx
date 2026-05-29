@@ -147,7 +147,7 @@ export default function AboutPage() {
               Реальные проекты, выполненные с фасадами MILADA — кухни, шкафы, тумбы и декоративные элементы.
             </p>
           </div>
-          <CollageGallery images={galleryPreview} featured={[0]} />
+          <CollageGallery images={galleryPreview} />
 
           <div className="mt-10 text-center">
             <Link href="/galereya" className="btn-outline">

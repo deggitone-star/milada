@@ -56,7 +56,7 @@ export default function GalleryPage() {
       {/* ГАЛЕРЕЯ */}
       <section className="section-py bg-bg">
         <div className="container-site">
-          <CollageGallery images={galleryPhotos} featured={[0, 7]} />
+          <CollageGallery images={galleryPhotos} />
         </div>
       </section>
 
