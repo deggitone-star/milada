@@ -148,16 +148,54 @@ export const products: Product[] = [
   { title: "Акация белая (HPL)", slug: "hpl-akacia-belaya", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832225/milada/hpl-akacia-belaya-2326.jpg", description: "HPL-пластик, декор «Акация белая 2326». Глянцевый.", category: "plastic", material: "МДФ + HPL пластик" },
   { title: "Акация красная (HPL)", slug: "hpl-akacia-krasnaya", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832228/milada/hpl-akacia-krasnaya-2780.jpg", description: "HPL-пластик, декор «Акация красная 2780». Глянцевый.", category: "plastic", material: "МДФ + HPL пластик" },
 
-  // ── Каменные фасады ─────────────────────────────────────────────────────────
-  { title: "Каменный — Белый", slug: "stone-white", image: `${CDN}/v1778176600/milada/stone-white.jpg`, description: "Искусственный камень, цвет «Белый». Высокоглянцевый термостойкий лак.", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный — Бежевый", slug: "stone-beige", image: `${CDN}/v1778176601/milada/stone-beige.jpg`, description: "Искусственный камень, цвет «Бежевый».", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный — Светло-кофейный", slug: "stone-light-coffee", image: `${CDN}/v1778176602/milada/stone-light-coffee.jpg`, description: "Искусственный камень, цвет «Светло-кофейный».", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный — Коричневый", slug: "stone-brown", image: `${CDN}/v1778176604/milada/stone-brown.jpg`, description: "Искусственный камень, цвет «Коричневый».", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный — Голубой", slug: "stone-blue", image: `${CDN}/v1778176605/milada/stone-blue.jpg`, description: "Искусственный камень, цвет «Голубой».", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный — Серый", slug: "stone-grey", image: `${CDN}/v1778176606/milada/stone-grey.jpg`, description: "Искусственный камень, цвет «Серый».", category: "stone", material: "МДФ + искусственный камень", new: true },
-  { title: "Каменный — Чёрный", slug: "stone-black", image: `${CDN}/v1778176607/milada/stone-black.jpg`, description: "Искусственный камень, цвет «Чёрный».", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный V-01 (перламутр)", slug: "stone-v01", image: `${CDN}/v1778176608/milada/stone-v01.jpg`, description: "Искусственный камень с перламутровым эффектом V-01.", category: "stone", material: "МДФ + искусственный камень" },
-  { title: "Каменный V-02 (перламутр)", slug: "stone-v02", image: `${CDN}/v1778176609/milada/stone-v02.jpg`, description: "Искусственный камень с перламутровым эффектом V-02.", category: "stone", material: "МДФ + искусственный камень" },
+
+  // ── Эмаль ───────────────────────────────────────────────────────────────────
+  {
+    title: "Эмаль матовая",
+    slug: "enamel-mat",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/5_1_nakrql.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/matovaya_lu7tfs.png",
+    gallery: [
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/6_s9qd48.png",
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777894/Matovaya_3_wz0o4p.png",
+    ],
+    description: "Премиальные фасады МДФ с покрытием матовой эмалью. Любой цвет из каталога RAL — более 1600 оттенков на выбор. Технология производства включает 7 этапов: грунтование, шлифовка, нанесение эмали в несколько слоёв, промежуточные сушки, финишная полировка. Идеальная плоскость и однотонность поверхности. Бархатистая матовая фактура поглощает свет без бликов.",
+    category: "enamel",
+    material: "МДФ + матовая эмаль",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Матовый"],
+    featured: true,
+  },
+  {
+    title: "Эмаль глянцевая",
+    slug: "enamel-gloss",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-1_dzf1nl.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/glyanec_w8lxfg.png",
+    gallery: [
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-3_j74h3w.png",
+    ],
+    description: "Премиальные фасады МДФ с покрытием глянцевой эмалью. Зеркальный блеск с финишным высокоглянцевым лаком. Любой цвет из каталога RAL — более 1600 оттенков. Визуально расширяет пространство, придаёт интерьеру глубину и роскошь.",
+    category: "enamel",
+    material: "МДФ + эмаль + лак",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Глянцевый"],
+    featured: true,
+  },
+  {
+    title: "Эмаль металлик",
+    slug: "enamel-metallic",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-1_ac7myd.png",
+    interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/Metakil_primer_haxxoj.png",
+    gallery: [
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-2_vuglq6.png",
+    ],
+    description: "Эксклюзивные фасады МДФ с покрытием эмаль металлик. Перламутровое свечение с мелкими металлическими частицами в составе эмали. Уникальная игра света при разном освещении. Любой цвет по каталогу RAL.",
+    category: "enamel",
+    material: "МДФ + эмаль металлик",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Металлик"],
+    featured: true,
+  },
 
   // ── Патинированные ──────────────────────────────────────────────────────────
   { title: "Патинированный фасад", slug: "patina-classic", image: `${CDN}/v1778176614/milada/patina-classic.jpg`, description: "Фасад премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", category: "patina", material: "МДФ + ПВХ + патина" },

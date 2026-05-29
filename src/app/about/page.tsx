@@ -37,7 +37,6 @@ const facadeTypes = [
   { label: "Фасады МДФ / ПВХ", href: "/fasady-mdf" },
   { label: "Пластик HPL", href: "/hpl-fasady" },
   { label: "Эмаль", href: "/krashenye-fasady" },
-  { label: "Каменные", href: "/kamennye-fasady" },
   { label: "Патина", href: null },
   { label: "Радиусные", href: null },
   { label: "Декор. элементы", href: null },
@@ -128,7 +127,7 @@ export default function AboutPage() {
         <div className="container-site">
           <div className="mb-8 max-w-2xl">
             <p className="label mb-3">Производство</p>
-            <h2 className="h2">Собственный завод в Ульяновске</h2>
+            <h2 className="h2">Собственное производство в Ульяновске</h2>
             <p className="mt-3 text-ink-muted leading-relaxed">
               Полный цикл: раскрой МДФ, фрезеровка на ЧПУ, облицовка ПВХ и HPL, покраска эмалью, патинирование.
             </p>

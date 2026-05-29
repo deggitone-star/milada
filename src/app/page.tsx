@@ -10,7 +10,7 @@ import CtaSection from "@/components/sections/CtaSection";
 export const metadata: Metadata = {
   title: "MILADA — Производство мебельных фасадов в Ульяновске | МДФ, ПВХ, HPL, эмаль",
   description:
-    "Завод мебельных фасадов MILADA в Ульяновске с 2012 года. Фасады МДФ с ПВХ-плёнкой, эмаль по RAL, HPL-пластик, камень, патина. Для мебельных компаний, салонов и дилеров. Работа по договору, доставка по России. ☎ +7 (8422) 27-82-02",
+    "Завод мебельных фасадов MILADA в Ульяновске с 2012 года. Фасады МДФ с ПВХ-плёнкой, эмаль по RAL, HPL-пластик, патина. Для мебельных компаний, салонов и дилеров. Работа по договору, доставка по России. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: siteConfig.url },
   keywords: [
     "мебельные фасады ульяновск",
@@ -45,8 +45,7 @@ export default function HomePage() {
               <strong className="text-ink">MILADA</strong> — собственный завод по производству мебельных фасадов в Ульяновске с 2012 года.
               Изготавливаем <Link href="/fasady-mdf" className="text-mint-dark hover:underline">фасады МДФ с ПВХ-плёнкой</Link>,{" "}
               <Link href="/krashenye-fasady" className="text-mint-dark hover:underline">эмалевые</Link>,{" "}
-              <Link href="/hpl-fasady" className="text-mint-dark hover:underline">пластиковые HPL</Link>,{" "}
-              <Link href="/kamennye-fasady" className="text-mint-dark hover:underline">каменные</Link>, патинированные и радиусные фасады для мебельных компаний, кухонных салонов, цехов и дилеров по всей России.
+              <Link href="/hpl-fasady" className="text-mint-dark hover:underline">пластиковые HPL</Link>, патинированные и радиусные фасады для мебельных компаний, кухонных салонов, цехов и дилеров по всей России.
             </p>
             <p>
               Работаем по договору с юрлицами и ИП, принимаем серийные заказы и индивидуальные проекты, изготавливаем фасады под точные размеры заказчика. Доставка через проверенные транспортные компании по всей России. Подробнее об условиях работы — на странице <Link href="/dlya-mebelnyh-kompaniy" className="text-mint-dark hover:underline">для мебельных компаний</Link>.

@@ -108,7 +108,7 @@ export default function ProizvodstvoPage() {
             {[
               { title: "ПВХ-плёнка", desc: "100+ декоров, 3D-фрезеровки, стандарт и премиум", link: "/fasady-mdf" },
               { title: "HPL-пластик", desc: "Максимальная стойкость, 50+ декоров", link: "/hpl-fasady" },
-              { title: "Искусственный камень", desc: "26 цветов, термостойкий лак", link: "/kamennye-fasady" },
+              { title: "Эмаль", desc: "Любой цвет по RAL — матовый, глянец, металлик", link: "/krashenye-fasady" },
             ].map(({ title, desc, link }) => (
               <Link key={title} href={link} className="group bg-bg border border-line rounded-soft p-5 hover:border-ink hover:shadow-lift transition-all">
                 <h3 className="text-base font-medium text-ink group-hover:text-mint-dark transition-colors">{title}</h3>

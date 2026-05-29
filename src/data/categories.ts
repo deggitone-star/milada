@@ -8,7 +8,7 @@ export const categories: Category[] = [
   { slug: "pvh-premium", title: "МДФ — Премиум", description: "Премиальные фрезеровки МДФ. Европейские мотивы, интегрированные ручки.", image: `${CDN}/v1778176579/milada/pvh-praga.png` },
   { slug: "plastic", title: "Пластиковые фасады HPL", description: "МДФ с облицовкой HPL-пластиком. Влагостойкие, устойчивы к царапинам. Огромный выбор декоров.", image: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg` },
   { slug: "patina", title: "Патинированные фасады", description: "Фасады премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", image: `${CDN}/v1778176614/milada/patina-classic.jpg` },
-  { slug: "stone", title: "Каменные фасады", description: "Нанесение искусственного камня на МДФ. 18 цветов + перламутровые варианты.", image: `${CDN}/v1778176600/milada/stone-white.jpg` },
+  { slug: "enamel", title: "Эмалевые фасады", description: "МДФ с покрытием эмалью. Любой цвет по каталогу RAL. Матовые, глянцевые, металлик.", image: `${CDN}/v1778176610/milada/enamel-mat.jpg` },
   { slug: "door-panels", title: "Дверные панели", description: "Накладки МДФ для дверей толщиной 6–16 мм. Для входных и межкомнатных дверей.", image: `${CDN}/v1778177331/milada/door-panel-p7.png` },
   { slug: "kupe", title: "Дверные полотна для купе", description: "Дверные полотна для шкафов-купе. Простые фрезеровки, диагональные и прямые перекрытия.", image: `${CDN}/v1778177336/milada/kupe-standart-1.png` },
   { slug: "radius", title: "Радиусные фасады", description: "Гнутые фасады МДФ. Внешний радиус 300 мм, высота 90–916 мм. Плёночные и пластиковые.", image: `${CDN}/v1778176614/milada/patina-classic.jpg` },

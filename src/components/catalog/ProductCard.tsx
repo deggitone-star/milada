@@ -17,7 +17,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
     "plastic":        "HPL",
     "patina":         "Премиум",
     "enamel":         "Эмаль",
-    "stone":          "Камень",
     "door-panels":    "Дверная панель",
     "kupe":           "Купе",
     "radius":         "Радиусный",

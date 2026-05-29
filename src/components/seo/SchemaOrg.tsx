@@ -12,7 +12,7 @@ export function LocalBusinessSchema() {
     "@id": `${siteConfig.url}/#organization`,
     name: "MILADA",
     alternateName: "Милада",
-    description: "Производство мебельных фасадов в Ульяновске. ПВХ, эмаль, HPL, камень, патина, радиусные фасады.",
+    description: "Производство мебельных фасадов в Ульяновске. ПВХ, эмаль, HPL, патина, радиусные фасады.",
     url: siteConfig.url,
     logo: `${siteConfig.url}/icon-512.png`,
     image: `${siteConfig.url}/icon-512.png`,

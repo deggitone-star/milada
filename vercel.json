@@ -14,6 +14,16 @@
       "source": "/fotogalereya",
       "destination": "/galereya",
       "permanent": true
+    },
+    {
+      "source": "/kamennye-fasady",
+      "destination": "/catalog",
+      "permanent": true
+    },
+    {
+      "source": "/catalog/stone",
+      "destination": "/catalog",
+      "permanent": true
     }
   ],
   "headers": [
