@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 const heroImage = `${CDN}/v1779706574/O_nas_bprpry.png`;
 
 const productionPhotos: LightboxImage[] = [
+  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                  alt: "Здание завода мебельных фасадов MILADA в Ульяновске" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на заводе MILADA в Ульяновске" },
   { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство мебельных фасадов MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-1_w8hino.jpg`, alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },

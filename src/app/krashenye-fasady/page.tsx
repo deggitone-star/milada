@@ -60,41 +60,13 @@ export default function KrashenyeFasadyPage() {
             Крашеные фасады МДФ — любой цвет по каталогу RAL
           </h1>
           <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Производим эмалевые фасады в Ульяновске. Матовые, глянцевые и металлик. Более 1600 оттенков RAL, 7-этапная технология покраски, идеальная поверхность.
+            Производим эмалевые фасады в Ульяновске. Матовые, глянцевые и металлик. Более 1600 оттенков RAL, идеальная поверхность.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/contacts" className="btn-mint">Запросить расчёт</Link>
             <Link href="/catalog/enamel" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
               Каталог эмалевых фасадов
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Технология */}
-      <section className="section-py bg-bg">
-        <div className="container-site max-w-4xl">
-          <p className="label mb-3">Технология</p>
-          <h2 className="h2 mb-6">Как производятся крашеные фасады</h2>
-          <div className="space-y-4 text-ink-muted leading-relaxed">
-            <p>
-              Крашеные (эмалевые) фасады — это МДФ-основа, покрытая высококачественной итальянской эмалью. Технология включает 7 последовательных этапов, каждый из которых контролируется мастером.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
-            {[
-              { step: "1", title: "Грунтование", text: "Нанесение грунта на МДФ-основу для идеальной адгезии" },
-              { step: "2", title: "Шлифовка", text: "Ручная шлифовка поверхности до идеальной гладкости" },
-              { step: "3", title: "Нанесение эмали", text: "Покраска в 2-3 слоя с промежуточными сушками" },
-              { step: "4", title: "Сушка и полировка", text: "Сушка в камере и финишная обработка" },
-            ].map(({ step, title, text }) => (
-              <div key={step} className="bg-bg p-5 lg:p-6">
-                <p className="text-sm font-medium text-mint-dark mb-3">{step}</p>
-                <h3 className="text-base font-medium text-ink mb-2">{title}</h3>
-                <p className="text-sm text-ink-muted leading-relaxed">{text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -106,14 +78,23 @@ export default function KrashenyeFasadyPage() {
           <h2 className="h2 mb-8">Три типа покрытия</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { title: "Матовая эмаль", text: "Бархатистая поверхность без бликов. Элегантный современный вид. Не оставляет отпечатков пальцев." },
-              { title: "Глянцевая эмаль", text: "Зеркальный блеск с финишным лаком. Визуально расширяет пространство. Премиум-класс." },
-              { title: "Металлик", text: "Эффект перламутрового свечения. Уникальная игра света на поверхности. Для эксклюзивных интерьеров." },
-            ].map(({ title, text }) => (
-              <div key={title} className="bg-bg border border-line rounded-soft p-5">
-                <h3 className="text-base font-medium text-ink mb-2">{title}</h3>
+              { title: "Матовая эмаль", text: "Бархатистая поверхность без бликов. Элегантный современный вид. Не оставляет отпечатков пальцев.", href: "/catalog/enamel/enamel-mat" },
+              { title: "Глянцевая эмаль", text: "Зеркальный блеск с финишным лаком. Визуально расширяет пространство. Премиум-класс.", href: "/catalog/enamel/enamel-gloss" },
+              { title: "Металлик", text: "Эффект перламутрового свечения. Уникальная игра света на поверхности. Для эксклюзивных интерьеров.", href: "/catalog/enamel/enamel-metallic" },
+            ].map(({ title, text, href }) => (
+              <Link
+                key={title}
+                href={href}
+                className="group bg-bg border border-line rounded-soft p-5 hover:border-ink hover:shadow-lift transition-all"
+              >
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="text-base font-medium text-ink group-hover:text-mint-dark transition-colors">{title}</h3>
+                  <svg className="shrink-0 text-ink-subtle group-hover:text-mint-dark transition-colors" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <p className="text-sm text-ink-muted leading-relaxed">{text}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
