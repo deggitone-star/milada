@@ -93,12 +93,39 @@ const conditions = [
 ];
 
 const benefits = [
-  "Стабильное качество в любых партиях — от 50 до 5000 м²",
-  "Срок изготовления крупных партий — от 7 рабочих дней",
+  "Стабильное качество в любых партиях — от единичных до серийных",
+  "Изготовление под точные размеры заказчика",
   "Доставка собственным транспортом или ТК по РФ",
   "Многослойная упаковка, страхование грузов",
   "Образцы материалов и фасадов под ваш проект",
   "Технические консультации на этапе разработки мебели",
+];
+
+const faqs = [
+  {
+    q: "От какого объёма принимаете заказы?",
+    a: "Работаем как с серийными заказами мебельных производств, так и с небольшими партиями. Минимальный объём и условия обсуждаются индивидуально — оставьте заявку, и менеджер подберёт оптимальный вариант.",
+  },
+  {
+    q: "Какие фасады вы производите?",
+    a: "Фасады МДФ с ПВХ-плёнкой (стандартные и премиум фрезеровки), пластиковые фасады HPL, эмалевые, патинированные, каменные, радиусные фасады, декоративные элементы, спинки кроватные, дверные панели и полотна для шкафов-купе.",
+  },
+  {
+    q: "Можно ли заказать образцы?",
+    a: "Да, для партнёров предоставляем образцы материалов, декоров и фасадов под конкретный проект. Это помогает согласовать цвет и фактуру до запуска партии.",
+  },
+  {
+    q: "Работаете ли с регионами?",
+    a: "Да, отгружаем по всей России через проверенные транспортные компании. Активно работаем с мебельными компаниями и салонами Поволжья и других регионов.",
+  },
+  {
+    q: "Какие сроки изготовления?",
+    a: "Срок зависит от объёма заказа и типа фасадов. Точные сроки менеджер называет при расчёте — мы выдерживаем оговорённые сроки даже на крупных партиях.",
+  },
+  {
+    q: "Как оформляется сотрудничество?",
+    a: "Работаем по договору с юридическими лицами и ИП. Предоставляем полный пакет документов для бухгалтерии, для постоянных партнёров — отсрочка платежа и персональный менеджер.",
+  },
 ];
 
 function AudienceIcon({ name }: { name: string }) {
@@ -271,6 +298,41 @@ export default function PartnerPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-py bg-bg-alt border-t border-line">
+        <div className="container-site max-w-4xl">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q,
+                  acceptedAnswer: { "@type": "Answer", text: f.a },
+                })),
+              }),
+            }}
+          />
+          <p className="label mb-3">Частые вопросы</p>
+          <h2 className="h2 mb-8">Вопросы о сотрудничестве</h2>
+          <div className="space-y-3">
+            {faqs.map((f, i) => (
+              <details key={i} className="group bg-bg border border-line rounded-soft overflow-hidden">
+                <summary className="cursor-pointer p-5 flex items-center justify-between gap-4 list-none">
+                  <h3 className="text-base font-medium text-ink">{f.q}</h3>
+                  <svg className="shrink-0 text-ink-muted transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 text-sm text-ink-muted leading-relaxed">{f.a}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

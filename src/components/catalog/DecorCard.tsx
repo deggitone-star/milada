@@ -93,9 +93,10 @@ export default function DecorCard({
       {/* Лайтбокс */}
       {lightboxOpen && (
         <Lightbox
-          src={imageSrc}
-          alt={`${name} — арт. ${article}`}
+          images={[{ src: imageSrc, alt: `${name} — арт. ${article}` }]}
+          index={0}
           onClose={() => setLightboxOpen(false)}
+          onNavigate={() => {}}
         />
       )}
     </>
