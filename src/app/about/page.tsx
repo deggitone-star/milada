@@ -39,10 +39,10 @@ const facadeTypes = [
   { label: "Пластик HPL", href: "/hpl-fasady" },
   { label: "Эмаль", href: "/krashenye-fasady" },
   { label: "Без ручек", href: "/fasady-bez-ruchek" },
-  { label: "Патина", href: null },
-  { label: "Радиусные", href: null },
-  { label: "Декор. элементы", href: null },
-  { label: "Дверные панели", href: null },
+  { label: "Патина", href: "/catalog/patina" },
+  { label: "Радиусные", href: "/catalog/radius" },
+  { label: "Декор. элементы", href: "/catalog/decor-elements" },
+  { label: "Дверные панели", href: "/catalog/door-panels" },
 ];
 
 export default function AboutPage() {
