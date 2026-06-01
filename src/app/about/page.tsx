@@ -38,6 +38,7 @@ const facadeTypes = [
   { label: "Фасады МДФ / ПВХ", href: "/fasady-mdf" },
   { label: "Пластик HPL", href: "/hpl-fasady" },
   { label: "Эмаль", href: "/krashenye-fasady" },
+  { label: "Без ручек", href: "/fasady-bez-ruchek" },
   { label: "Патина", href: null },
   { label: "Радиусные", href: null },
   { label: "Декор. элементы", href: null },
