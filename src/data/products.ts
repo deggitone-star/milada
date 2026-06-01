@@ -169,10 +169,11 @@ export const products: Product[] = [
   {
     title: "Эмаль глянцевая",
     slug: "enamel-gloss",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-1_dzf1nl.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-2_pehsgm.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/glyanec_w8lxfg.png",
     gallery: [
       "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-3_j74h3w.png",
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-1_dzf1nl.png",
     ],
     description: "Премиальные фасады МДФ с покрытием глянцевой эмалью. Зеркальный блеск с финишным высокоглянцевым лаком. Любой цвет из каталога RAL — более 1600 оттенков. Визуально расширяет пространство, придаёт интерьеру глубину и роскошь.",
     category: "enamel",
