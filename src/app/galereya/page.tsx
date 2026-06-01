@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { galleryPhotos } from "@/data/gallery";
-import CollageGallery from "@/components/ui/CollageGallery";
+import { galleryProjects, galleryPhotos } from "@/data/gallery";
+import ProjectGallery from "@/components/ui/ProjectGallery";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
@@ -56,7 +56,7 @@ export default function GalleryPage() {
       {/* ГАЛЕРЕЯ */}
       <section className="section-py bg-bg">
         <div className="container-site">
-          <CollageGallery images={galleryPhotos} />
+          <ProjectGallery projects={galleryProjects} />
         </div>
       </section>
 

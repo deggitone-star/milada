@@ -230,7 +230,8 @@ export const products: Product[] = [
   { title: "Купе РО6 — прямое", slug: "kupe-ro6", image: `${CDN}/v1778177351/milada/kupe-ro6.png`, description: "Дверное полотно для купе с прямыми перекрытиями РО6.", category: "kupe", material: "МДФ + ПВХ плёнка" },
 
   // ── Радиусные фасады ─────────────────────────────────────────────────────────
-  { title: "Радиусный фасад", slug: "radius-classic", image: `${CDN}/v1778176614/milada/patina-classic.jpg`, description: "Гнутый фасад МДФ. Внешний радиус 300 мм, высота 90–916 мм. Плёночные и пластиковые варианты.", category: "radius", material: "МДФ гнутый + ПВХ плёнка", new: true },
+  { title: "Радиусный плёночный", slug: "radius-plenochny", image: `${CDN}/v1780260477/radius-plyonochny_lfcm84.png`, description: "Гнутый фасад МДФ с облицовкой ПВХ-плёнкой. Внешний радиус 300 мм, высота 90–916 мм. Декор под дерево и однотонные плёнки.", category: "radius", material: "МДФ гнутый + ПВХ плёнка", new: true },
+  { title: "Радиусный пластиковый", slug: "radius-plastikovy", image: `${CDN}/v1780260635/radius-plastik_aabxxn.png`, description: "Гнутый фасад МДФ с облицовкой HPL-пластиком. Внешний радиус 300 мм, высота 90–916 мм. Влагостойкий, устойчив к царапинам.", category: "radius", material: "МДФ гнутый + HPL-пластик", new: true },
 
   // ── Декоративные элементы ────────────────────────────────────────────────────
   { title: "Пилястры", slug: "decor-pilyastry", image: `${CDN}/v1778177354/milada/decor-pilyastry.png`, description: "Декоративные пилястры МДФ для мебельных фасадов.", category: "decor-elements", material: "МДФ + ПВХ плёнка" },

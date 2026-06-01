@@ -11,7 +11,7 @@ export const categories: Category[] = [
   { slug: "enamel", title: "Эмалевые фасады", description: "МДФ с покрытием эмалью. Любой цвет по каталогу RAL. Матовые, глянцевые, металлик.", image: `${CDN}/v1778176610/milada/enamel-mat.jpg` },
   { slug: "door-panels", title: "Дверные панели", description: "Накладки МДФ для дверей толщиной 6–16 мм. Для входных и межкомнатных дверей.", image: `${CDN}/v1778177331/milada/door-panel-p7.png` },
   { slug: "kupe", title: "Дверные полотна для купе", description: "Дверные полотна для шкафов-купе. Простые фрезеровки, диагональные и прямые перекрытия.", image: `${CDN}/v1778177336/milada/kupe-standart-1.png` },
-  { slug: "radius", title: "Радиусные фасады", description: "Гнутые фасады МДФ. Внешний радиус 300 мм, высота 90–916 мм. Плёночные и пластиковые.", image: `${CDN}/v1778176614/milada/patina-classic.jpg` },
+  { slug: "radius", title: "Радиусные фасады", description: "Гнутые фасады МДФ. Внешний радиус 300 мм, высота 90–916 мм. Плёночные и пластиковые.", image: `${CDN}/v1780260477/radius-plyonochny_lfcm84.png` },
   { slug: "decor-elements", title: "Декоративные элементы", description: "Карнизы, пилястры, планки, молдинги и багеты МДФ для оформления фасадов.", image: `${CDN}/v1778177354/milada/decor-pilyastry.png` },
   { slug: "headboards", title: "Спинки кроватные", description: "Изголовья кроватей МДФ. Эксклюзивный дизайн, современные производственные линии.", image: `${CDN}/v1778177149/milada/headboard-sk1.png` },
   { slug: "decors", title: "Декоры", description: "Декоративные накладки МДФ различных форм и размеров для мебельных фасадов.", image: `${CDN}/v1778177373/milada/decor-sy0849.png` },
