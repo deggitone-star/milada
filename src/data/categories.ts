@@ -4,7 +4,7 @@ import type { Category } from "@/types";
 const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 
 export const categories: Category[] = [
-  { slug: "pvh-standart", title: "МДФ с ПВХ — Стандарт", description: "Фасады МДФ с ПВХ плёнкой. Более 20 форм фрезеровки, более 100 видов плёнок. Индивидуальный раскрой.", image: `${CDN}/v1778176541/milada/pvh-klassik.png` },
+  { slug: "pvh-standart", title: "МДФ с ПВХ — Стандарт", description: "Фасады МДФ со стандартной фрезеровкой. Покрытие — ПВХ-плёнка или эмаль. Более 20 форм, 100+ видов плёнок. Индивидуальный раскрой.", image: `${CDN}/v1778176541/milada/pvh-klassik.png` },
   { slug: "pvh-premium", title: "МДФ — Премиум", description: "Премиальные фрезеровки МДФ. Европейские мотивы, интегрированные ручки.", image: `${CDN}/v1778176579/milada/pvh-praga.png` },
   { slug: "plastic", title: "Пластиковые фасады HPL", description: "МДФ с облицовкой HPL-пластиком. Влагостойкие, устойчивы к царапинам. Огромный выбор декоров.", image: `${CDN}/v1778176594/milada/hpl-dub-rustikal.jpg` },
   { slug: "patina", title: "Патинированные фасады", description: "Фасады премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", image: `${CDN}/v1778176614/milada/patina-classic.jpg` },

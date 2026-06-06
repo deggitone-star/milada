@@ -54,9 +54,13 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             В интерьере
           </span>
         )}
+        {/* Ярлычок — материал/особенность (например, «Эмаль») */}
+        {product.badge && (
+          <span className="absolute top-3 right-3 bg-mint text-ink text-[10px] font-semibold px-2.5 py-1 rounded-pill tracking-wider uppercase">
+            {product.badge}
+          </span>
+        )}
       </div>
-
-      {/* Info — техническая, B2B-стиль */}
       <div className="pt-3">
         <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-ink-subtle">
           {categoryLabel[product.category] || ""}

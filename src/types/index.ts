@@ -8,6 +8,7 @@ export interface Product {
   category: string;
   // Расширенные поля
   material?: string;
+  badge?: string;          // ярлычок на карточке (например, материал/особенность)
   finishes?: string[];
   sizes?: string;
   price?: string;

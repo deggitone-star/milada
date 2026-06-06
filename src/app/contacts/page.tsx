@@ -18,7 +18,14 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ContactsPage() {
+export default async function ContactsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ sent?: string }>;
+}) {
+  const { sent } = await searchParams;
+  const showSuccess = sent === "1";
+
   const breadcrumbs = [
     { name: "Главная", url: siteConfig.url },
     { name: "Контакты", url: `${siteConfig.url}/contacts` },
@@ -34,7 +41,7 @@ export default function ContactsPage() {
           <h1 className="h1">Контакты MILADA в Ульяновске</h1>
           <p className="mt-4 text-ink-muted max-w-2xl">
             Свяжитесь с нами для расчёта стоимости и заказа мебельных фасадов.
-            Производство, опт и розница.
+            Опт для мебельных компаний, салонов и дилеров.
           </p>
         </div>
       </div>
@@ -76,13 +83,18 @@ export default function ContactsPage() {
                 <p className="text-ink-muted leading-relaxed">
                   Производство MILADA расположено по адресу: г. Ульяновск,
                   ул. Хваткова, д. 11. Принимаем заказы на изготовление мебельных фасадов
-                  для частных клиентов и оптовых партнёров.
+                  для мебельных компаний, салонов и оптовых партнёров.
                 </p>
               </div>
             </div>
 
             <div>
               <h2 className="h3 mb-8">Получить расчёт</h2>
+              {showSuccess && (
+                <div className="mb-6 rounded-soft border border-mint bg-mint/10 px-4 py-3 text-sm text-ink">
+                  Заявка отправлена. Мы свяжемся с вами в ближайшее рабочее время.
+                </div>
+              )}
               <ContactForm />
             </div>
           </div>
@@ -101,8 +113,17 @@ function ContactForm() {
     >
       <input type="hidden" name="_subject" value="Новая заявка с сайта MILADA" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="/contacts?sent=1" />
+      <input type="hidden" name="_next" value={`${siteConfig.url}/contacts?sent=1`} />
       <input type="hidden" name="_template" value="table" />
+      {/* honeypot — невидимое поле-ловушка для ботов; formsubmit отбракует заявку, если оно заполнено */}
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
 
       <div>
         <label htmlFor="name" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Имя *</label>

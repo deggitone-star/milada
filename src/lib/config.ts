@@ -4,7 +4,7 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
   name: "MILADA",
   description: "Производство мебельных фасадов в Ульяновске. ПВХ, эмаль, HPL, патина. Опт и розница, доставка по Поволжью и России.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://milada.ru",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://milada73.ru",
   ogImage: "/og-image.jpg",
   phone: "+7 (8422) 27-82-02",
   email: "milada.73@mail.ru",

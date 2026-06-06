@@ -47,15 +47,12 @@ export const products: Product[] = [
   { title: "Рим", slug: "pvh-rim", image: `${CDN}/v1778176586/milada/pvh-rim.png`, description: "Премиум фрезеровка «Рим».", category: "pvh-premium", material: "МДФ" },
   { title: "Мадрид с косичкой", slug: "pvh-madrid-kosichka", image: `${CDN}/v1778176587/milada/pvh-madrid-kosichka.png`, description: "Премиум фрезеровка «Мадрид с косичкой».", category: "pvh-premium", material: "МДФ" },
   { title: "Варшава", slug: "pvh-varshava", image: `${CDN}/v1778176588/milada/pvh-varshava.png`, description: "Премиум фрезеровка «Варшава».", category: "pvh-premium", material: "МДФ" },
-  { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1779709005/__2022-04-17_22.59.21-46f13d93b9_qbp3xm.png", description: "Премиум фрезеровка с интегрированной ручкой.", category: "pvh-premium", material: "МДФ" },
-  { title: "Инт. ручка 1", slug: "pvh-int-ruchka-1", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832136/milada/pvh-int-ruchka-1.png", description: "Интегрированная ручка, вариант 1. Безручечное решение для минималистичных интерьеров.", category: "pvh-premium", material: "МДФ" },
-  { title: "Инт. ручка 2", slug: "pvh-int-ruchka-2", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832138/milada/pvh-int-ruchka-2.png", description: "Интегрированная ручка, вариант 2. Безручечное решение для современных кухонь.", category: "pvh-premium", material: "МДФ" },
   {
-    title: "Лион",
+    title: "Волна 1",
     slug: "pvh-lion",
     image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778359923/5_hw7uzw.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/1_g3ao5n.png",
-    description: "Премиум фрезеровка «Лион» — глубокий рельеф с классическим обрамлением. Подходит для кухонь в стилях неоклассика, прованс и классика. Любой декор из каталога производителя.",
+    description: "Премиум фрезеровка «Волна 1» — глубокий рельеф с классическим обрамлением. Подходит для кухонь в стилях неоклассика, прованс и классика. Любой декор из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ",
     sizes: "Любые размеры под заказ, толщина 16-22 мм",
@@ -63,6 +60,9 @@ export const products: Product[] = [
     featured: true,
     new: true,
   },
+  { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1779709005/__2022-04-17_22.59.21-46f13d93b9_qbp3xm.png", description: "Премиум фрезеровка с интегрированной ручкой. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
+  { title: "Инт. ручка 1", slug: "pvh-int-ruchka-1", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832136/milada/pvh-int-ruchka-1.png", description: "Интегрированная ручка, вариант 1. Безручечное решение для минималистичных интерьеров. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
+  { title: "Инт. ручка 2", slug: "pvh-int-ruchka-2", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832138/milada/pvh-int-ruchka-2.png", description: "Интегрированная ручка, вариант 2. Безручечное решение для современных кухонь. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
 
   // ── Пластик HPL ─────────────────────────────────────────────────────────────
   {
