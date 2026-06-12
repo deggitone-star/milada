@@ -25,12 +25,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "MILADA — Мебельные фасады в Ульяновске | От производителя",
-    template: "%s | MILADA",
-  },
+  title: "MILADA — Мебельные фасады в Ульяновске | От производителя",
   description:
-    "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, патина, радиусные. Опт и розница. Доставка по России. ☎ +7 (8422) 27-82-02",
+    "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, патина, радиусные. Опт для бизнеса. Доставка по России. ☎ +7 (8422) 27-82-02",
   keywords: [
     "мебельные фасады",
     "мебельные фасады ульяновск",
@@ -72,14 +69,14 @@ export const metadata: Metadata = {
     siteName: "MILADA",
     title: "MILADA — Мебельные фасады в Ульяновске | От производителя",
     description:
-      "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, патина, радиусные. Опт и розница.",
-    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "MILADA — Производство мебельных фасадов" }],
+      "Производство мебельных фасадов в Ульяновске с 2012 года. ПВХ, эмаль, HPL, патина, радиусные. Опт для бизнеса.",
+    images: [{ url: "https://res.cloudinary.com/dx9tcpnkg/image/upload/f_auto,q_auto,c_fill,w_1200,h_630/v1778775340/CTA_an2w49.png", width: 1200, height: 630, alt: "MILADA — Производство мебельных фасадов" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "MILADA — Мебельные фасады в Ульяновске",
-    description: "Производство мебельных фасадов с 2012 года. Опт и розница.",
-    images: ["/icon-512.png"],
+    description: "Производство мебельных фасадов с 2012 года. Опт для бизнеса.",
+    images: ["https://res.cloudinary.com/dx9tcpnkg/image/upload/f_auto,q_auto,c_fill,w_1200,h_630/v1778775340/CTA_an2w49.png"],
   },
   robots: {
     index: true,

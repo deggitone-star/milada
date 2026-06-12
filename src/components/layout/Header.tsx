@@ -66,7 +66,7 @@ export default function Header() {
           </nav>
 
           <a
-            href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+            href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
             className="hidden md:block text-sm font-medium text-ink hover:text-mint-dark transition-colors"
           >
             {siteConfig.phone}
@@ -106,7 +106,7 @@ export default function Header() {
           ))}
         </nav>
         <a
-          href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+          href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
           className="mt-8 text-lg text-ink-muted"
         >
           {siteConfig.phone}

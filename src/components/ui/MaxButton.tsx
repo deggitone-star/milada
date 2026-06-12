@@ -2,7 +2,7 @@
 // Кнопка "Написать в MAX" — Client Component из-за onClick fallback
 "use client";
 
-import { messengers, siteConfig } from "@/lib/config";
+import { messengers } from "@/lib/config";
 
 interface Props {
   className?: string;
@@ -11,19 +11,15 @@ interface Props {
 }
 
 export default function MaxButton({ className, showIcon = true, children }: Props) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!messengers.max) {
-      e.preventDefault();
-      alert("Канал MAX скоро появится. Пока свяжитесь по телефону: " + siteConfig.phone);
-    }
-  };
+  // Пока канал MAX не подключён (messengers.max пуст) — кнопку не показываем,
+  // чтобы не плодить мёртвые ссылки. Появится автоматически, как впишут ссылку в config.
+  if (!messengers.max) return null;
 
   return (
     <a
-      href={messengers.max || "#max-pending"}
-      target={messengers.max ? "_blank" : undefined}
-      rel={messengers.max ? "noopener noreferrer" : undefined}
-      onClick={handleClick}
+      href={messengers.max}
+      target="_blank"
+      rel="noopener noreferrer"
       className={className}
     >
       {showIcon && (

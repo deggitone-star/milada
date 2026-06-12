@@ -48,7 +48,7 @@ export default function Footer() {
             <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Контакты</p>
             <ul className="space-y-2.5">
               <li>
-                <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-sm hover:text-white transition-colors">
+                <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} className="text-sm hover:text-white transition-colors">
                   {siteConfig.phone}
                 </a>
               </li>
