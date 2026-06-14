@@ -1,6 +1,5 @@
 // src/app/layout.tsx
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/config";
 import Header from "@/components/layout/Header";
@@ -8,13 +7,6 @@ import Footer from "@/components/layout/Footer";
 import YandexMetrika from "@/components/ui/YandexMetrika";
 import FloatingContacts from "@/components/ui/FloatingContacts";
 import { LocalBusinessSchema, OrganizationSchema } from "@/components/seo/SchemaOrg";
-
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#1f4d3f",
@@ -95,7 +87,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={inter.variable}>
+    <html lang="ru">
       <head>
         <YandexMetrika />
         {/* Глобальные Schema.org — на каждой странице */}

@@ -18,7 +18,7 @@ export function generateSeoMetadata({
   noIndex = false,
 }: PageSeoProps): Metadata {
   const url = `${siteConfig.url}${path}`;
-  const ogImage = image || `${siteConfig.url}${siteConfig.ogImage}`;
+  const ogImage = image || (siteConfig.ogImage.startsWith("http") ? siteConfig.ogImage : `${siteConfig.url}${siteConfig.ogImage}`);
 
   return {
     title: {

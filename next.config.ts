@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Линт не должен ронять production-сборку (запускается отдельно через `npm run lint`)
+  eslint: { ignoreDuringBuilds: true },
   images: {
     remotePatterns: [
       {

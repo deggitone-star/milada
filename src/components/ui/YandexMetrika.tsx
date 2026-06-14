@@ -8,7 +8,6 @@ export default function YandexMetrika() {
 
   return (
     <>
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
         dangerouslySetInnerHTML={{
           __html: `

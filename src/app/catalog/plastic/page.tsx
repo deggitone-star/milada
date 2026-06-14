@@ -3,14 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { getCategoryBySlug } from "@/data/categories";
-import { getCategorySeo } from "@/data/category-seo";
-import { plasticHPL, getTotalDecorsCount, getCollectionDecorsCount } from "@/data/materials";
+import { plasticHPL, getTotalDecorsCount, getCollectionDecorsCount, collectionUrlSlug } from "@/data/materials";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 import DecorGrid from "@/components/catalog/DecorGrid";
 
 const category = getCategoryBySlug("plastic")!;
-const seo = getCategorySeo("plastic");
 const totalDecors = getTotalDecorsCount(plasticHPL);
 
 export const metadata: Metadata = {
@@ -203,12 +201,3 @@ export default function PlasticCatalogPage() {
   );
 }
 
-function collectionUrlSlug(materialSlug: string): string {
-  const map: Record<string, string> = {
-    indiya: "india",
-    "wood-and-stone": "wood-stone",
-    klassik: "classic",
-    provans: "provence",
-  };
-  return map[materialSlug] || materialSlug;
-}

@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   name: "MILADA",
   description: "Производство мебельных фасадов в Ульяновске. ПВХ, эмаль, HPL, патина. Опт для бизнеса, доставка по Поволжью и России.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://milada73.ru",
-  ogImage: "/og-image.jpg",
+  ogImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/f_auto,q_auto,c_fill,w_1200,h_630/v1778775340/CTA_an2w49.png",
   phone: "+7 (8422) 27-82-02",
   email: "milada.73@mail.ru",
   address: "г. Ульяновск, ул. Хваткова, д. 11",

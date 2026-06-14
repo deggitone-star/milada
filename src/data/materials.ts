@@ -328,3 +328,14 @@ export function getTotalDecorsCount(material: MaterialType): number {
 export function getCollectionDecorsCount(collection: Collection): number {
   return collection.subGroups.reduce((sum, sg) => sum + sg.decors.length, 0);
 }
+
+// URL-слаг коллекции HPL (внутренний slug → slug маршрута /catalog/plastic/[collection])
+export function collectionUrlSlug(materialSlug: string): string {
+  const map: Record<string, string> = {
+    indiya: "india",
+    "wood-and-stone": "wood-stone",
+    klassik: "classic",
+    provans: "provence",
+  };
+  return map[materialSlug] || materialSlug;
+}

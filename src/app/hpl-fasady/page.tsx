@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { getProductsByCategory } from "@/data/products";
-import ProductCard from "@/components/catalog/ProductCard";
+import { plasticHPL, getCollectionDecorsCount, collectionUrlSlug } from "@/data/materials";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
@@ -23,8 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function HplFasadyPage() {
-  const products = getProductsByCategory("plastic");
-
   const breadcrumbs = [
     { name: "Главная", url: siteConfig.url },
     { name: "HPL фасады", url: `${siteConfig.url}/hpl-fasady` },
@@ -53,9 +50,6 @@ export default function HplFasadyPage() {
             <Link href="/contacts" className="btn-mint">Запросить расчёт</Link>
             <Link href="/catalog/plastic" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
               Каталог декоров HPL
-            </Link>
-            <Link href="/catalog/plastic" className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors">
-              Каталог фасадов HPL
             </Link>
           </div>
         </div>
@@ -100,24 +94,37 @@ export default function HplFasadyPage() {
         </div>
       </section>
 
-      {/* Товары */}
+      {/* Коллекции HPL */}
       <section className="section-py bg-bg">
         <div className="container-site">
           <div className="flex items-end justify-between mb-10 gap-4">
             <div>
               <p className="label mb-3">Каталог</p>
-              <h2 className="h2">Пластиковые фасады HPL</h2>
+              <h2 className="h2">Коллекции пластика HPL</h2>
             </div>
-            <Link href="/catalog/plastic" className="btn-ghost shrink-0 hidden sm:inline-flex">Все модели →</Link>
+            <Link href="/catalog/plastic" className="btn-ghost shrink-0 hidden sm:inline-flex">Все декоры →</Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-            {products.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 2} />)}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {plasticHPL.collections.map((collection) => (
+              <Link
+                key={collection.slug}
+                href={`/catalog/plastic/${collectionUrlSlug(collection.slug)}`}
+                className="group bg-bg-alt border border-line rounded-soft p-6 flex flex-col justify-between hover:border-mint hover:shadow-sm transition-all min-h-[140px]"
+              >
+                <div>
+                  <h3 className="text-lg font-medium text-ink group-hover:text-mint-dark transition-colors">{collection.title}</h3>
+                  <p className="mt-1 text-sm text-ink-muted">{getCollectionDecorsCount(collection)} декоров</p>
+                </div>
+                <span className="mt-6 text-sm font-medium text-mint-dark">Смотреть коллекцию →</span>
+              </Link>
+            ))}
           </div>
 
           <div className="mt-10 p-6 lg:p-8 bg-bg-alt border border-line rounded-soft flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <p className="text-base font-medium text-ink">Выбрать декор пластика</p>
-              <p className="mt-1 text-sm text-ink-muted">Более 100 декоров: дерево, мрамор, камень, однотонные</p>
+              <p className="mt-1 text-sm text-ink-muted">Дерево, мрамор, камень, однотонные, супермат, фантазийные</p>
             </div>
             <Link href="/catalog/plastic" className="btn-primary shrink-0">Каталог декоров →</Link>
           </div>
