@@ -190,11 +190,10 @@ export const products: Product[] = [
   {
     title: "Эмаль матовая",
     slug: "enamel-mat",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/5_1_nakrql.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781458313/matovaya_2_nsf0e5.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/matovaya_lu7tfs.png",
     gallery: [
-      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/6_s9qd48.png",
-      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777894/Matovaya_3_wz0o4p.png",
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/5_1_nakrql.png",
     ],
     description: "Премиальные фасады МДФ с покрытием матовой эмалью. Любой цвет из каталога RAL — более 1600 оттенков на выбор. Технология производства включает 7 этапов: грунтование, шлифовка, нанесение эмали в несколько слоёв, промежуточные сушки, финишная полировка. Идеальная плоскость и однотонность поверхности. Бархатистая матовая фактура поглощает свет без бликов.",
     category: "enamel",
@@ -206,11 +205,10 @@ export const products: Product[] = [
   {
     title: "Эмаль глянцевая",
     slug: "enamel-gloss",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-2_pehsgm.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781458313/Glanec_qakctd.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/glyanec_w8lxfg.png",
     gallery: [
-      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-3_j74h3w.png",
-      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-1_dzf1nl.png",
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-2_pehsgm.png",
     ],
     description: "Премиальные фасады МДФ с покрытием глянцевой эмалью. Зеркальный блеск с финишным высокоглянцевым лаком. Любой цвет из каталога RAL — более 1600 оттенков. Визуально расширяет пространство, придаёт интерьеру глубину и роскошь.",
     category: "enamel",
@@ -222,10 +220,10 @@ export const products: Product[] = [
   {
     title: "Эмаль металлик",
     slug: "enamel-metallic",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-1_ac7myd.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781458313/metalicc_nm0m4l.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778778624/Metakil_primer_haxxoj.png",
     gallery: [
-      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-2_vuglq6.png",
+      "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-1_ac7myd.png",
     ],
     description: "Эксклюзивные фасады МДФ с покрытием эмаль металлик. Перламутровое свечение с мелкими металлическими частицами в составе эмали. Уникальная игра света при разном освещении. Любой цвет по каталогу RAL.",
     category: "enamel",
