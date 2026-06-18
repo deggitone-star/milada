@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Контакты MILADA — завод мебельных фасадов, Ульяновск, ул. Хваткова 11",
+  title: "Контакты MILADA — производство мебельных фасадов, Ульяновск, ул. Хваткова 11",
   description: `Завод мебельных фасадов MILADA: адрес ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Заказ фасадов МДФ, ПВХ, эмаль, HPL — производство в Ульяновске, доставка по России.`,
   alternates: { canonical: `${siteConfig.url}/contacts` },
   keywords: [

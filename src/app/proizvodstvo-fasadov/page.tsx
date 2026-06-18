@@ -4,9 +4,9 @@ import { siteConfig } from "@/lib/config";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Производство мебельных фасадов в Ульяновске — завод MILADA, полный цикл",
+  title: "Производство мебельных фасадов в Ульяновске — производитель MILADA, полный цикл",
   description:
-    "Собственный завод мебельных фасадов MILADA в Ульяновске. Полный цикл производства: раскрой МДФ, фрезеровка на ЧПУ, облицовка ПВХ/HPL, покраска эмалью, патинирование. Оборудование, технологии, контроль качества. ☎ +7 (8422) 27-82-02",
+    "Собственное производство мебельных фасадов MILADA в Ульяновске. Полный цикл производства: раскрой МДФ, фрезеровка на ЧПУ, облицовка ПВХ/HPL, покраска эмалью, патинирование. Оборудование, технологии, контроль качества. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: `${siteConfig.url}/proizvodstvo-fasadov` },
   keywords: [
     "производство мебельных фасадов ульяновск",
@@ -47,12 +47,12 @@ export default function ProizvodstvoPage() {
             <span>/</span>
             <span className="text-white/80">Производство фасадов</span>
           </nav>
-          <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">Собственный завод</p>
+          <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">Собственное производство</p>
           <h1 className="text-h1 font-medium text-white leading-tight max-w-3xl">
             Производство мебельных фасадов в Ульяновске
           </h1>
           <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Полный цикл производства на собственном заводе. От раскроя МДФ до готового упакованного фасада — все этапы под нашим контролем. Работаем с 2012 года.
+            Полный цикл производства на собственном производстве. От раскроя МДФ до готового упакованного фасада — все этапы под нашим контролем. Работаем с 2012 года.
           </p>
         </div>
       </section>

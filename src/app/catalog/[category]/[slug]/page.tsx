@@ -114,30 +114,32 @@ export default async function ProductPage({ params }: Props) {
 
                 <p className="mt-6 text-ink-muted leading-relaxed">{product.description}</p>
 
-                <dl className="mt-8 space-y-3 border-t border-line pt-8">
-                  {product.material && (
+                {(product.material || product.sizes || (product.finishes && product.finishes.length > 0)) && (
+                  <dl className="mt-8 space-y-3 border-t border-line pt-8">
+                    {product.material && (
+                      <div className="flex justify-between gap-4 text-sm">
+                        <dt className="text-ink-subtle">Материал</dt>
+                        <dd className="text-ink text-right">{product.material}</dd>
+                      </div>
+                    )}
+                    {product.sizes && (
+                      <div className="flex justify-between gap-4 text-sm">
+                        <dt className="text-ink-subtle">Размеры</dt>
+                        <dd className="text-ink text-right">{product.sizes}</dd>
+                      </div>
+                    )}
+                    {product.finishes && product.finishes.length > 0 && (
+                      <div className="flex justify-between gap-4 text-sm">
+                        <dt className="text-ink-subtle">Отделка</dt>
+                        <dd className="text-ink text-right">{product.finishes.join(", ")}</dd>
+                      </div>
+                    )}
                     <div className="flex justify-between gap-4 text-sm">
-                      <dt className="text-ink-subtle">Материал</dt>
-                      <dd className="text-ink text-right">{product.material}</dd>
+                      <dt className="text-ink-subtle">Производитель</dt>
+                      <dd className="text-ink text-right">MILADA, Ульяновск</dd>
                     </div>
-                  )}
-                  {product.sizes && (
-                    <div className="flex justify-between gap-4 text-sm">
-                      <dt className="text-ink-subtle">Размеры</dt>
-                      <dd className="text-ink text-right">{product.sizes}</dd>
-                    </div>
-                  )}
-                  {product.finishes && product.finishes.length > 0 && (
-                    <div className="flex justify-between gap-4 text-sm">
-                      <dt className="text-ink-subtle">Отделка</dt>
-                      <dd className="text-ink text-right">{product.finishes.join(", ")}</dd>
-                    </div>
-                  )}
-                  <div className="flex justify-between gap-4 text-sm">
-                    <dt className="text-ink-subtle">Производитель</dt>
-                    <dd className="text-ink text-right">MILADA, Ульяновск</dd>
-                  </div>
-                </dl>
+                  </dl>
+                )}
 
                 <div className="mt-10 flex flex-wrap gap-3">
                   <Link href="/contacts" className="btn-primary">Запросить расчёт</Link>

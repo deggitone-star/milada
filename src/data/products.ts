@@ -110,11 +110,8 @@ export const products: Product[] = [
     gallery: [
       "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/5_1_nakrql.png",
     ],
-    description: "Премиальные фасады МДФ с покрытием матовой эмалью. Любой цвет из каталога RAL — более 1600 оттенков на выбор. Технология производства включает 7 этапов: грунтование, шлифовка, нанесение эмали в несколько слоёв, промежуточные сушки, финишная полировка. Идеальная плоскость и однотонность поверхности. Бархатистая матовая фактура поглощает свет без бликов.",
+    description: "Фасады МДФ с покрытием матовой эмалью. Любой цвет по каталогу RAL.",
     category: "enamel",
-    material: "МДФ + матовая эмаль",
-    sizes: "Любые размеры под заказ, толщина 16-22 мм",
-    finishes: ["Матовый"],
     featured: true,
   },
   {
@@ -125,11 +122,8 @@ export const products: Product[] = [
     gallery: [
       "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777181/emal-2_pehsgm.png",
     ],
-    description: "Премиальные фасады МДФ с покрытием глянцевой эмалью. Зеркальный блеск с финишным высокоглянцевым лаком. Любой цвет из каталога RAL — более 1600 оттенков. Визуально расширяет пространство, придаёт интерьеру глубину и роскошь.",
+    description: "Фасады МДФ с покрытием глянцевой эмалью. Любой цвет по каталогу RAL.",
     category: "enamel",
-    material: "МДФ + эмаль + лак",
-    sizes: "Любые размеры под заказ, толщина 16-22 мм",
-    finishes: ["Глянцевый"],
     featured: true,
   },
   {
@@ -140,11 +134,8 @@ export const products: Product[] = [
     gallery: [
       "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778777190/emal-metalik-1_ac7myd.png",
     ],
-    description: "Эксклюзивные фасады МДФ с покрытием эмаль металлик. Перламутровое свечение с мелкими металлическими частицами в составе эмали. Уникальная игра света при разном освещении. Любой цвет по каталогу RAL.",
+    description: "Фасады МДФ с покрытием эмаль металлик. Любой цвет по каталогу RAL.",
     category: "enamel",
-    material: "МДФ + эмаль металлик",
-    sizes: "Любые размеры под заказ, толщина 16-22 мм",
-    finishes: ["Металлик"],
     featured: true,
   },
 
@@ -192,7 +183,6 @@ export const products: Product[] = [
   { title: "Планка декоративная", slug: "decor-planka", image: `${CDN}/v1778177364/milada/decor-planka.png`, description: "Декоративная планка для оформления фасадов.", category: "decor-elements", material: "МДФ + ПВХ плёнка" },
   { title: "Багет", slug: "decor-baget", image: `${CDN}/v1778177366/milada/decor-baget.png`, description: "Декоративный багет МДФ.", category: "decor-elements", material: "МДФ + ПВХ плёнка" },
   { title: "Световая планка", slug: "decor-svetovaya-planka", image: `${CDN}/v1778177368/milada/decor-svetovaya-planka.png`, description: "Световая планка для подсветки фасадов.", category: "decor-elements", material: "МДФ + ПВХ плёнка" },
-  { title: "Молдинг ПВХ", slug: "decor-molding", image: `${CDN}/v1778177371/milada/decor-molding.png`, description: "Молдинг ПВХ декоративный.", category: "decor-elements", material: "ПВХ" },
 
   // ── Спинки кроватные ─────────────────────────────────────────────────────────
   { title: "Спинка кроватная СК1", slug: "headboard-sk1", image: `${CDN}/v1778177149/milada/headboard-sk1.png`, description: "Изголовье кровати МДФ «СК1». Экологически чистые материалы.", category: "headboards", material: "МДФ + ПВХ плёнка" },

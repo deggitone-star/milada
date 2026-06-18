@@ -42,7 +42,7 @@ export default function HomePage() {
 
           <div className="space-y-4 text-ink-muted leading-relaxed">
             <p>
-              <strong className="text-ink">MILADA</strong> — собственный завод по производству мебельных фасадов в Ульяновске с 2012 года.
+              <strong className="text-ink">MILADA</strong> — собственное производство мебельных фасадов в Ульяновске с 2012 года.
               Изготавливаем <Link href="/fasady-mdf" className="text-mint-dark hover:underline">фасады МДФ с ПВХ-плёнкой</Link>,{" "}
               <Link href="/krashenye-fasady" className="text-mint-dark hover:underline">эмалевые</Link>,{" "}
               <Link href="/hpl-fasady" className="text-mint-dark hover:underline">пластиковые HPL</Link>, патинированные и радиусные фасады для мебельных компаний, кухонных салонов, цехов и дилеров по всей России.

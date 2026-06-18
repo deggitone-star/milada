@@ -6,9 +6,9 @@ import ProductCard from "@/components/catalog/ProductCard";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Фасады без ручек — МДФ с интегрированной ручкой от производителя | MILADA Ульяновск",
+  title: "Фасады с интегрированной ручкой — МДФ без ручек от производителя | MILADA Ульяновск",
   description:
-    "Безручечные фасады МДФ с интегрированной ручкой от завода MILADA в Ульяновске. Чистая геометрия без выступающей фурнитуры — минимализм для современных кухонь. Покрытие любого цвета, индивидуальный раскрой, опт для мебельных компаний. ☎ +7 (8422) 27-82-02",
+    "Фасады МДФ с интегрированной ручкой от производителя MILADA в Ульяновске. Чистая геометрия без выступающей фурнитуры — минимализм для современных кухонь. Покрытие любого цвета, индивидуальный раскрой, опт для мебельных компаний. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: `${siteConfig.url}/fasady-bez-ruchek` },
   keywords: [
     "фасады без ручек",
@@ -32,7 +32,7 @@ export default function FasadyBezRuchekPage() {
 
   const breadcrumbs = [
     { name: "Главная", url: siteConfig.url },
-    { name: "Фасады без ручек", url: `${siteConfig.url}/fasady-bez-ruchek` },
+    { name: "Фасады с интегрированной ручкой", url: `${siteConfig.url}/fasady-bez-ruchek` },
   ];
 
   const advantages = [
@@ -64,11 +64,11 @@ export default function FasadyBezRuchekPage() {
           <nav className="flex items-center gap-2 text-xs text-white/50 mb-6">
             <Link href="/" className="hover:text-white transition-colors">Главная</Link>
             <span>/</span>
-            <span className="text-white/80">Фасады без ручек</span>
+            <span className="text-white/80">Фасады с интегрированной ручкой</span>
           </nav>
           <p className="text-xs font-medium tracking-[0.15em] uppercase text-mint mb-4">Минимализм</p>
           <h1 className="text-h1 font-medium text-white leading-tight max-w-3xl">
-            Фасады без ручек — МДФ с интегрированной ручкой
+            Фасады с интегрированной ручкой
           </h1>
           <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl">
             Производим безручечные фасады в Ульяновске. Ручка фрезеруется прямо в фасаде — чистая

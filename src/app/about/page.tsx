@@ -11,7 +11,7 @@ const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 export const metadata: Metadata = {
   title: "О компании MILADA — производство мебельных фасадов в Ульяновске с 2012 года",
   description:
-    "MILADA — собственный завод мебельных фасадов в Ульяновске. Производим фасады МДФ, ПВХ, HPL, эмаль и патину. Работаем с мебельными компаниями, салонами и дилерами по всей России. ☎ +7 (8422) 27-82-02",
+    "MILADA — собственное производство мебельных фасадов в Ульяновске. Производим фасады МДФ, ПВХ, HPL, эмаль и патину. Работаем с мебельными компаниями, салонами и дилерами по всей России. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: `${siteConfig.url}/about` },
   keywords: [
     "milada ульяновск", "милада мебельные фасады",
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 const heroImage = `${CDN}/v1779706574/O_nas_bprpry.png`;
 
 const productionPhotos: LightboxImage[] = [
-  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                  alt: "Здание завода мебельных фасадов MILADA в Ульяновске" },
-  { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на заводе MILADA в Ульяновске" },
+  { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                  alt: "Здание производства мебельных фасадов MILADA в Ульяновске" },
+  { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на производстве MILADA в Ульяновске" },
   { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство мебельных фасадов MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-1_w8hino.jpg`, alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`, alt: "Фрезеровка декоративных панелей на производстве MILADA" },
@@ -38,7 +38,7 @@ const facadeTypes = [
   { label: "Фасады МДФ / ПВХ", href: "/fasady-mdf" },
   { label: "Пластик HPL", href: "/hpl-fasady" },
   { label: "Эмаль", href: "/krashenye-fasady" },
-  { label: "Без ручек", href: "/fasady-bez-ruchek" },
+  { label: "С интегрированной ручкой", href: "/fasady-bez-ruchek" },
   { label: "Патина", href: "/catalog/patina" },
   { label: "Радиусные", href: "/catalog/radius" },
   { label: "Декор. элементы", href: "/catalog/decor-elements" },
@@ -68,7 +68,7 @@ export default function AboutPage() {
             Производство мебельных фасадов в Ульяновске с 2012 года
           </h1>
           <p className="mt-5 text-base lg:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Собственный завод полного цикла. Работаем с мебельными компаниями, кухонными салонами и дилерами по всей России.
+            Собственное производство полного цикла. Работаем с мебельными компаниями, кухонными салонами и дилерами по всей России.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/contacts" className="btn-mint">Запросить расчёт</Link>

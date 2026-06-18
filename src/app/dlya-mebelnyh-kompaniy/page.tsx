@@ -8,7 +8,7 @@ import MaxButton from "@/components/ui/MaxButton";
 export const metadata: Metadata = {
   title: "Мебельные фасады оптом от производителя в Ульяновске — для салонов и дилеров | MILADA",
   description:
-    "Оптовые поставки мебельных фасадов МДФ от завода MILADA в Ульяновске. Для мебельных компаний, кухонных салонов, дилеров и цехов. Договор, отсрочка платежа, персональный менеджер, доставка по РФ. ☎ +7 (8422) 27-82-02",
+    "Оптовые поставки мебельных фасадов МДФ от производителя MILADA в Ульяновске. Для мебельных компаний, кухонных салонов, дилеров и цехов. Договор, отсрочка платежа, персональный менеджер, доставка по РФ. ☎ +7 (8422) 27-82-02",
   alternates: { canonical: `${siteConfig.url}/dlya-mebelnyh-kompaniy` },
   keywords: [
     "мебельные фасады оптом ульяновск",
@@ -56,39 +56,6 @@ const audiences = [
     icon: "design",
     title: "Дизайнеры мебели",
     text: "Любая фрезеровка под индивидуальный проект, образцы материалов, технические консультации.",
-  },
-];
-
-const conditions = [
-  {
-    label: "01",
-    title: "Договор поставки",
-    text: "Полный пакет документов: договор, счёт, акт, ТТН. Работа с НДС и без НДС.",
-  },
-  {
-    label: "02",
-    title: "Минимальный заказ",
-    text: "Опт — от 50 м² фасадов. Для постоянных партнёров — индивидуальные условия.",
-  },
-  {
-    label: "03",
-    title: "Отсрочка платежа",
-    text: "Для проверенных партнёров — отсрочка до 30 дней по согласованию.",
-  },
-  {
-    label: "04",
-    title: "Скидки от объёма",
-    text: "Сетка скидок при объёмах от 100, 500 и 1000 м² в месяц.",
-  },
-  {
-    label: "05",
-    title: "Резерв материалов",
-    text: "Запас популярных декоров на складе для оперативного выполнения заказов.",
-  },
-  {
-    label: "06",
-    title: "Персональный менеджер",
-    text: "Один контакт по всем вопросам: расчёт, согласование, доставка, документы.",
   },
 ];
 
@@ -253,26 +220,6 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* CONDITIONS */}
-      <section className="section-py bg-bg-alt border-y border-line">
-        <div className="container-site">
-          <div className="mb-10 lg:mb-14">
-            <p className="label mb-3">Условия сотрудничества</p>
-            <h2 className="h2">Прозрачные правила работы</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-line">
-            {conditions.map(({ label, title, text }) => (
-              <div key={label} className="bg-bg-alt p-6 lg:p-8">
-                <p className="text-sm font-medium tracking-[0.15em] text-mint-dark">{label}</p>
-                <h3 className="mt-4 text-base font-medium text-ink">{title}</h3>
-                <p className="mt-3 text-sm text-ink-muted leading-relaxed">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* BENEFITS */}
       <section className="section-py bg-bg">
         <div className="container-site">
@@ -351,7 +298,7 @@ export default function PartnerPage() {
               <h2 className="text-h2 font-medium text-white">Запросить условия и прайс</h2>
               <p className="mt-4 text-white/70 max-w-md leading-relaxed">
                 Расскажите о вашей компании и предполагаемом объёме —
-                подготовим персональное коммерческое предложение в течение часа.
+                подготовим персональное коммерческое предложение в течение одного рабочего дня.
               </p>
 
               <div className="mt-8 pt-8 border-t border-white/10">

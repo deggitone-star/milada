@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="font-semibold tracking-wider text-white text-lg">MILADA</span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/50">
-              Производство мебельных фасадов с 2012 года. Собственный завод, индивидуальный раскрой.
+              Производство мебельных фасадов с 2012 года. Собственное производство, индивидуальный раскрой.
             </p>
           </div>
 

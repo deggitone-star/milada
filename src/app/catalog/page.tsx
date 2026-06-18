@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { categories } from "@/data/categories";
-import { products } from "@/data/products";
 import { plasticHPL, getTotalDecorsCount } from "@/data/materials";
 import CategoryCard from "@/components/catalog/CategoryCard";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
@@ -12,7 +11,7 @@ const plasticDecors = getTotalDecorsCount(plasticHPL);
 export const metadata: Metadata = {
   title: "Каталог мебельных фасадов от производителя в Ульяновске — МДФ, ПВХ, HPL, эмаль | MILADA",
   description:
-    `Каталог мебельных фасадов MILADA: ${categories.length} категорий, ${products.length}+ моделей фасадов МДФ и ${plasticDecors} декоров HPL-пластика. Фасады с ПВХ-плёнкой, эмаль, патина, дверные панели. Производство в Ульяновске, доставка по РФ. ☎ +7 (8422) 27-82-02`,
+    `Каталог мебельных фасадов MILADA: ${categories.length} категорий, 99+ разновидностей фрезеровок МДФ и ${plasticDecors} декоров HPL-пластика. Фасады с ПВХ-плёнкой, эмаль, патина, дверные панели. Производство в Ульяновске, доставка по РФ. ☎ +7 (8422) 27-82-02`,
   alternates: { canonical: `${siteConfig.url}/catalog` },
   keywords: [
     "каталог мебельных фасадов ульяновск",
@@ -49,7 +48,7 @@ export default function CatalogPage() {
           <p className="label mb-3">Каталог продукции</p>
           <h1 className="h1">Мебельные фасады от производителя в Ульяновске</h1>
           <p className="mt-4 text-ink-muted max-w-2xl">
-            {categories.length} категорий фасадов, {products.length}+ моделей МДФ и {plasticDecors} декоров HPL-пластика.
+            {categories.length} категорий фасадов, 99+ разновидностей фрезеровок МДФ и {plasticDecors} декоров HPL-пластика.
             Собственное производство, индивидуальный раскрой, доставка по России.
           </p>
         </div>
@@ -88,7 +87,7 @@ export default function CatalogPage() {
               },
               {
                 href: "/fasady-bez-ruchek",
-                title: "Фасады без ручек",
+                title: "Фасады с интегрированной ручкой",
                 text: "МДФ с интегрированной ручкой — захват фрезеруется в фасаде. Минимализм без выступающей фурнитуры.",
               },
               {
