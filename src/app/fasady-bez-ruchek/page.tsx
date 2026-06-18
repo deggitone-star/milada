@@ -80,7 +80,7 @@ export default function FasadyBezRuchekPage() {
               href="/catalog/pvh-premium"
               className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium text-sm px-6 py-3 rounded-pill hover:bg-white/5 transition-colors"
             >
-              Премиум фрезеровки МДФ
+              Премиум фрезеровки
             </Link>
           </div>
         </div>

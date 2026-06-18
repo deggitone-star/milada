@@ -106,7 +106,7 @@ export default function FasadyMdfPage() {
               <p className="text-sm font-medium tracking-[0.15em] text-mint-dark mb-4">Эмаль</p>
               <h3 className="text-lg font-medium text-ink mb-3">Премиум-сегмент</h3>
               <p className="text-sm text-ink-muted leading-relaxed">
-                Многослойная покраска по каталогу RAL — более 1600 оттенков. Матовая, глянцевая или металлик. 7 этапов производства для идеального результата.
+                Многослойная покраска по каталогу RAL. Матовая, глянцевая или металлик.
               </p>
               <Link href="/krashenye-fasady" className="inline-block mt-4 text-sm text-mint-dark hover:underline">Подробнее об эмали →</Link>
             </div>
@@ -145,7 +145,7 @@ export default function FasadyMdfPage() {
           <div className="flex items-end justify-between mb-10 gap-4">
             <div>
               <p className="label mb-3">ПВХ Премиум</p>
-              <h2 className="h2">Премиум фрезеровки МДФ</h2>
+              <h2 className="h2">Премиум фрезеровки</h2>
               <p className="mt-3 text-base text-ink-muted">Европейские мотивы, интегрированные ручки, сложные многоуровневые рельефы.</p>
             </div>
             <Link href="/catalog/pvh-premium" className="btn-ghost shrink-0 hidden sm:inline-flex">Все модели →</Link>
