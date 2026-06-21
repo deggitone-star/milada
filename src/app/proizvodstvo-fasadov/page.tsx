@@ -106,7 +106,7 @@ export default function ProizvodstvoPage() {
           </div>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { title: "ПВХ-плёнка", desc: "100+ декоров, 3D-фрезеровки, стандарт и премиум", link: "/fasady-mdf" },
+              { title: "ПВХ-плёнка", desc: "3D-фрезеровки, стандарт и премиум", link: "/fasady-mdf" },
               { title: "HPL-пластик", desc: "Максимальная стойкость, 50+ декоров", link: "/hpl-fasady" },
               { title: "Эмаль", desc: "Любой цвет по RAL — матовый, глянец, металлик", link: "/krashenye-fasady" },
             ].map(({ title, desc, link }) => (

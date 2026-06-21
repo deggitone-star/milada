@@ -6,7 +6,7 @@ const CDN = "https://res.cloudinary.com/dx9tcpnkg/image/upload";
 export const products: Product[] = [
 
   // ── МДФ + ПВХ Стандарт ──────────────────────────────────────────────────────
-  { title: "Косичка", slug: "pvh-kosichka", image: `${CDN}/v1778176531/milada/pvh-kosichka.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Косичка». Более 100 видов плёнок, индивидуальный раскрой.", category: "pvh-standart", material: "МДФ + ПВХ плёнка", featured: true },
+  { title: "Косичка", slug: "pvh-kosichka", image: `${CDN}/v1778176531/milada/pvh-kosichka.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Косичка». Индивидуальный раскрой.", category: "pvh-standart", material: "МДФ + ПВХ плёнка", featured: true },
   { title: "Арка", slug: "pvh-arka", image: `${CDN}/v1778176533/milada/pvh-arka.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Арка».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Квадро", slug: "pvh-kvadro", image: `${CDN}/v1778176534/milada/pvh-kvadro.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Квадро».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Идея", slug: "pvh-ideya", image: `${CDN}/v1778176537/milada/pvh-ideya.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Идея».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
@@ -28,6 +28,7 @@ export const products: Product[] = [
   { title: "Лира", slug: "pvh-lira", image: `${CDN}/v1778176560/milada/pvh-lira.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Лира».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Классик 2", slug: "pvh-klassik-2", image: `${CDN}/v1778176561/milada/pvh-klassik-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Классик 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Арка 2", slug: "pvh-arka-2", image: `${CDN}/v1778176563/milada/pvh-arka-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Арка 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
+  { title: "Эрмитаж", slug: "pvh-ermitazh", image: `${CDN}/v1782051879/ermitazh_2_iqzhmn.png`, description: "Премиум фрезеровка «Эрмитаж».", category: "pvh-premium", material: "МДФ", featured: true },
   { title: "Иллюзия", slug: "pvh-illyuziya", image: `${CDN}/v1778176564/milada/pvh-illyuziya.png`, description: "Премиум фрезеровка «Иллюзия».", category: "pvh-premium", material: "МДФ" },
   { title: "Дуэт", slug: "pvh-duet", image: `${CDN}/v1778176565/milada/pvh-duet.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Дуэт».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
 

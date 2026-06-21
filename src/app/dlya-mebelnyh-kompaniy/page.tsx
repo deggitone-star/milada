@@ -298,7 +298,7 @@ export default function PartnerPage() {
               <h2 className="text-h2 font-medium text-white">Запросить условия и прайс</h2>
               <p className="mt-4 text-white/70 max-w-md leading-relaxed">
                 Расскажите о вашей компании и предполагаемом объёме —
-                подготовим персональное коммерческое предложение в течение одного рабочего дня.
+                подготовим персональное коммерческое предложение.
               </p>
 
               <div className="mt-8 pt-8 border-t border-white/10">

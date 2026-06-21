@@ -52,7 +52,7 @@ export default function CtaSection() {
               {[
                 "Производство в Ульяновске",
                 "Доставка по РФ",
-                "Ответ в течение одного дня",
+                "Работаем по договору",
               ].map((t) => (
                 <div key={t} className="flex items-center gap-2 text-sm text-white/80">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-mint shrink-0">
@@ -93,7 +93,7 @@ export default function CtaSection() {
               Заявка на расчёт
             </p>
             <p className="text-lg font-medium text-white mb-6">
-              Перезвоним в течение одного рабочего дня
+              Перезвоним и подготовим расчёт
             </p>
 
             <div className="space-y-3">

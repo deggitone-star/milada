@@ -38,7 +38,7 @@ const slides = [
 
 const trustBadges = [
   { icon: "factory", text: "Собственное производство" },
-  { icon: "calendar", text: "Сроки от 5 дней" },
+  { icon: "calendar", text: "Работаем по договору" },
   { icon: "truck", text: "Доставка по РФ" },
   { icon: "handshake", text: "Работаем с мебельными компаниями" },
 ];
