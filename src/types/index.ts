@@ -32,6 +32,7 @@ export interface SiteConfig {
   url: string;
   ogImage: string;
   phone: string;
+  phone2: string;
   email: string;
   address: string;
   workingHours: string;

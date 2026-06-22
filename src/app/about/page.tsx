@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import CollageGallery from "@/components/ui/CollageGallery";
+import PhotoSlider from "@/components/ui/PhotoSlider";
 import { galleryPhotos } from "@/data/gallery";
 import type { LightboxImage } from "@/components/ui/Lightbox";
 
@@ -26,9 +27,9 @@ const heroImage = `${CDN}/v1779706574/O_nas_bprpry.png`;
 const productionPhotos: LightboxImage[] = [
   { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                  alt: "Здание производства мебельных фасадов MILADA в Ульяновске" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на производстве MILADA в Ульяновске" },
-  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство мебельных фасадов MILADA" },
-  { src: `${CDN}/v1781768977/photo_2026-06-18_14-47-59_b4bei4.jpg`, alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`, alt: "Фрезеровка декоративных панелей на производстве MILADA" },
+  { src: `${CDN}/v1781768977/photo_2026-06-18_14-47-59_b4bei4.jpg`, alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },
+  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство MILADA — вывеска" },
 ];
 
 /* Галерея проектов — превью из общего файла данных */
@@ -134,7 +135,7 @@ export default function AboutPage() {
               Полный цикл: раскрой МДФ, фрезеровка на ЧПУ, облицовка ПВХ и HPL, покраска эмалью, патинирование.
             </p>
           </div>
-          <CollageGallery images={productionPhotos} featured={[0]} />
+          <PhotoSlider images={productionPhotos} />
         </div>
       </section>
 

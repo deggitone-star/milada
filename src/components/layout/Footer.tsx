@@ -53,11 +53,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href={`tel:${siteConfig.phone2.replace(/[^\d+]/g, "")}`} className="text-sm hover:text-white transition-colors">
+                  {siteConfig.phone2}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${siteConfig.email}`} className="text-sm hover:text-white transition-colors">
                   {siteConfig.email}
                 </a>
               </li>
               <li className="text-sm text-white/40">{siteConfig.address}</li>
+              <li className="text-sm text-white/40">{siteConfig.workingHours}</li>
             </ul>
           </div>
         </div>

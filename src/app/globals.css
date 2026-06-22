@@ -52,3 +52,7 @@
     display: none;
   }
 }
+
+/* Скрытие скроллбара у горизонтальных слайдеров */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

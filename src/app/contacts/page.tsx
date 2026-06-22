@@ -4,7 +4,7 @@ import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 
 export const metadata: Metadata = {
   title: "Контакты MILADA — производство мебельных фасадов, Ульяновск, ул. Хваткова 11",
-  description: `Завод мебельных фасадов MILADA: адрес ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Заказ фасадов МДФ, ПВХ, эмаль, HPL — производство в Ульяновске, доставка по России.`,
+  description: `Производство мебельных фасадов MILADA: адрес ${siteConfig.address}. Телефон: ${siteConfig.phone}. Email: ${siteConfig.email}. Заказ фасадов МДФ, ПВХ, эмаль, HPL — производство в Ульяновске, доставка по России.`,
   alternates: { canonical: `${siteConfig.url}/contacts` },
   keywords: [
     "milada контакты",
@@ -54,9 +54,12 @@ export default async function ContactsPage({
               <dl className="space-y-6">
                 <div>
                   <dt className="label mb-1.5">Телефон</dt>
-                  <dd>
-                    <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="text-lg text-ink hover:text-mint-dark transition-colors">
+                  <dd className="space-y-1">
+                    <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="block text-lg text-ink hover:text-mint-dark transition-colors">
                       {siteConfig.phone}
+                    </a>
+                    <a href={`tel:${siteConfig.phone2.replace(/\D/g, "")}`} className="block text-lg text-ink hover:text-mint-dark transition-colors">
+                      {siteConfig.phone2}
                     </a>
                   </dd>
                 </div>
