@@ -80,9 +80,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  ...(process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
-    ? { other: { "yandex-verification": process.env.NEXT_PUBLIC_YANDEX_VERIFICATION } }
-    : {}),
+  other: {
+    "yandex-verification": process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || "a0b2adf9328ebe3c",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
