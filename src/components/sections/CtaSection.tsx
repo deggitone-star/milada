@@ -65,7 +65,7 @@ export default function CtaSection() {
 
             {/* Прямой телефон */}
             <div className="mt-8 pt-8 border-t border-white/10">
-              <p className="text-xs text-white/40 mb-2">Связаться напрямую</p>
+              <p className="text-xs text-white/60 mb-2">Связаться напрямую</p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
                 <a
                   href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
@@ -102,26 +102,26 @@ export default function CtaSection() {
                 name="name"
                 placeholder="Имя"
                 required
-                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <input
                 type="text"
                 name="company"
                 placeholder="Компания"
-                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <input
                 type="tel"
                 name="phone"
                 placeholder="+7 (___) ___-__-__"
                 required
-                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
               />
               <textarea
                 name="message"
                 placeholder="Материал, объем или тип фасадов"
                 rows={3}
-                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
+                className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
               />
             </div>
 

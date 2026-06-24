@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Каталог</p>
+            <p className="text-xs font-medium tracking-wider uppercase text-white/60 mb-4">Каталог</p>
             <ul className="space-y-2.5">
               {categories.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Компания</p>
+            <p className="text-xs font-medium tracking-wider uppercase text-white/60 mb-4">Компания</p>
             <ul className="space-y-2.5">
               <li><Link href="/about" className="text-sm hover:text-white transition-colors">О компании</Link></li>
               <li><Link href="/galereya" className="text-sm hover:text-white transition-colors">Галерея</Link></li>
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium tracking-wider uppercase text-white/40 mb-4">Контакты</p>
+            <p className="text-xs font-medium tracking-wider uppercase text-white/60 mb-4">Контакты</p>
             <ul className="space-y-2.5">
               <li>
                 <a href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`} className="text-sm hover:text-white transition-colors">
@@ -62,15 +62,15 @@ export default function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="text-sm text-white/40">{siteConfig.address}</li>
-              <li className="text-sm text-white/40">{siteConfig.workingHours}</li>
+              <li className="text-sm text-white/60">{siteConfig.address}</li>
+              <li className="text-sm text-white/60">{siteConfig.workingHours}</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3">
-          <p className="text-xs text-white/40">© {year} MILADA. Все права защищены.</p>
-          <p className="text-xs text-white/40">Производство мебельных фасадов</p>
+          <p className="text-xs text-white/60">© {year} MILADA. Все права защищены.</p>
+          <p className="text-xs text-white/60">Производство мебельных фасадов</p>
         </div>
       </div>
     </footer>

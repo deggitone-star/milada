@@ -302,7 +302,7 @@ export default function PartnerPage() {
               </p>
 
               <div className="mt-8 pt-8 border-t border-white/10">
-                <p className="text-xs text-white/40 mb-2">Связаться напрямую</p>
+                <p className="text-xs text-white/60 mb-2">Связаться напрямую</p>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
                   className="text-2xl font-medium text-white hover:text-mint transition-colors"
@@ -329,20 +329,20 @@ export default function PartnerPage() {
                   name="name"
                   placeholder="Имя"
                   required
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
                 />
                 <input
                   type="text"
                   name="company"
                   placeholder="Название компании *"
                   required
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
                 />
                 <input
                   type="text"
                   name="city"
                   placeholder="Город / регион"
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
                 />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input
@@ -350,20 +350,20 @@ export default function PartnerPage() {
                     name="phone"
                     placeholder="Телефон *"
                     required
-                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
                   />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
+                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
                   />
                 </div>
                 <textarea
                   name="message"
                   placeholder="Объём в месяц, типы фасадов, особые требования"
                   rows={4}
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
+                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
                 />
               </div>
 

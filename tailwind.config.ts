@@ -18,7 +18,7 @@ const config: Config = {
         ink: {
           DEFAULT: "#0f1f1a",
           muted:   "#525c58",
-          subtle:  "#9aa4a0",
+          subtle:  "#646e68",
         },
         line: "#e7e7e3",
         mint: {

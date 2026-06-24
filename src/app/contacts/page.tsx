@@ -94,6 +94,19 @@ export default function ContactsPage() {
               <ContactForm />
             </div>
           </div>
+
+          <div className="mt-12 lg:mt-16">
+            <h2 className="h3 mb-6">Мы на карте</h2>
+            <div className="overflow-hidden rounded-soft border border-line">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=122995204091"
+                title="MILADA на Яндекс Картах — производство мебельных фасадов в Ульяновске"
+                className="w-full h-[380px] lg:h-[460px] border-0"
+                loading="lazy"
+                allowFullScreen
+              />
+            </div>
+          </div>
         </div>
       </section>
     </>
