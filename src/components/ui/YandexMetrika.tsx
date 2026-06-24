@@ -3,7 +3,7 @@
 // В production добавьте реальный ID счётчика в .env
 
 export default function YandexMetrika() {
-  const id = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID;
+  const id = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || "110120421";
   if (!id) return null;
 
   return (
@@ -17,6 +17,7 @@ for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){retur
 k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
 (window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
 ym(${id},'init',{
+  ssr:true,
   clickmap:true,
   trackLinks:true,
   accurateTrackBounce:true,
