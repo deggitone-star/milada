@@ -32,7 +32,7 @@ export const galleryPhotos: LightboxImage[] = [
   { src: `${CDN}/v1779706219/image-25-05-26-02-27-4_a2wior.webp`, alt: "Мебельные фасады MILADA — фото 6" },
   { src: `${CDN}/v1779706218/image-25-05-26-02-27-3_g3byig.webp`, alt: "Мебельные фасады MILADA — фото 7" },
   { src: `${CDN}/v1779706218/image-25-05-26-02-27_pykxhf.jpg`,    alt: "Мебельные фасады MILADA — фото 8" },
-  { src: `${CDN}/v1781727916/image-25-05-26-02-28-4_klntdr.jpg`,  alt: "Кухня из фасадов MILADA — проект ЖК «ЖЕЛЕЗНО», Ульяновск — фото 6" },
+  { src: `${CDN}/v1781727916/image-25-05-26-02-28-4_klntdr.jpg`,  alt: "Кухня из фасадов MILADA" },
   { src: `${CDN}/v1779706217/image-25-05-26-02-27-1_fnca2q.webp`, alt: "Мебельные фасады MILADA — фото 9" },
   { src: `${CDN}/v1779706217/image-25-05-26-02-27-2_yv3ami.webp`, alt: "Мебельные фасады MILADA — фото 10" },
   { src: `${CDN}/v1779706217/image-25-05-26-02-27_lfycit.webp`,   alt: "Мебельные фасады MILADA — фото 11" },

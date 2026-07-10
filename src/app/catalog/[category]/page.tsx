@@ -122,6 +122,21 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ПОКРЫТИЯ — только для фрезеровок */}
+      {(slug === "pvh-standart" || slug === "pvh-premium") && (
+        <section className="bg-mint/10 border-b border-line">
+          <div className="container-site py-4">
+            <p className="text-sm text-ink-muted text-center leading-relaxed">
+              Любую модель выполним в покрытии на выбор:{" "}
+              <span className="text-ink font-medium">ПВХ-плёнка</span>,{" "}
+              <Link href="/catalog/enamel" className="text-mint-dark font-medium hover:underline">эмаль</Link>{" "}
+              или{" "}
+              <Link href="/catalog/patina" className="text-mint-dark font-medium hover:underline">патина</Link>.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* КОЛЛЕКЦИИ ДЕКОРОВ — только для пластика */}
       {slug === "plastic" && (
         <section className="section-py bg-bg-alt border-y border-line">

@@ -61,13 +61,11 @@ export function OrganizationSchema() {
     name: "MILADA",
     url: siteConfig.url,
     logo: `${siteConfig.url}/icon-512.png`,
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phone,
-      contactType: "sales",
-      areaServed: "RU",
-      availableLanguage: "Russian",
-    },
+    contactPoint: [
+      { "@type": "ContactPoint", telephone: siteConfig.phone, contactType: "sales", areaServed: "RU", availableLanguage: "Russian" },
+      { "@type": "ContactPoint", telephone: siteConfig.phone2, contactType: "sales", areaServed: "RU", availableLanguage: "Russian" },
+      { "@type": "ContactPoint", telephone: siteConfig.phone3, contactType: "sales", areaServed: "RU", availableLanguage: "Russian" },
+    ],
   };
 
   return (

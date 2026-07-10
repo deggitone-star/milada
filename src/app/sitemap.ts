@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/galereya`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/dlya-mebelnyh-kompaniy`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/fasady-mdf`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/pvh-plenka`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/fasady-bez-ruchek`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/hpl-fasady`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/proizvodstvo-fasadov`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },

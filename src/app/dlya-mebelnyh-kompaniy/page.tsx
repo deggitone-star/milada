@@ -4,6 +4,7 @@ import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 import MaxButton from "@/components/ui/MaxButton";
+import LeadForm from "@/components/ui/LeadForm";
 
 export const metadata: Metadata = {
   title: "Мебельные фасады оптом от производителя в Ульяновске — для салонов и дилеров | MILADA",
@@ -305,82 +306,27 @@ export default function PartnerPage() {
                 <p className="text-xs text-white/60 mb-2">Связаться напрямую</p>
                 <a
                   href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
-                  className="text-2xl font-medium text-white hover:text-mint transition-colors"
+                  className="block text-2xl font-medium text-white hover:text-mint transition-colors"
                 >
                   {siteConfig.phone}
                 </a>
-                <p className="mt-1 text-sm text-white/50">{siteConfig.workingHours}</p>
+                <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+                  <a href={`tel:${siteConfig.phone2.replace(/\D/g, "")}`} className="text-base text-white/80 hover:text-mint transition-colors">
+                    {siteConfig.phone2}
+                  </a>
+                  <a href={`tel:${siteConfig.phone3.replace(/\D/g, "")}`} className="text-base text-white/80 hover:text-mint transition-colors">
+                    {siteConfig.phone3}
+                  </a>
+                </div>
+                <p className="mt-2 text-sm text-white/50">{siteConfig.workingHours}</p>
               </div>
             </div>
 
-            <form
-              action="https://formsubmit.co/milada.73@mail.ru"
-              method="POST"
-              className="bg-white/[0.07] backdrop-blur-md border border-white/15 rounded-soft p-6 lg:p-8"
-            >
-              <input type="hidden" name="_subject" value="B2B-заявка с сайта MILADA — Для мебельных компаний" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="/dlya-mebelnyh-kompaniy?sent=1" />
-              <input type="hidden" name="_template" value="table" />
-
-              <div className="space-y-3">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Имя"
-                  required
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
-                />
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Название компании *"
-                  required
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
-                />
-                <input
-                  type="text"
-                  name="city"
-                  placeholder="Город / регион"
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Телефон *"
-                    required
-                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all"
-                  />
-                </div>
-                <textarea
-                  name="message"
-                  placeholder="Объём в месяц, типы фасадов, особые требования"
-                  rows={4}
-                  className="w-full bg-white/[0.05] border border-white/15 rounded-soft px-4 py-3 text-sm text-white placeholder:text-white/60 focus:outline-none focus:border-mint focus:bg-white/[0.08] transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-mint text-mint-dark font-medium text-sm px-6 py-3.5 rounded-pill hover:bg-mint-light transition-colors duration-200"
-              >
-                Получить КП
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-
-              <p className="mt-4 text-[11px] text-white/50 leading-relaxed">
-                Отправляя форму, вы соглашаетесь на обработку персональных данных.
-              </p>
-            </form>
+            <LeadForm
+              variant="dark"
+              subject="B2B-заявка с сайта MILADA — Для мебельных компаний"
+              next={`${siteConfig.url}/dlya-mebelnyh-kompaniy/?sent=1`}
+            />
           </div>
         </div>
       </section>

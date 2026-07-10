@@ -14,9 +14,13 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
 
-  // Чистые URL без хвостовых слешей (как в sitemap/canonical).
-  // На Apache раздачу .html для путей без расширения берёт на себя .htaccess.
-  trailingSlash: false,
+  // Каждая страница экспортируется как папка с index.html (about/index.html и т.д.).
+  // Сервер отдаёт их штатно (как главную), без правил .htaccess — работает при прямом заходе на любом хостинге.
+  trailingSlash: true,
+
+  // Стабильный build-ID: пути в _next/ не меняются между сборками,
+  // поэтому точечная правка одной страницы меняет только её index.html → можно заливать частично.
+  generateBuildId: async () => "milada",
 };
 
 export default nextConfig;

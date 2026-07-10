@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { siteConfig } from "@/lib/config";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
 import ContactSuccess from "@/components/ui/ContactSuccess";
+import LeadForm from "@/components/ui/LeadForm";
 
 export const metadata: Metadata = {
   title: "Контакты MILADA — производство мебельных фасадов, Ульяновск, ул. Хваткова 11",
@@ -56,6 +57,9 @@ export default function ContactsPage() {
                     <a href={`tel:${siteConfig.phone2.replace(/\D/g, "")}`} className="block text-lg text-ink hover:text-mint-dark transition-colors">
                       {siteConfig.phone2}
                     </a>
+                    <a href={`tel:${siteConfig.phone3.replace(/\D/g, "")}`} className="block text-lg text-ink hover:text-mint-dark transition-colors">
+                      {siteConfig.phone3}
+                    </a>
                   </dd>
                 </div>
                 <div>
@@ -91,7 +95,11 @@ export default function ContactsPage() {
               <Suspense fallback={null}>
                 <ContactSuccess />
               </Suspense>
-              <ContactForm />
+              <LeadForm
+                variant="light"
+                subject="Новая заявка с сайта MILADA — Контакты"
+                next={`${siteConfig.url}/contacts/?sent=1`}
+              />
             </div>
           </div>
 
@@ -113,65 +121,3 @@ export default function ContactsPage() {
   );
 }
 
-function ContactForm() {
-  return (
-    <form
-      action="https://formsubmit.co/milada.73@mail.ru"
-      method="POST"
-      className="space-y-4"
-    >
-      <input type="hidden" name="_subject" value="Новая заявка с сайта MILADA" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value={`${siteConfig.url}/contacts?sent=1`} />
-      <input type="hidden" name="_template" value="table" />
-      {/* honeypot — невидимое поле-ловушка для ботов; formsubmit отбракует заявку, если оно заполнено */}
-      <input
-        type="text"
-        name="_honey"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="hidden"
-      />
-
-      <div>
-        <label htmlFor="name" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Имя *</label>
-        <input
-          id="name" name="name" type="text" required placeholder="Иван Иванов"
-          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="phone" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Телефон *</label>
-        <input
-          id="phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"
-          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="email" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Email</label>
-        <input
-          id="email" name="email" type="email" placeholder="example@mail.ru"
-          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="message" className="block text-xs font-medium text-ink-muted mb-2 uppercase tracking-wider">Описание проекта</label>
-        <textarea
-          id="message" name="message" rows={5}
-          placeholder="Материал, размеры, количество фасадов..."
-          className="w-full bg-bg-alt border border-line rounded-soft px-4 py-3 text-sm text-ink placeholder:text-ink-subtle focus:outline-none focus:border-ink transition-colors resize-none"
-        />
-      </div>
-
-      <button type="submit" className="btn-primary w-full">Отправить заявку</button>
-
-      <p className="text-xs text-ink-subtle">
-        Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-      </p>
-    </form>
-  );
-}

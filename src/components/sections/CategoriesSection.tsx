@@ -5,6 +5,9 @@ import { products } from "@/data/products";
 import { plasticHPL, getTotalDecorsCount } from "@/data/materials";
 
 const plasticDecorsCount = getTotalDecorsCount(plasticHPL);
+const pvhCount = products.filter(
+  (p) => p.category === "pvh-standart" || p.category === "pvh-premium"
+).length;
 
 export default function CategoriesSection() {
   return (
@@ -27,7 +30,27 @@ export default function CategoriesSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
-          {categories.map((cat) => {
+          {/* ПВХ плёнка — объединяет стандартную и премиум фрезеровку */}
+          <Link
+            href="/pvh-plenka"
+            className="group bg-bg-alt border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200"
+          >
+            <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
+              <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+                <rect x="6" y="10" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <rect x="6" y="22" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                <path d="M12 16h20M12 28h20" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <h3 className="mt-6 text-base font-medium text-ink leading-tight">ПВХ плёнка</h3>
+            <p className="mt-1 text-xs text-ink-subtle">
+              Стандартные и премиум · {pvhCount} моделей
+            </p>
+          </Link>
+
+          {categories
+            .filter((cat) => cat.slug !== "pvh-standart" && cat.slug !== "pvh-premium")
+            .map((cat) => {
             const isPlastic = cat.slug === "plastic";
             const count = isPlastic ? plasticDecorsCount : products.filter(p => p.category === cat.slug).length;
             const unit = isPlastic

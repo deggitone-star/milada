@@ -28,7 +28,7 @@ export const products: Product[] = [
   { title: "Лира", slug: "pvh-lira", image: `${CDN}/v1778176560/milada/pvh-lira.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Лира».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Классик 2", slug: "pvh-klassik-2", image: `${CDN}/v1778176561/milada/pvh-klassik-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Классик 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
   { title: "Арка 2", slug: "pvh-arka-2", image: `${CDN}/v1778176563/milada/pvh-arka-2.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Арка 2».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
-  { title: "Эрмитаж", slug: "pvh-ermitazh", image: `${CDN}/v1782051879/ermitazh_2_iqzhmn.png`, description: "Премиум фрезеровка «Эрмитаж».", category: "pvh-premium", material: "МДФ", featured: true },
+  { title: "Эрмитаж", slug: "pvh-ermitazh", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783671480/ermitazh_eseunt.png", description: "Премиум фрезеровка «Эрмитаж».", category: "pvh-premium", material: "МДФ", featured: true },
   { title: "Иллюзия", slug: "pvh-illyuziya", image: `${CDN}/v1778176564/milada/pvh-illyuziya.png`, description: "Премиум фрезеровка «Иллюзия».", category: "pvh-premium", material: "МДФ" },
   { title: "Дуэт", slug: "pvh-duet", image: `${CDN}/v1778176565/milada/pvh-duet.png`, description: "Фасад МДФ с ПВХ плёнкой, фрезеровка «Дуэт».", category: "pvh-standart", material: "МДФ + ПВХ плёнка" },
 
@@ -47,7 +47,18 @@ export const products: Product[] = [
   { title: "Берн", slug: "pvh-bern", image: `${CDN}/v1778176584/milada/pvh-bern.png`, description: "Премиум фрезеровка «Берн».", category: "pvh-premium", material: "МДФ" },
   { title: "Рим", slug: "pvh-rim", image: `${CDN}/v1778176586/milada/pvh-rim.png`, description: "Премиум фрезеровка «Рим».", category: "pvh-premium", material: "МДФ" },
   { title: "Мадрид с косичкой", slug: "pvh-madrid-kosichka", image: `${CDN}/v1778176587/milada/pvh-madrid-kosichka.png`, description: "Премиум фрезеровка «Мадрид с косичкой».", category: "pvh-premium", material: "МДФ" },
-  { title: "Варшава", slug: "pvh-varshava", image: `${CDN}/v1778176588/milada/pvh-varshava.png`, description: "Премиум фрезеровка «Варшава».", category: "pvh-premium", material: "МДФ" },
+  {
+    title: "Волна 4",
+    slug: "pvh-volna-4",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781273885/volna4_bnmgxe.jpg",
+    description: "Премиум фрезеровка «Волна 4» — крупная округлая волна, мягкий пластичный рельеф. Акцентное решение для выразительных фасадов. Любой декор из каталога производителя.",
+    category: "pvh-premium",
+    material: "МДФ",
+    sizes: "Любые размеры под заказ, толщина 16-22 мм",
+    finishes: ["Матовый", "Глянцевый", "Текстурный"],
+    new: true,
+    gallery: ["https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781274052/volna-4-razrez_v5quvo.png"],
+  },
   {
     title: "Волна 1",
     slug: "pvh-lion",
@@ -65,7 +76,7 @@ export const products: Product[] = [
   {
     title: "Волна 2",
     slug: "pvh-volna-2",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781273886/volna2_lvyqg1.jpg",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783671817/volna2-1_ojwvd1.jpg",
     description: "Премиум фрезеровка «Волна 2» — прямоугольный рельеф с чёткими гранями. Выразительная геометрия для современных и минималистичных фасадов. Любой декор из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ",
@@ -86,18 +97,7 @@ export const products: Product[] = [
     new: true,
     gallery: ["https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781274052/volna-3-razrez_xknivm.png"],
   },
-  {
-    title: "Волна 4",
-    slug: "pvh-volna-4",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781273885/volna4_bnmgxe.jpg",
-    description: "Премиум фрезеровка «Волна 4» — крупная округлая волна, мягкий пластичный рельеф. Акцентное решение для выразительных фасадов. Любой декор из каталога производителя.",
-    category: "pvh-premium",
-    material: "МДФ",
-    sizes: "Любые размеры под заказ, толщина 16-22 мм",
-    finishes: ["Матовый", "Глянцевый", "Текстурный"],
-    new: true,
-    gallery: ["https://res.cloudinary.com/dx9tcpnkg/image/upload/v1781274052/volna-4-razrez_v5quvo.png"],
-  },
+  { title: "Варшава", slug: "pvh-varshava", image: `${CDN}/v1778176588/milada/pvh-varshava.png`, description: "Премиум фрезеровка «Варшава».", category: "pvh-premium", material: "МДФ" },
   { title: "Интегрированная ручка", slug: "pvh-int-ruchka", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1779709005/__2022-04-17_22.59.21-46f13d93b9_qbp3xm.png", description: "Премиум фрезеровка с интегрированной ручкой. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
   { title: "Инт. ручка 1", slug: "pvh-int-ruchka-1", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832136/milada/pvh-int-ruchka-1.png", description: "Интегрированная ручка, вариант 1. Безручечное решение для минималистичных интерьеров. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
   { title: "Инт. ручка 2", slug: "pvh-int-ruchka-2", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778832138/milada/pvh-int-ruchka-2.png", description: "Интегрированная ручка, вариант 2. Безручечное решение для современных кухонь. Только в эмали.", category: "pvh-premium", material: "МДФ + эмаль", badge: "Эмаль" },
@@ -141,7 +141,8 @@ export const products: Product[] = [
   },
 
   // ── Патинированные ──────────────────────────────────────────────────────────
-  { title: "Патинированный фасад", slug: "patina-classic", image: `${CDN}/v1778176614/milada/patina-classic.jpg`, description: "Фасад премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", category: "patina", material: "МДФ + ПВХ + патина" },
+  { title: "Патинированный фасад 1", slug: "patina-1", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1782761587/patina1_iy9ke9.png", description: "Фасад премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", category: "patina", material: "МДФ + ПВХ + патина" },
+  { title: "Патинированный фасад 2", slug: "patina-2", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1782761587/patina2_iwpny5.png", description: "Фасад премиум-класса с эффектом состаривания. Ручная обработка красками и лаками.", category: "patina", material: "МДФ + ПВХ + патина" },
 
   // ── Дверные панели ──────────────────────────────────────────────────────────
   { title: "Дверная панель П1", slug: "door-panel-p1", image: `${CDN}/v1778177312/milada/door-panel-p1.png`, description: "Дверная накладка МДФ 6–16 мм. Для входных и межкомнатных дверей.", category: "door-panels", material: "МДФ + ПВХ плёнка" },
