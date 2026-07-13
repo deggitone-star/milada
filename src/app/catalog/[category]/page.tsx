@@ -128,11 +128,98 @@ export default async function CategoryPage({ params }: Props) {
           <div className="container-site py-4">
             <p className="text-sm text-ink-muted text-center leading-relaxed">
               Любую модель выполним в покрытии на выбор:{" "}
-              <span className="text-ink font-medium">ПВХ-плёнка</span>,{" "}
+              <Link href="/pvh-plenka" className="text-mint-dark font-medium hover:underline">ПВХ-плёнка</Link>,{" "}
               <Link href="/catalog/enamel" className="text-mint-dark font-medium hover:underline">эмаль</Link>{" "}
               или{" "}
               <Link href="/catalog/patina" className="text-mint-dark font-medium hover:underline">патина</Link>.
             </p>
+          </div>
+        </section>
+      )}
+
+      {/* ВЫБОР ФРЕЗЕРОВКИ — для покрытий (эмаль, патина) и радиусных */}
+      {(slug === "enamel" || slug === "patina" || slug === "radius") && (
+        <section className="section-py bg-bg-alt border-b border-line">
+          <div className="container-site">
+            <p className="label mb-3">Шаг 1 — форма фасада</p>
+            <h2 className="h2 mb-3">
+              {slug === "radius"
+                ? "Доступны в любой фрезеровке"
+                : slug === "enamel"
+                ? "Эмаль наносим на любую фрезеровку"
+                : "Патину наносим на любую фрезеровку"}
+            </h2>
+            <p className="text-ink-muted mb-8 max-w-2xl leading-relaxed">
+              {slug === "radius"
+                ? "Радиусные фасады выполняем со стандартной или премиум фрезеровкой. Выберите форму в каталоге — мы изготовим её гнутой по вашим размерам."
+                : slug === "enamel"
+                ? "Это не отдельная коллекция, а покрытие. Выберите форму фасада в каталоге фрезеровок — выполним её в эмали любого цвета по RAL."
+                : "Это не отдельная коллекция, а покрытие. Выберите форму фасада в каталоге фрезеровок — состарим её вручную поверх плёнки или эмали."}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              {[
+                {
+                  href: "/catalog/pvh-standart",
+                  title: "Стандартные фрезеровки",
+                  count: getProductsByCategory("pvh-standart").length,
+                  text: "Классические и современные формы — базовая линейка.",
+                },
+                {
+                  href: "/catalog/pvh-premium",
+                  title: "Премиум фрезеровки",
+                  count: getProductsByCategory("pvh-premium").length,
+                  text: "Сложный рельеф, обработка на ЧПУ с высокой точностью.",
+                },
+              ].map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="group bg-white border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200"
+                >
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-lg font-medium text-ink">{c.title}</h3>
+                    <span className="text-xs text-ink-subtle shrink-0">{c.count} моделей</span>
+                  </div>
+                  <p className="mt-2 text-sm text-ink-muted leading-relaxed">{c.text}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-mint-dark">
+                    Выбрать форму
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            {/* Другие покрытия */}
+            <div className="mt-6 bg-mint/10 border border-line rounded-soft p-5 text-sm text-ink-muted leading-relaxed">
+              {slug === "radius" ? (
+                <>
+                  Покрытие тоже на выбор:{" "}
+                  <Link href="/pvh-plenka" className="text-mint-dark font-medium hover:underline">ПВХ-плёнка</Link>,{" "}
+                  <Link href="/catalog/enamel" className="text-mint-dark font-medium hover:underline">эмаль</Link>{" "}
+                  или{" "}
+                  <Link href="/catalog/patina" className="text-mint-dark font-medium hover:underline">патина</Link>.
+                </>
+              ) : (
+                <>
+                  Ту же форму можно выполнить и в другом покрытии —{" "}
+                  <Link href="/pvh-plenka" className="text-mint-dark font-medium hover:underline">ПВХ-плёнке</Link>
+                  {slug === "enamel" ? (
+                    <>
+                      {" "}или{" "}
+                      <Link href="/catalog/patina" className="text-mint-dark font-medium hover:underline">с патиной</Link>.
+                    </>
+                  ) : (
+                    <>
+                      {" "}или{" "}
+                      <Link href="/catalog/enamel" className="text-mint-dark font-medium hover:underline">эмали</Link>.
+                    </>
+                  )}
+                </>
+              )}
+            </div>
           </div>
         </section>
       )}

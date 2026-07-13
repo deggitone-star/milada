@@ -197,12 +197,21 @@ export const products: Product[] = [
   { title: "Спинка кроватная СК8", slug: "headboard-sk8", image: `${CDN}/v1778177158/milada/headboard-sk8.png`, description: "Изголовье кровати МДФ «СК8».", category: "headboards", material: "МДФ + ПВХ плёнка" },
 
   // ── Декоры ───────────────────────────────────────────────────────────────────
-  { title: "Декор Sy0849", slug: "decor-sy0849", image: `${CDN}/v1778177373/milada/decor-sy0849.png`, description: "Декоративная накладка Sy0849 для мебельных фасадов.", category: "decors", material: "МДФ + ПВХ плёнка" },
-  { title: "Декор Sy11168", slug: "decor-sy11168", image: `${CDN}/v1778177375/milada/decor-sy11168.png`, description: "Декоративная накладка Sy11168.", category: "decors", material: "МДФ + ПВХ плёнка" },
-  { title: "Декор Sy15150", slug: "decor-sy15150", image: `${CDN}/v1778177378/milada/decor-sy15150.png`, description: "Декоративная накладка Sy15150.", category: "decors", material: "МДФ + ПВХ плёнка" },
-  { title: "Декор Sy8833", slug: "decor-sy8833", image: `${CDN}/v1778177380/milada/decor-sy8833.png`, description: "Декоративная накладка Sy8833.", category: "decors", material: "МДФ + ПВХ плёнка" },
-  { title: "Декор Sy0711-3", slug: "decor-sy0711-3", image: `${CDN}/v1778177382/milada/decor-sy0711-3.png`, description: "Декоративная накладка широкая Sy0711-3.", category: "decors", material: "МДФ + ПВХ плёнка" },
-  { title: "Декор Sy1192", slug: "decor-sy1192", image: `${CDN}/v1778177384/milada/decor-sy1192.png`, description: "Декоративная накладка широкая Sy1192.", category: "decors", material: "МДФ + ПВХ плёнка" },
+  { title: "Декор Sy0849", slug: "decor-sy0849", image: `${CDN}/v1778177373/milada/decor-sy0849.png`, description: "Декоративная накладка Sy0849 для мебельных фасадов.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy11168", slug: "decor-sy11168", image: `${CDN}/v1778177375/milada/decor-sy11168.png`, description: "Декоративная накладка Sy11168.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy15150", slug: "decor-sy15150", image: `${CDN}/v1778177378/milada/decor-sy15150.png`, description: "Декоративная накладка Sy15150.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy8833", slug: "decor-sy8833", image: `${CDN}/v1778177380/milada/decor-sy8833.png`, description: "Декоративная накладка Sy8833.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy0711-3", slug: "decor-sy0711-3", image: `${CDN}/v1778177382/milada/decor-sy0711-3.png`, description: "Декоративная накладка широкая Sy0711-3.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy1192", slug: "decor-sy1192", image: `${CDN}/v1778177384/milada/decor-sy1192.png`, description: "Декоративная накладка широкая Sy1192.", category: "decors", material: "Гибкий ПВХ" },
+
+  // ── Декоры: розетки и накладки (добавлено v66) ──────────────────────────────
+  { title: "Розетка Sy10109", slug: "decor-sy10109", image: `${CDN}/v1783954822/milada/decor-sy10109.jpg`, description: "Декоративная розетка Sy10109 для мебельных фасадов. Размер 90 × 90 × 12 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Розетка Sy88227", slug: "decor-sy88227", image: `${CDN}/v1783954824/milada/decor-sy88227.jpg`, description: "Декоративная розетка Sy88227 для мебельных фасадов. Размер 58 × 58 × 8,5 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор дверной Sy88353", slug: "decor-sy88353", image: `${CDN}/v1783954826/milada/decor-sy88353.jpg`, description: "Декоративная накладка дверная Sy88353. Размер 300 × 870 × 7 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор дверной Sy88124", slug: "decor-sy88124", image: `${CDN}/v1783954981/milada/decor-sy88124.jpg`, description: "Декоративная накладка дверная Sy88124. Размер 270 × 270 × 7,5 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy8843", slug: "decor-sy8843", image: `${CDN}/v1783954848/milada/decor-sy8843.jpg`, description: "Декоративная накладка Sy8843 для мебельных фасадов. Размер 225 × 188 × 9,7 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy15253", slug: "decor-sy15253", image: `${CDN}/v1783954850/milada/decor-sy15253.jpg`, description: "Декоративная накладка Sy15253 для мебельных фасадов. Размер 378 × 250 × 7 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор Sy1194", slug: "decor-sy1194", image: `${CDN}/v1783954852/milada/decor-sy1194.jpg`, description: "Декоративная накладка Sy1194 для мебельных фасадов. Размер 207 × 68 × 10 мм.", category: "decors", material: "Гибкий ПВХ" },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined =>

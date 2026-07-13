@@ -100,7 +100,7 @@ export default function FasadyMdfPage() {
               <p className="text-sm text-ink-muted leading-relaxed">
                 Декоративная плёнка наносится методом мембранно-вакуумного прессования. Декоры: однотонные, под дерево, металлик, глянец. Доступная цена, сложные 3D-фрезеровки.
               </p>
-              <Link href="/catalog/pvh-standart" className="inline-block mt-4 text-sm text-mint-dark hover:underline">Каталог ПВХ →</Link>
+              <Link href="/pvh-plenka" className="inline-block mt-4 text-sm text-mint-dark hover:underline">Каталог ПВХ →</Link>
             </div>
             <div className="bg-bg-alt p-6 lg:p-8">
               <p className="text-sm font-medium tracking-[0.15em] text-mint-dark mb-4">Эмаль</p>

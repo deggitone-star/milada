@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/config";
 import { getProductsByCategory } from "@/data/products";
-import { getCategoryBySlug } from "@/data/categories";
 import { BreadcrumbSchema } from "@/components/seo/SchemaOrg";
+import MillingTabs from "@/components/catalog/MillingTabs";
 
 export const metadata: Metadata = {
   title: "Фасады МДФ в ПВХ-плёнке — стандартные и премиум фрезеровки | MILADA",
@@ -28,25 +28,8 @@ const HERO_IMG = opt(
 );
 
 export default function PvhPlenkaPage() {
-  const standartCount = getProductsByCategory("pvh-standart").length;
-  const premiumCount = getProductsByCategory("pvh-premium").length;
-
-  const cards = [
-    {
-      href: "/catalog/pvh-standart",
-      title: "Стандартные фрезеровки",
-      count: standartCount,
-      image: getCategoryBySlug("pvh-standart")?.image,
-      text: "Более 20 форм фрезеровки — классические и современные рисунки. Индивидуальный раскрой под ваши размеры.",
-    },
-    {
-      href: "/catalog/pvh-premium",
-      title: "Премиум фрезеровки",
-      count: premiumCount,
-      image: getCategoryBySlug("pvh-premium")?.image,
-      text: "Сложные премиальные фрезеровки на современных ЧПУ-станках с высокой точностью обработки.",
-    },
-  ];
+  const standart = getProductsByCategory("pvh-standart");
+  const premium = getProductsByCategory("pvh-premium");
 
   const breadcrumbs = [
     { name: "Главная", url: siteConfig.url },
@@ -90,49 +73,20 @@ export default function PvhPlenkaPage() {
         </div>
       </section>
 
-      {/* ДВА ВИДА ФРЕЗЕРОВКИ */}
+      {/* МОДЕЛИ — все фрезеровки с фильтром */}
       <section className="section-py bg-bg">
         <div className="container-site">
-          <p className="label mb-3">Выберите фрезеровку</p>
-          <h2 className="h2 mb-8">Стандартная и премиум</h2>
+          <p className="label mb-3">Каталог моделей</p>
+          <h2 className="h2 mb-3">Стандартные и премиум фрезеровки</h2>
+          <p className="text-ink-muted mb-8 max-w-2xl leading-relaxed">
+            {standart.length + premium.length} форм фрезеровки в ПВХ-плёнке. Любую модель
+            изготовим по вашим размерам — с декором плёнки из каталога.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-            {cards.map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className="group bg-bg-alt border border-line rounded-soft overflow-hidden hover:border-ink hover:shadow-lift transition-all duration-200"
-              >
-                <div className="aspect-[4/3] bg-white overflow-hidden">
-                  {c.image && (
-                    <Image
-                      src={opt(c.image, 800)}
-                      alt={c.title}
-                      width={800}
-                      height={600}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
-                    />
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-lg font-medium text-ink">{c.title}</h3>
-                    <span className="text-xs text-ink-subtle shrink-0">{c.count} моделей</span>
-                  </div>
-                  <p className="mt-2 text-sm text-ink-muted leading-relaxed">{c.text}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-mint-dark">
-                    Смотреть модели
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <MillingTabs standart={standart} premium={premium} />
 
           {/* Другие покрытия */}
-          <div className="mt-6 bg-mint/10 border border-line rounded-soft p-5 text-sm text-ink-muted leading-relaxed">
+          <div className="mt-10 bg-mint/10 border border-line rounded-soft p-5 text-sm text-ink-muted leading-relaxed">
             Ту же фрезеровку можно выполнить и в другом покрытии —{" "}
             <Link href="/catalog/enamel" className="text-mint-dark font-medium hover:underline">эмали</Link>{" "}
             или{" "}
@@ -140,6 +94,7 @@ export default function PvhPlenkaPage() {
           </div>
         </div>
       </section>
+
     </>
   );
 }
