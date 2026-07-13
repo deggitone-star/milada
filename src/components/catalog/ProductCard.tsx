@@ -25,6 +25,26 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
     "decors":         "Накладка",
   };
 
+  // Декоры (ПВХ-накладки, розетки) — товарные фото Bramek на тёмном фоне,
+  // очень разных пропорций: розетка 90×90 квадратная, дверной декор 300×870 вытянутый.
+  //
+  // Цепочка трансформаций Cloudinary:
+  //   e_make_transparent:N — вырезает однородный фон (N = агрессивность, 10–70)
+  //   c_pad,ar_3:4,b_white — вписывает в единый холст 3:4, освободившееся заливает белым
+  //
+  // ⚙️ Если фон убрался не полностью — увеличь TRANSPARENT_LEVEL (50, 70).
+  //    Если начало выедать светлые завитки самого декора — уменьши (20, 15).
+  const TRANSPARENT_LEVEL = 30;
+
+  const isDecor = product.category === "decors";
+  const imageSrc =
+    isDecor && product.image.includes("/image/upload/")
+      ? product.image.replace(
+          "/image/upload/",
+          `/image/upload/e_make_transparent:${TRANSPARENT_LEVEL}/c_pad,ar_3:4,w_600,b_white,f_jpg,q_auto/`
+        )
+      : product.image;
+
   return (
     <Link
       href={`/catalog/${product.category}/${product.slug}`}
@@ -32,13 +52,22 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       title={`Фасад ${product.title} — MILADA`}
     >
       {/* Image */}
-      <div className="relative aspect-[3/4] bg-bg-alt border border-line rounded-soft overflow-hidden group-hover:border-ink-subtle group-hover:shadow-lift transition-all duration-200">
+      <div
+        className={[
+          "relative aspect-[3/4] border border-line rounded-soft overflow-hidden",
+          "group-hover:border-ink-subtle group-hover:shadow-lift transition-all duration-200",
+          isDecor ? "bg-white" : "bg-bg-alt",
+        ].join(" ")}
+      >
         <Image
-          src={product.image}
+          src={imageSrc}
           alt={altText}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
+          className={[
+            "object-contain transition-transform duration-500 group-hover:scale-[1.03]",
+            isDecor ? "p-0" : "p-3",
+          ].join(" ")}
           priority={priority}
           quality={85}
         />

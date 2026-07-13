@@ -116,10 +116,10 @@ export default function KrashenyeFasadyPage() {
 
           {/* Эмаль = покрытие, форма выбирается отдельно */}
           <div className="mt-10 bg-mint/10 border border-line rounded-soft p-6">
-            <h3 className="text-lg font-medium text-ink mb-2">Эмаль — это покрытие, а не отдельная коллекция</h3>
+            <h3 className="text-lg font-medium text-ink mb-2">Эмаль наносим на любую фрезеровку</h3>
             <p className="text-sm text-ink-muted leading-relaxed mb-4 max-w-2xl">
-              В эмали выполним любую фрезеровку — стандартную или премиум. Выберите форму фасада
-              в каталоге, а мы покрасим её в нужный цвет по RAL.
+              Выберите форму фасада в каталоге — стандартную или премиум — и мы выполним её
+              в эмали нужного цвета по RAL. Доступны все 47 моделей фрезеровки.
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
               <Link href="/catalog/pvh-standart" className="text-mint-dark font-medium hover:underline">
