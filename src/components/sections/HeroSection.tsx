@@ -140,9 +140,9 @@ export default function HeroSection() {
           {/* Текст — компактно */}
           <div className="py-6">
             <p className="label mb-3 text-[10px]">{slides[active].eyebrow}</p>
-            <h1 className="text-[1.6rem] font-medium text-ink leading-tight tracking-tight">
+            <p className="text-[1.6rem] font-medium text-ink leading-tight tracking-tight">
               {slides[active].mobileTitle}
-            </h1>
+            </p>
             <p className="mt-3 text-sm text-ink-muted leading-relaxed">
               {slides[active].mobileSubtitle}
             </p>
