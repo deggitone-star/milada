@@ -50,7 +50,7 @@ export const products: Product[] = [
   {
     title: "Волна 4",
     slug: "pvh-volna-4",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783952715/volna4_ylocbj.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784021224/volna4_fblxar.png",
     description: "Премиум фрезеровка «Волна 4» — крупная округлая волна, мягкий пластичный рельеф. Акцентное решение для выразительных фасадов. Любой декор из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ",
@@ -62,7 +62,7 @@ export const products: Product[] = [
   {
     title: "Волна 1",
     slug: "pvh-lion",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783952715/volna1_e4pmol.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784021224/volna1_jzueoy.png",
     interiorImage: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1778775339/1_g3ao5n.png",
     description: "Премиум фрезеровка «Волна 1» — глубокий рельеф с классическим обрамлением. Подходит для кухонь в стилях неоклассика, прованс и классика. Любой декор из каталога производителя.",
     category: "pvh-premium",
@@ -76,7 +76,7 @@ export const products: Product[] = [
   {
     title: "Волна 2",
     slug: "pvh-volna-2",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783952715/volna2_ox3nkn.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784021224/volna2_z4pzra.png",
     description: "Премиум фрезеровка «Волна 2» — прямоугольный рельеф с чёткими гранями. Выразительная геометрия для современных и минималистичных фасадов. Любой декор из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ",
@@ -88,7 +88,7 @@ export const products: Product[] = [
   {
     title: "Волна 3",
     slug: "pvh-volna-3",
-    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1783952715/volna3_a2uaxn.png",
+    image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784021225/volna3_fs7xei.png",
     description: "Премиум фрезеровка «Волна 3» — мелкий частый рельеф, тонкое рифление. Деликатная фактура для лаконичных фасадов в современном стиле. Любой декор из каталога производителя.",
     category: "pvh-premium",
     material: "МДФ",

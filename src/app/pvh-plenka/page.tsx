@@ -77,10 +77,11 @@ export default function PvhPlenkaPage() {
       <section className="section-py bg-bg">
         <div className="container-site">
           <p className="label mb-3">Каталог моделей</p>
-          <h2 className="h2 mb-3">Стандартные и премиум фрезеровки</h2>
+          <h2 className="h2 mb-3">Все фрезеровки в ПВХ-плёнке</h2>
           <p className="text-ink-muted mb-8 max-w-2xl leading-relaxed">
-            {standart.length + premium.length} форм фрезеровки в ПВХ-плёнке. Любую модель
-            изготовим по вашим размерам — с декором плёнки из каталога.
+            {premium.length + standart.length} форм фрезеровки: {premium.length} премиум
+            и {standart.length} стандартных. Любую модель изготовим по вашим размерам —
+            с декором плёнки из каталога.
           </p>
 
           <MillingTabs standart={standart} premium={premium} />

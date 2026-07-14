@@ -5,7 +5,7 @@ import Link from "next/link";
 import ProductCard from "@/components/catalog/ProductCard";
 import type { Product } from "@/types";
 
-type Tab = "all" | "pvh-standart" | "pvh-premium";
+type Tab = "all" | "pvh-premium" | "pvh-standart";
 
 interface Props {
   standart: Product[];
@@ -15,24 +15,34 @@ interface Props {
 export default function MillingTabs({ standart, premium }: Props) {
   const [tab, setTab] = useState<Tab>("all");
 
-  const all = [...standart, ...premium];
-  const items =
-    tab === "all" ? all : tab === "pvh-standart" ? standart : premium;
-
   const tabs: { key: Tab; label: string; count: number }[] = [
-    { key: "all", label: "Все модели", count: all.length },
-    { key: "pvh-standart", label: "Стандартные", count: standart.length },
+    { key: "all", label: "Все модели", count: premium.length + standart.length },
     { key: "pvh-premium", label: "Премиум", count: premium.length },
+    { key: "pvh-standart", label: "Стандартные", count: standart.length },
   ];
+
+  // Порядок разделов: сначала Премиум, потом Стандартные
+  const sections = [
+    {
+      key: "pvh-premium" as const,
+      title: "Премиум фрезеровки",
+      text: "Сложный рельеф, глубокая проработка на ЧПУ. Выразительные формы для акцентных фасадов.",
+      href: "/catalog/pvh-premium",
+      items: premium,
+    },
+    {
+      key: "pvh-standart" as const,
+      title: "Стандартные фрезеровки",
+      text: "Классические и современные формы. Базовая линейка для серийных заказов.",
+      href: "/catalog/pvh-standart",
+      items: standart,
+    },
+  ].filter((s) => tab === "all" || tab === s.key);
 
   return (
     <div>
-      {/* ПЕРЕКЛЮЧАТЕЛЬ */}
-      <div
-        role="tablist"
-        aria-label="Вид фрезеровки"
-        className="flex flex-wrap gap-2 mb-8"
-      >
+      {/* ФИЛЬТР */}
+      <div role="tablist" aria-label="Вид фрезеровки" className="flex flex-wrap gap-2 mb-10">
         {tabs.map((t) => {
           const active = tab === t.key;
           return (
@@ -50,12 +60,7 @@ export default function MillingTabs({ standart, premium }: Props) {
               ].join(" ")}
             >
               {t.label}
-              <span
-                className={[
-                  "text-xs tabular-nums",
-                  active ? "text-white/60" : "text-ink-subtle",
-                ].join(" ")}
-              >
+              <span className={["text-xs tabular-nums", active ? "text-white/60" : "text-ink-subtle"].join(" ")}>
                 {t.count}
               </span>
             </button>
@@ -63,32 +68,30 @@ export default function MillingTabs({ standart, premium }: Props) {
         })}
       </div>
 
-      {/* СЕТКА МОДЕЛЕЙ */}
-      <div
-        role="tabpanel"
-        className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6"
-      >
-        {items.map((p, i) => (
-          <ProductCard key={p.slug} product={p} priority={i < 4} />
-        ))}
-      </div>
+      {/* РАЗДЕЛЫ: Премиум → Стандартные */}
+      {sections.map((s, si) => (
+        <section key={s.key} className={si > 0 ? "mt-16 pt-14 border-t border-line" : ""}>
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+            <div>
+              <h3 className="h2">{s.title}</h3>
+              <p className="mt-2 text-sm text-ink-muted max-w-xl leading-relaxed">{s.text}</p>
+            </div>
+            <Link href={s.href} className="btn-ghost shrink-0 hidden sm:inline-flex">
+              О серии →
+            </Link>
+          </div>
 
-      {/* ССЫЛКИ НА SEO-СТРАНИЦЫ КАТЕГОРИЙ */}
-      <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-        <span className="text-ink-subtle">Подробнее о фрезеровках:</span>
-        <Link
-          href="/catalog/pvh-standart"
-          className="text-mint-dark font-medium hover:underline"
-        >
-          Стандартные →
-        </Link>
-        <Link
-          href="/catalog/pvh-premium"
-          className="text-mint-dark font-medium hover:underline"
-        >
-          Премиум →
-        </Link>
-      </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+            {s.items.map((p, i) => (
+              <ProductCard key={p.slug} product={p} priority={si === 0 && i < 4} />
+            ))}
+          </div>
+
+          <Link href={s.href} className="btn-ghost mt-6 sm:hidden inline-flex">
+            О серии →
+          </Link>
+        </section>
+      ))}
     </div>
   );
 }
