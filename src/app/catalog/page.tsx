@@ -3,15 +3,23 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { categories } from "@/data/categories";
 import { plasticHPL, getTotalDecorsCount } from "@/data/materials";
+import { getProductsByCategory } from "@/data/products";
 import CategoryCard from "@/components/catalog/CategoryCard";
 import { BreadcrumbSchema, CollectionPageSchema } from "@/components/seo/SchemaOrg";
 
 const plasticDecors = getTotalDecorsCount(plasticHPL);
 
+// Стандартные и премиум фрезеровки показываем одной карточкой «ПВХ плёнка» —
+// как на главной. Поэтому категорий в сетке на одну меньше, чем в данных.
+const pvhCount =
+  getProductsByCategory("pvh-standart").length +
+  getProductsByCategory("pvh-premium").length;
+const shownCategories = categories.length - 1;
+
 export const metadata: Metadata = {
   title: "Каталог мебельных фасадов от производителя в Ульяновске — МДФ, ПВХ, HPL, эмаль | MILADA",
   description:
-    `Каталог мебельных фасадов MILADA: ${categories.length} категорий, 99+ разновидностей фрезеровок МДФ и ${plasticDecors} декоров HPL-пластика. Фасады с ПВХ-плёнкой, эмаль, патина, дверные панели. Производство в Ульяновске, доставка по РФ. ☎ +7 (8422) 27-82-02`,
+    `Каталог мебельных фасадов MILADA: ${shownCategories} категорий, 99+ разновидностей фрезеровок МДФ и ${plasticDecors} декоров HPL-пластика. Фасады с ПВХ-плёнкой, эмаль, патина, дверные панели. Производство в Ульяновске, доставка по РФ. ☎ +7 (8422) 27-82-02`,
   alternates: { canonical: `${siteConfig.url}/catalog` },
   keywords: [
     "каталог мебельных фасадов ульяновск",
@@ -37,9 +45,9 @@ export default function CatalogPage() {
       <BreadcrumbSchema items={breadcrumbs} />
       <CollectionPageSchema
         title="Каталог мебельных фасадов MILADA — производство в Ульяновске"
-        description={`${categories.length} категорий мебельных фасадов от производителя MILADA`}
+        description={`${shownCategories} категорий мебельных фасадов от производителя MILADA`}
         url={`${siteConfig.url}/catalog`}
-        itemCount={categories.length}
+        itemCount={shownCategories}
       />
 
       {/* HERO */}
@@ -48,7 +56,7 @@ export default function CatalogPage() {
           <p className="label mb-3">Каталог продукции</p>
           <h1 className="h1">Мебельные фасады от производителя в Ульяновске</h1>
           <p className="mt-4 text-ink-muted max-w-2xl">
-            {categories.length} категорий фасадов, 99+ разновидностей фрезеровок МДФ и {plasticDecors} декоров HPL-пластика.
+            {shownCategories} категорий фасадов, 99+ разновидностей фрезеровок МДФ и {plasticDecors} декоров HPL-пластика.
             Собственное производство, индивидуальный раскрой, доставка по России.
           </p>
         </div>
@@ -59,7 +67,27 @@ export default function CatalogPage() {
         <div className="container-site">
           <p className="label mb-6">Выберите тип фасада</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
-            {categories.map((cat) => <CategoryCard key={cat.slug} category={cat} />)}
+            {/* ПВХ плёнка — объединяет стандартную и премиум фрезеровку (как на главной) */}
+            <Link
+              href="/pvh-plenka"
+              className="group bg-bg-alt border border-line rounded-soft p-6 hover:border-ink hover:shadow-lift transition-all duration-200"
+            >
+              <div className="text-ink-muted group-hover:text-mint-dark transition-colors">
+                <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+                  <rect x="6" y="10" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                  <rect x="6" y="22" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M12 16h20M12 28h20" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <h3 className="mt-6 text-base font-medium text-ink leading-tight">ПВХ плёнка</h3>
+              <p className="mt-1 text-xs text-ink-subtle">
+                Стандартные и премиум · {pvhCount} моделей
+              </p>
+            </Link>
+
+            {categories
+              .filter((cat) => cat.slug !== "pvh-standart" && cat.slug !== "pvh-premium")
+              .map((cat) => <CategoryCard key={cat.slug} category={cat} />)}
           </div>
         </div>
       </section>
