@@ -26,7 +26,7 @@ const heroImage = `${CDN}/v1779706574/O_nas_bprpry.png`;
 
 const productionPhotos: LightboxImage[] = [
   { src: `${CDN}/v1779706574/O_nas_bprpry.png`,                  alt: "Здание производства мебельных фасадов MILADA в Ульяновске" },
-  { src: `${CDN}/v1779706574/image-25-05-26-02-36-4_oftkzs.jpg`, alt: "Вход в производство MILADA — вывеска" },
+  { src: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784125881/photo_2026-07-15_21-31-03_ftugib.jpg", alt: "Вход в производство MILADA — вывеска" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36_yxpk0g.jpg`,   alt: "ЧПУ-фрезеровка фасадов МДФ на производстве MILADA в Ульяновске" },
   { src: `${CDN}/v1779706573/image-25-05-26-02-36-2_fbt5ch.jpg`, alt: "Фрезеровка декоративных панелей на производстве MILADA" },
   { src: `${CDN}/v1781768977/photo_2026-06-18_14-47-59_b4bei4.jpg`, alt: "Фрезерный станок ЧПУ — раскрой фасадов MILADA" },

@@ -112,12 +112,16 @@ export default async function CategoryPage({ params }: Props) {
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-soft px-5 py-4 shrink-0 lg:self-end">
-              <p className="text-3xl font-medium text-white">{items.length}</p>
-              <p className="text-xs text-white/60 mt-0.5">
-                {items.length === 1 ? "позиция" : items.length < 5 ? "позиции" : "позиций"} в каталоге
-              </p>
-            </div>
+            {/* Счётчик позиций скрыт для покрытий (эмаль, патина) и радиусных —
+                там это покрытие/форма, а не коллекция, и малое число выглядит бедно */}
+            {!["enamel", "patina", "radius"].includes(slug) && (
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-soft px-5 py-4 shrink-0 lg:self-end">
+                <p className="text-3xl font-medium text-white">{items.length}</p>
+                <p className="text-xs text-white/60 mt-0.5">
+                  {items.length === 1 ? "позиция" : items.length < 5 ? "позиции" : "позиций"} в каталоге
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -267,7 +271,33 @@ export default async function CategoryPage({ params }: Props) {
       {/* PRODUCTS */}
       <section className="section-py bg-bg">
         <div className="container-site">
-          {items.length > 0 ? (
+          {slug === "patina" ? (
+            /* Патина — покрытие. Показываем два фото как пример, а не как товар:
+               без ссылок, без бейджей, просто «вот как выглядит патина». */
+            <div>
+              <p className="label mb-3">Как это выглядит</p>
+              <p className="text-ink-muted mb-8 max-w-2xl leading-relaxed">
+                Патину наносим вручную поверх ПВХ-плёнки или эмали. Ниже — примеры на премиум-фрезеровке:
+                серебряная и золотая патина по краю рельефа.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 max-w-3xl">
+                {items.map((p) => (
+                  <figure key={p.slug} className="m-0">
+                    <div className="relative aspect-[3/4] bg-white border border-line rounded-soft overflow-hidden">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-contain p-3"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-sm text-ink-muted">{p.title}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ) : items.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
               {items.map((p, i) => <ProductCard key={p.slug} product={p} priority={i < 4} />)}
             </div>

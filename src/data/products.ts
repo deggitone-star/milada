@@ -175,7 +175,7 @@ export const products: Product[] = [
 
   // ── Радиусные фасады ─────────────────────────────────────────────────────────
   { title: "Радиусный плёночный", slug: "radius-plenochny", image: `${CDN}/v1780260477/radius-plyonochny_lfcm84.png`, description: "Гнутый фасад МДФ с облицовкой ПВХ-плёнкой. Внешний радиус 300 мм, высота 90–916 мм. Декор под дерево и однотонные плёнки.", category: "radius", material: "МДФ гнутый + ПВХ плёнка", new: true },
-  { title: "Радиусный пластиковый", slug: "radius-plastikovy", image: `${CDN}/v1780260635/radius-plastik_aabxxn.png`, description: "Гнутый фасад МДФ с облицовкой HPL-пластиком. Внешний радиус 300 мм, высота 90–916 мм. Влагостойкий, устойчив к царапинам.", category: "radius", material: "МДФ гнутый + HPL-пластик", new: true },
+  { title: "Радиусный вогнутый", slug: "radius-vognutyi", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784125877/vognytii_c3um7k.png", description: "Вогнутый радиусный фасад МДФ с облицовкой ПВХ-плёнкой. Внутренний радиус, плавная вогнутая форма. Высота 90–916 мм.", category: "radius", material: "МДФ гнутый + ПВХ плёнка", new: true },
 
   // ── Декоративные элементы ────────────────────────────────────────────────────
   { title: "Пилястры", slug: "decor-pilyastry", image: `${CDN}/v1778177354/milada/decor-pilyastry.png`, description: "Декоративные пилястры МДФ для мебельных фасадов.", category: "decor-elements", material: "МДФ + ПВХ плёнка" },
@@ -212,6 +212,7 @@ export const products: Product[] = [
   { title: "Декор Sy8843", slug: "decor-sy8843", image: `${CDN}/v1783954848/milada/decor-sy8843.jpg`, description: "Декоративная накладка Sy8843 для мебельных фасадов. Размер 225 × 188 × 9,7 мм.", category: "decors", material: "Гибкий ПВХ" },
   { title: "Декор Sy15253", slug: "decor-sy15253", image: `${CDN}/v1783954850/milada/decor-sy15253.jpg`, description: "Декоративная накладка Sy15253 для мебельных фасадов. Размер 378 × 250 × 7 мм.", category: "decors", material: "Гибкий ПВХ" },
   { title: "Декор Sy1194", slug: "decor-sy1194", image: `${CDN}/v1783954852/milada/decor-sy1194.jpg`, description: "Декоративная накладка Sy1194 для мебельных фасадов. Размер 207 × 68 × 10 мм.", category: "decors", material: "Гибкий ПВХ" },
+  { title: "Декор угловой Sy10106", slug: "decor-sy10106", image: "https://res.cloudinary.com/dx9tcpnkg/image/upload/v1784100119/xt1omv2bwya1kcjwo0tomxeqj4b0jquc-Photoroom_1_rovs6k.png", description: "Угловой декоративный элемент Sy10106 для мебельных фасадов.", category: "decors", material: "Гибкий ПВХ" },
 ];
 
 export const getProductBySlug = (slug: string): Product | undefined =>
